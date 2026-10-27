@@ -1,0 +1,15 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://000pp56qw16f"]
+
+[ext_resource type="Texture2D" uid="uid://cc8ku6g5up7bo" path="res://themes/sprites/HBraces.png" id="1_a3dcj"]
+
+[resource]
+content_margin_left = 10.0
+content_margin_top = 5.0
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+texture = ExtResource("1_a3dcj")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+modulate_color = Color(0.101960786, 0.101960786, 0.101960786, 1)

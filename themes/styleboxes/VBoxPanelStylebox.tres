@@ -1,0 +1,15 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://bao1bsglr3vds"]
+
+[ext_resource type="Texture2D" uid="uid://cy3yjhlxlmy1n" path="res://themes/sprites/VBraces.png" id="1_igw7d"]
+
+[resource]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+texture = ExtResource("1_igw7d")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+modulate_color = Color(0.9019608, 0.9019608, 0.9019608, 1)

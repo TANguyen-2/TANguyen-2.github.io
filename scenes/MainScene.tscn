@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://p0i4ufbdnnup"]
+
+[ext_resource type="Script" uid="uid://xhjlf0w71g1t" path="res://scripts/SceneController.gd" id="1_echbf"]
+[ext_resource type="Texture2D" uid="uid://byo1qoojm5v5k" path="res://themes/sprites/StarSizeAndAlphaCurve.tres" id="2_611at"]
+[ext_resource type="Script" uid="uid://c83q5d2ndymeh" path="res://scripts/BackgroundParticleSpawner.gd" id="2_c6dvc"]
+[ext_resource type="Texture2D" uid="uid://bc3vk8u68hljd" path="res://themes/sprites/Star.png" id="2_k24pf"]
+[ext_resource type="PackedScene" uid="uid://cydqbha2vnpv4" path="res://scenes/MainPanelHorizontal.tscn" id="3_c6dvc"]
+
+[sub_resource type="Curve" id="Curve_k24pf"]
+_data = [Vector2(0, 1), inf_neg, -1.0, 1, 0, Vector2(1, 0), 0.0, inf_neg, 0, 1]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ygjfp"]
+curve = SubResource("Curve_k24pf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k24pf"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1920, 1000, 1)
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(0, 0, 0)
+angular_velocity_min = 1.9999839
+angular_velocity_max = 4.999984
+angular_velocity_curve = SubResource("CurveTexture_ygjfp")
+gravity = Vector3(0, 0, 0)
+attractor_interaction_enabled = false
+scale_min = 0.5
+scale_curve = ExtResource("2_611at")
+alpha_curve = ExtResource("2_611at")
+
+[node name="SceneController" type="Node" unique_id=1694758525]
+script = ExtResource("1_echbf")
+metadata/_custom_type_script = "uid://xhjlf0w71g1t"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=73470371]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer" unique_id=1838920734]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BackgroundContainer" type="Control" parent="ScrollContainer/MarginContainer" unique_id=27236939]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="ScrollContainer/MarginContainer/BackgroundContainer" unique_id=713579654 node_paths=PackedStringArray("background_rect")]
+texture_filter = 1
+amount = 192
+texture = ExtResource("2_k24pf")
+lifetime = 5.0
+explosiveness = 0.25
+randomness = 0.5
+visibility_rect = Rect2(0, 0, 1920, 1000)
+process_material = SubResource("ParticleProcessMaterial_k24pf")
+script = ExtResource("2_c6dvc")
+background_rect = NodePath("..")
+
+[node name="VSpacingContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer" unique_id=134672497]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TopSpacing" type="Control" parent="ScrollContainer/MarginContainer/VSpacingContainer" unique_id=1961579148]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="HSpacingContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VSpacingContainer" unique_id=1668368535]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="LeftSpacing" type="Control" parent="ScrollContainer/MarginContainer/VSpacingContainer/HSpacingContainer" unique_id=1183103805]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="MainPanelContainer" type="BoxContainer" parent="ScrollContainer/MarginContainer/VSpacingContainer/HSpacingContainer" unique_id=2022106587]
+layout_mode = 2
+
+[node name="MainPanel" parent="ScrollContainer/MarginContainer/VSpacingContainer/HSpacingContainer/MainPanelContainer" unique_id=2038782253 instance=ExtResource("3_c6dvc")]
+layout_mode = 2
+
+[node name="RightSpacing" type="Control" parent="ScrollContainer/MarginContainer/VSpacingContainer/HSpacingContainer" unique_id=795813040]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="BottomSpacing" type="Control" parent="ScrollContainer/MarginContainer/VSpacingContainer" unique_id=42523312]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1

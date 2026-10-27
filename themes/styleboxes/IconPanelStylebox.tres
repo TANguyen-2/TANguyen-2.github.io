@@ -1,0 +1,15 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://smjoxemrfpk3"]
+
+[ext_resource type="Texture2D" uid="uid://db0frj72nxlpk" path="res://themes/sprites/DoubleBraces.png" id="1_jbof5"]
+
+[resource]
+content_margin_left = 11.0
+content_margin_top = 11.0
+content_margin_right = 11.0
+content_margin_bottom = 11.0
+texture = ExtResource("1_jbof5")
+texture_margin_left = 11.0
+texture_margin_top = 11.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+modulate_color = Color(0.9019608, 0.9019608, 0.9019608, 1)

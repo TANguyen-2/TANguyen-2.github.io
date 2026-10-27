@@ -1,0 +1,129 @@
+[gd_resource type="Theme" format=3 uid="uid://bupq53g1myco8"]
+
+[ext_resource type="FontFile" uid="uid://bv43bx1438y3q" path="res://themes/cascadia-mono/CascadiaMono-VariableFont_wght.ttf" id="1_ou2w3"]
+[ext_resource type="StyleBox" uid="uid://dyp73awvd8hb6" path="res://themes/styleboxes/HBoxPanelStylebox.tres" id="1_qemgp"]
+[ext_resource type="StyleBox" uid="uid://i4ikltct4fdh" path="res://themes/styleboxes/BoxPanelStylebox.tres" id="1_ylqdk"]
+[ext_resource type="StyleBox" uid="uid://bao1bsglr3vds" path="res://themes/styleboxes/VBoxPanelStylebox.tres" id="2_ylqdk"]
+[ext_resource type="StyleBox" uid="uid://bgnt875poofg5" path="res://themes/styleboxes/IconButtonHighlightedStylebox.tres" id="5_28dqr"]
+[ext_resource type="StyleBox" uid="uid://bh7nnolmplbtk" path="res://themes/styleboxes/IconButtonStylebox.tres" id="5_bv5qq"]
+[ext_resource type="StyleBox" uid="uid://smjoxemrfpk3" path="res://themes/styleboxes/IconPanelStylebox.tres" id="5_g5wx6"]
+[ext_resource type="StyleBox" uid="uid://bkpxxw24mue8y" path="res://themes/styleboxes/IconButtonPressedStylebox.tres" id="6_1k1wj"]
+[ext_resource type="StyleBox" uid="uid://c3bbywe2v6uvw" path="res://themes/styleboxes/CategoryButtonDisabledStylebox.tres" id="8_7acva"]
+[ext_resource type="StyleBox" uid="uid://000pp56qw16f" path="res://themes/styleboxes/ProjectButtonDisabledStylebox.tres" id="8_7oyx8"]
+[ext_resource type="StyleBox" uid="uid://dihnui44d3h7" path="res://themes/styleboxes/CategoryButtonStylebox.tres" id="8_bi8wl"]
+[ext_resource type="StyleBox" uid="uid://c7idi02i76aqy" path="res://themes/styleboxes/CategoryButtonHighlightedStylebox.tres" id="9_7acva"]
+[ext_resource type="StyleBox" uid="uid://k3nww0an3eg3" path="res://themes/styleboxes/ProjectButtonHighlightedStylebox.tres" id="9_x7ep0"]
+[ext_resource type="StyleBox" uid="uid://o8gb3jf0flpa" path="res://themes/styleboxes/ProjectButtonStylebox.tres" id="10_bv5qq"]
+[ext_resource type="StyleBox" uid="uid://bua1fordpebns" path="res://themes/styleboxes/CategoryButtonPressedStylebox.tres" id="10_t2041"]
+[ext_resource type="StyleBox" uid="uid://c7085cvl0mjwv" path="res://themes/styleboxes/ProjectButtonPressedStylebox.tres" id="10_x7ep0"]
+
+[resource]
+default_font = ExtResource("1_ou2w3")
+DecorationPanel/base_type = &"IconDecorationPanel"
+DecorationPanel/styles/panel = ExtResource("1_ylqdk")
+DecorationPanel_HBox/base_type = &"IconDecorationPanel"
+DecorationPanel_HBox/styles/panel = ExtResource("1_qemgp")
+DecorationPanel_VBox/base_type = &"IconDecorationPanel"
+DecorationPanel_VBox/styles/panel = ExtResource("2_ylqdk")
+HeaderLarge/base_type = &"Label"
+HeaderLarge/colors/font_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
+HeaderLarge/colors/font_outline_color = Color(0.8, 0.8, 0.8, 1)
+HeaderLarge/colors/font_shadow_color = Color(0.12, 0.12, 0.12, 1)
+HeaderLarge/font_sizes/font_size = 64
+HeaderLarge/fonts/font = ExtResource("1_ou2w3")
+HeaderMedium/base_type = &"Label"
+HeaderMedium/colors/font_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
+HeaderMedium/colors/font_outline_color = Color(0.8, 0.8, 0.8, 1)
+HeaderMedium/colors/font_shadow_color = Color(0.12, 0.12, 0.12, 1)
+HeaderMedium/font_sizes/font_size = 32
+HeaderMedium/fonts/font = ExtResource("1_ou2w3")
+HeaderSmall/base_type = &"Label"
+HeaderSmall/colors/font_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
+HeaderSmall/colors/font_outline_color = Color(0.8, 0.8, 0.8, 1)
+HeaderSmall/colors/font_shadow_color = Color(0.12, 0.12, 0.12, 1)
+HeaderSmall/font_sizes/font_size = 24
+HeaderSmall/fonts/font = ExtResource("1_ou2w3")
+IconButton/base_type = &"Button"
+IconButton/colors/icon_disabled_color = Color(0.8, 0.8, 0.8, 0.78431374)
+IconButton/colors/icon_focus_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
+IconButton/colors/icon_hover_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
+IconButton/colors/icon_hover_pressed_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
+IconButton/colors/icon_normal_color = Color(0.8, 0.8, 0.8, 1)
+IconButton/colors/icon_pressed_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
+IconButton/font_sizes/font_size = 16
+IconButton/fonts/font = ExtResource("1_ou2w3")
+IconButton/styles/disabled = ExtResource("5_bv5qq")
+IconButton/styles/disabled_mirrored = ExtResource("5_bv5qq")
+IconButton/styles/focus = ExtResource("5_28dqr")
+IconButton/styles/hover = ExtResource("5_28dqr")
+IconButton/styles/hover_mirrored = ExtResource("5_28dqr")
+IconButton/styles/hover_pressed = ExtResource("6_1k1wj")
+IconButton/styles/hover_pressed_mirrored = ExtResource("6_1k1wj")
+IconButton/styles/normal = ExtResource("5_bv5qq")
+IconButton/styles/normal_mirrored = ExtResource("5_bv5qq")
+IconButton/styles/pressed = ExtResource("6_1k1wj")
+IconButton/styles/pressed_mirrored = ExtResource("6_1k1wj")
+IconDecorationPanel/base_type = &"PanelContainer"
+IconDecorationPanel/styles/panel = ExtResource("5_g5wx6")
+ProjectButton/base_type = &"Button"
+ProjectButton/colors/font_color = Color(0.8, 0.8, 0.8, 1)
+ProjectButton/colors/font_disabled_color = Color(0.8, 0.8, 0.8, 0.78431374)
+ProjectButton/colors/font_focus_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
+ProjectButton/colors/font_hover_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
+ProjectButton/colors/font_hover_pressed_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
+ProjectButton/colors/font_outline_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
+ProjectButton/colors/font_pressed_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
+ProjectButton/colors/icon_disabled_color = Color(0.8, 0.8, 0.8, 0.78431374)
+ProjectButton/colors/icon_focus_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
+ProjectButton/colors/icon_hover_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
+ProjectButton/colors/icon_hover_pressed_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
+ProjectButton/colors/icon_normal_color = Color(0.8, 0.8, 0.8, 1)
+ProjectButton/colors/icon_pressed_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
+ProjectButton/font_sizes/font_size = 16
+ProjectButton/fonts/font = ExtResource("1_ou2w3")
+ProjectButton/styles/disabled = ExtResource("8_7oyx8")
+ProjectButton/styles/disabled_mirrored = ExtResource("8_7oyx8")
+ProjectButton/styles/focus = ExtResource("9_x7ep0")
+ProjectButton/styles/hover = ExtResource("9_x7ep0")
+ProjectButton/styles/hover_mirrored = ExtResource("9_x7ep0")
+ProjectButton/styles/hover_pressed = ExtResource("10_x7ep0")
+ProjectButton/styles/hover_pressed_mirrored = ExtResource("10_x7ep0")
+ProjectButton/styles/normal = ExtResource("10_bv5qq")
+ProjectButton/styles/normal_mirrored = ExtResource("10_bv5qq")
+ProjectButton/styles/pressed = ExtResource("10_x7ep0")
+ProjectButton/styles/pressed_mirrored = ExtResource("10_x7ep0")
+SelectCategoryButton/base_type = &"Button"
+SelectCategoryButton/colors/font_color = Color(0.8, 0.8, 0.8, 1)
+SelectCategoryButton/colors/font_disabled_color = Color(0.8, 0.8, 0.8, 0.78431374)
+SelectCategoryButton/colors/font_focus_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
+SelectCategoryButton/colors/font_hover_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
+SelectCategoryButton/colors/font_hover_pressed_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
+SelectCategoryButton/colors/font_outline_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
+SelectCategoryButton/colors/font_pressed_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
+SelectCategoryButton/font_sizes/font_size = 20
+SelectCategoryButton/fonts/font = ExtResource("1_ou2w3")
+SelectCategoryButton/styles/disabled = ExtResource("8_7acva")
+SelectCategoryButton/styles/disabled_mirrored = ExtResource("8_7acva")
+SelectCategoryButton/styles/focus = ExtResource("9_7acva")
+SelectCategoryButton/styles/hover = ExtResource("9_7acva")
+SelectCategoryButton/styles/hover_mirrored = ExtResource("9_7acva")
+SelectCategoryButton/styles/hover_pressed = ExtResource("10_t2041")
+SelectCategoryButton/styles/hover_pressed_mirrored = ExtResource("10_t2041")
+SelectCategoryButton/styles/normal = ExtResource("8_bi8wl")
+SelectCategoryButton/styles/normal_mirrored = ExtResource("8_bi8wl")
+SelectCategoryButton/styles/pressed = ExtResource("10_t2041")
+SelectCategoryButton/styles/pressed_mirrored = ExtResource("10_t2041")
+TextNormal/base_type = &"Label"
+TextNormal/colors/font_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
+TextNormal/colors/font_outline_color = Color(0.8, 0.8, 0.8, 1)
+TextNormal/colors/font_shadow_color = Color(0.12, 0.12, 0.12, 1)
+TextNormal/font_sizes/font_size = 16
+TextNormal/fonts/font = ExtResource("1_ou2w3")
+TextSmall/base_type = &"Label"
+TextSmall/colors/font_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
+TextSmall/colors/font_outline_color = Color(0.8, 0.8, 0.8, 1)
+TextSmall/colors/font_shadow_color = Color(0.12, 0.12, 0.12, 1)
+TextSmall/font_sizes/font_size = 12
+TextSmall/fonts/font = ExtResource("1_ou2w3")
+TooltipPanel/base_type = &"IconDecorationPanel"
+TooltipPanel/styles/panel = ExtResource("1_ylqdk")

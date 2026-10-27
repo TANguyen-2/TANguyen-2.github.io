@@ -1,0 +1,359 @@
+[gd_scene format=3 uid="uid://cydqbha2vnpv4"]
+
+[ext_resource type="Theme" uid="uid://bupq53g1myco8" path="res://themes/MainTheme.tres" id="1_p67qo"]
+[ext_resource type="StyleBox" uid="uid://dj24es6u3qk4p" path="res://themes/styleboxes/MainPanelStylebox.tres" id="2_p67qo"]
+[ext_resource type="Texture2D" uid="uid://d4hu3rg26xf1r" path="res://themes/sprites/GodotIcon.png" id="3_w5k0v"]
+[ext_resource type="Script" uid="uid://dgduxvncq4n1e" path="res://scripts/PolylineTextureButton.gd" id="4_w5k0v"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_w5k0v"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_a5tkm"]
+
+[node name="MainPanel" type="PanelContainer" unique_id=2038782253]
+texture_filter = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_p67qo")
+theme_override_styles/panel = ExtResource("2_p67qo")
+
+[node name="GzmoSbjctsPanel" type="PanelContainer" parent="." unique_id=2090350736]
+layout_mode = 2
+theme_type_variation = &"DecorationPanel"
+
+[node name="GzmoSbjctsContainer" type="HBoxContainer" parent="GzmoSbjctsPanel" unique_id=980365263]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="GizmoPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer" unique_id=308726339]
+layout_mode = 2
+theme_type_variation = &"DecorationPanel"
+
+[node name="GizmoContainer" type="VBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel" unique_id=849715062]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="CommentsPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer" unique_id=939388005]
+layout_mode = 2
+theme_type_variation = &"DecorationPanel_VBox"
+
+[node name="CommentsContainer" type="VBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/CommentsPanel" unique_id=2121882544]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ProfilePanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/CommentsPanel/CommentsContainer" unique_id=1541061778]
+layout_mode = 2
+theme_type_variation = &"DecorationPanel_HBox"
+
+[node name="ProfileContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/CommentsPanel/CommentsContainer/ProfilePanel" unique_id=1758203089]
+layout_mode = 2
+
+[node name="ProfilePicturePanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/CommentsPanel/CommentsContainer/ProfilePanel/ProfileContainer" unique_id=84710377]
+layout_mode = 2
+theme_type_variation = &"IconDecorationPanel"
+
+[node name="ProfilePicture" type="TextureRect" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/CommentsPanel/CommentsContainer/ProfilePanel/ProfileContainer/ProfilePicturePanel" unique_id=1199382751]
+modulate = Color(0.8, 0.8, 0.8, 1)
+layout_mode = 2
+texture = ExtResource("3_w5k0v")
+
+[node name="NameplatePanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/CommentsPanel/CommentsContainer/ProfilePanel/ProfileContainer" unique_id=492809391]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_type_variation = &"DecorationPanel_VBox"
+
+[node name="NameplateContainer" type="VBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/CommentsPanel/CommentsContainer/ProfilePanel/ProfileContainer/NameplatePanel" unique_id=1547610943]
+layout_mode = 2
+alignment = 1
+
+[node name="NameLabel" type="Label" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/CommentsPanel/CommentsContainer/ProfilePanel/ProfileContainer/NameplatePanel/NameplateContainer" unique_id=792423665]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Tuan Anh Nguyen"
+
+[node name="TitleLabel" type="Label" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/CommentsPanel/CommentsContainer/ProfilePanel/ProfileContainer/NameplatePanel/NameplateContainer" unique_id=1885563429]
+layout_mode = 2
+theme_type_variation = &"TextNormal"
+text = "Unbiased(?) Commenter"
+
+[node name="CommentPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/CommentsPanel/CommentsContainer" unique_id=280555134]
+layout_mode = 2
+theme_type_variation = &"DecorationPanel"
+
+[node name="Label" type="Label" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/CommentsPanel/CommentsContainer/CommentPanel" unique_id=214492189]
+custom_minimum_size = Vector2(440, 210)
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"TextNormal"
+text = "Hi!
+I'm the Disembodied and Recorded Voice of the Author (or well, their Text Comments)!
+
+You can Explore my work in the Other Panel.
+
+Select something to Read More!
+(And view my thoughts on them, of course~)"
+autowrap_mode = 2
+text_overrun_behavior = 5
+
+[node name="ToolsPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer" unique_id=1302640734]
+layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"DecorationPanel_VBox"
+
+[node name="ToolsContainer" type="HFlowContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/ToolsPanel" unique_id=1672352561]
+layout_mode = 2
+alignment = 1
+
+[node name="ChangeCursorButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/ToolsPanel/ToolsContainer" unique_id=874510246]
+layout_mode = 2
+theme_type_variation = &"IconButton"
+toggle_mode = true
+icon = ExtResource("3_w5k0v")
+
+[node name="ChangeMusicButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/ToolsPanel/ToolsContainer" unique_id=1608900078]
+layout_mode = 2
+theme_type_variation = &"IconButton"
+icon = ExtResource("3_w5k0v")
+
+[node name="IdleChatButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/ToolsPanel/ToolsContainer" unique_id=2079563775]
+layout_mode = 2
+theme_type_variation = &"IconButton"
+icon = ExtResource("3_w5k0v")
+
+[node name="SubjectsPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer" unique_id=336170031]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"DecorationPanel"
+
+[node name="ViewsContainer" type="VBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel" unique_id=1702036886]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="CategoriesPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer" unique_id=796542949]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"DecorationPanel_HBox"
+
+[node name="CategoriesContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/CategoriesPanel" unique_id=1569065992]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="AboutPageButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/CategoriesPanel/CategoriesContainer" unique_id=1466980785]
+layout_mode = 2
+theme_type_variation = &"SelectCategoryButton"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_w5k0v")
+text = "About Page"
+
+[node name="ProgrammingButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/CategoriesPanel/CategoriesContainer" unique_id=1178870434]
+layout_mode = 2
+theme_type_variation = &"SelectCategoryButton"
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_w5k0v")
+text = "Programming"
+
+[node name="CrochetButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/CategoriesPanel/CategoriesContainer" unique_id=1165319692]
+layout_mode = 2
+theme_type_variation = &"SelectCategoryButton"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_w5k0v")
+text = "Crochet"
+
+[node name="3DModellingButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/CategoriesPanel/CategoriesContainer" unique_id=1832363446]
+layout_mode = 2
+theme_type_variation = &"SelectCategoryButton"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_w5k0v")
+text = "3D Modelling"
+
+[node name="ContentPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer" unique_id=139039680]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"DecorationPanel_HBox"
+
+[node name="ContentContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/ContentPanel" unique_id=2038627158]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="PrevPageButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/ContentPanel/ContentContainer" unique_id=1713413656]
+custom_minimum_size = Vector2(32, 64)
+custom_maximum_size = Vector2(128, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+ratio = 0.5
+
+[node name="PrevPageButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/ContentPanel/ContentContainer/PrevPageButtonContainer" unique_id=1541877762]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+offset_transform_enabled = true
+theme_type_variation = &"IconButton"
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_w5k0v")
+point_anchors = PackedVector2Array(1, 0, 0, 0.5, 1, 1)
+point_offsets = PackedVector2Array(-10, 10, 10, 0, -10, -10)
+
+[node name="ContentListPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/ContentPanel/ContentContainer" unique_id=721217656]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.9
+theme_type_variation = &"DecorationPanel"
+
+[node name="ContentListContainer" type="HFlowContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/ContentPanel/ContentContainer/ContentListPanel" unique_id=1033194105]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 40
+alignment = 1
+
+[node name="P1" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/ContentPanel/ContentContainer/ContentListPanel/ContentListContainer" unique_id=2033030603]
+custom_minimum_size = Vector2(195, 195)
+custom_maximum_size = Vector2(195, 195)
+layout_mode = 2
+theme_type_variation = &"ProjectButton"
+text = "Animal Buttons"
+icon = ExtResource("3_w5k0v")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="P2" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/ContentPanel/ContentContainer/ContentListPanel/ContentListContainer" unique_id=761448247]
+custom_minimum_size = Vector2(195, 195)
+custom_maximum_size = Vector2(195, 195)
+layout_mode = 2
+theme_type_variation = &"ProjectButton"
+text = "CAD
+Expertise Sharing"
+icon = ExtResource("3_w5k0v")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="P3" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/ContentPanel/ContentContainer/ContentListPanel/ContentListContainer" unique_id=696940839]
+custom_minimum_size = Vector2(195, 195)
+custom_maximum_size = Vector2(195, 195)
+layout_mode = 2
+theme_type_variation = &"ProjectButton"
+text = "GoodMeal
+Soup Blower"
+icon = ExtResource("3_w5k0v")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="NextPageButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/ContentPanel/ContentContainer" unique_id=554874166]
+custom_minimum_size = Vector2(32, 64)
+custom_maximum_size = Vector2(128, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+ratio = 0.5
+
+[node name="NextPageButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/ContentPanel/ContentContainer/NextPageButtonContainer" unique_id=664736410]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+theme_type_variation = &"IconButton"
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_w5k0v")
+point_anchors = PackedVector2Array(0, 0, 1, 0.5, 0, 1)
+point_offsets = PackedVector2Array(10, 10, -10, 0, 10, -10)
+
+[node name="PagesPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer" unique_id=876029435]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"DecorationPanel_HBox"
+
+[node name="PagesContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PagesPanel" unique_id=925735856]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="PrevPageSetButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PagesPanel/PagesContainer" unique_id=1500258617]
+custom_minimum_size = Vector2(32, 64)
+custom_maximum_size = Vector2(128, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+ratio = 0.5
+
+[node name="PrevPageSetButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PagesPanel/PagesContainer/PrevPageSetButtonContainer" unique_id=1521381924]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+offset_transform_enabled = true
+theme_type_variation = &"IconButton"
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_w5k0v")
+point_anchors = PackedVector2Array(1, 0, 0, 0.5, 1, 1)
+point_offsets = PackedVector2Array(-10, 10, 10, 0, -10, -10)
+
+[node name="Page1" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PagesPanel/PagesContainer" unique_id=988122435]
+custom_minimum_size = Vector2(76, 0)
+custom_maximum_size = Vector2(76, -1)
+layout_mode = 2
+theme_type_variation = &"SelectCategoryButton"
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_a5tkm")
+text = "1"
+
+[node name="Page2" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PagesPanel/PagesContainer" unique_id=37829177]
+custom_minimum_size = Vector2(76, 0)
+custom_maximum_size = Vector2(76, -1)
+layout_mode = 2
+theme_type_variation = &"SelectCategoryButton"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_a5tkm")
+text = "2"
+
+[node name="Page3" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PagesPanel/PagesContainer" unique_id=2057515954]
+custom_minimum_size = Vector2(76, 0)
+custom_maximum_size = Vector2(76, -1)
+layout_mode = 2
+theme_type_variation = &"SelectCategoryButton"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_a5tkm")
+text = "3"
+
+[node name="Page4" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PagesPanel/PagesContainer" unique_id=1066266694]
+custom_minimum_size = Vector2(76, 0)
+custom_maximum_size = Vector2(76, -1)
+layout_mode = 2
+theme_type_variation = &"SelectCategoryButton"
+button_group = SubResource("ButtonGroup_a5tkm")
+text = "..."
+
+[node name="NextPageSetButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PagesPanel/PagesContainer" unique_id=209500380]
+custom_minimum_size = Vector2(32, 64)
+custom_maximum_size = Vector2(128, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+ratio = 0.5
+
+[node name="NextPageSetButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PagesPanel/PagesContainer/NextPageSetButtonContainer" unique_id=1592945512]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+theme_type_variation = &"IconButton"
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_w5k0v")
+point_anchors = PackedVector2Array(0, 0, 1, 0.5, 0, 1)
+point_offsets = PackedVector2Array(10, 10, -10, 0, 10, -10)
