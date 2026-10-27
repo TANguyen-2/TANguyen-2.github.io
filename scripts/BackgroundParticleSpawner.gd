@@ -36,10 +36,12 @@ func _ready() -> void:
 # When the background control is resized,
 # resize the emission box and draw rect to cover all of the control.
 func on_background_resized() -> void:
-    var background_global_rect: = background_rect.get_global_rect()
-    process_material.emission_box_extents.x = background_global_rect.size.x
-    process_material.emission_box_extents.y = background_global_rect.size.y
-    visibility_rect.size = background_global_rect.size
+    var rect_extents: Vector2 = background_rect.size / 2
+    process_material.emission_box_extents.x = rect_extents.x
+    process_material.emission_box_extents.y = rect_extents.y
+    process_material.emission_shape_offset.x = rect_extents.x
+    process_material.emission_shape_offset.y = rect_extents.y
+    visibility_rect.size = background_rect.size
     update_particle_amount()
     pass
 

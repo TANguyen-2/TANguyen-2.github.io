@@ -118,7 +118,6 @@ alignment = 1
 [node name="ChangeCursorButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/ToolsPanel/ToolsContainer" unique_id=874510246]
 layout_mode = 2
 theme_type_variation = &"IconButton"
-toggle_mode = true
 icon = ExtResource("3_w5k0v")
 
 [node name="ChangeMusicButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/ToolsPanel/ToolsContainer" unique_id=1608900078]

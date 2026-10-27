@@ -10,12 +10,13 @@ config_version=5
 
 [application]
 
-config/name="portfolio"
+config/name="Tuan Anh Nguyen - Portfolio"
 run/main_scene="uid://p0i4ufbdnnup"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/bg_color=Color(0.12, 0.12, 0.12, 1)
 boot_splash/use_filter=false
-boot_splash/image="uid://ig4is5pebw7m"
+boot_splash/image="uid://do7edxsf16q7g"
+config/icon="uid://bc3vk8u68hljd"
 
 [display]
 
