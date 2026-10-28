@@ -23,11 +23,13 @@ grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme = ExtResource("1_p67qo")
 theme_override_styles/panel = ExtResource("2_p67qo")
 
 [node name="GzmoSbjctsPanel" type="PanelContainer" parent="." unique_id=2090350736]
 layout_mode = 2
+mouse_filter = 1
 theme_type_variation = &"DecorationPanel"
 
 [node name="GzmoSbjctsContainer" type="HBoxContainer" parent="GzmoSbjctsPanel" unique_id=980365263]
@@ -36,6 +38,7 @@ theme_override_constants/separation = 40
 
 [node name="GizmoPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer" unique_id=308726339]
 layout_mode = 2
+mouse_filter = 1
 theme_type_variation = &"DecorationPanel"
 
 [node name="GizmoContainer" type="VBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel" unique_id=849715062]
@@ -45,6 +48,7 @@ alignment = 1
 
 [node name="CommentsPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer" unique_id=939388005]
 layout_mode = 2
+mouse_filter = 1
 theme_type_variation = &"DecorationPanel_VBox"
 
 [node name="CommentsContainer" type="VBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/CommentsPanel" unique_id=2121882544]
@@ -53,6 +57,7 @@ theme_override_constants/separation = 20
 
 [node name="ProfilePanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/CommentsPanel/CommentsContainer" unique_id=1541061778]
 layout_mode = 2
+mouse_filter = 1
 theme_type_variation = &"DecorationPanel_HBox"
 
 [node name="ProfileContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/CommentsPanel/CommentsContainer/ProfilePanel" unique_id=1758203089]
@@ -109,6 +114,7 @@ text_overrun_behavior = 5
 [node name="ToolsPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer" unique_id=1302640734]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 1
 theme_type_variation = &"DecorationPanel_VBox"
 
 [node name="ToolsContainer" type="HFlowContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/ToolsPanel" unique_id=1672352561]
@@ -133,6 +139,7 @@ icon = ExtResource("3_w5k0v")
 [node name="SubjectsPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer" unique_id=336170031]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_type_variation = &"DecorationPanel"
 
 [node name="ViewsContainer" type="VBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel" unique_id=1702036886]
@@ -142,6 +149,7 @@ theme_override_constants/separation = 30
 [node name="CategoriesPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer" unique_id=796542949]
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 1
 theme_type_variation = &"DecorationPanel_HBox"
 
 [node name="CategoriesContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/CategoriesPanel" unique_id=1569065992]
@@ -181,6 +189,7 @@ text = "3D Modelling"
 [node name="ContentPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer" unique_id=139039680]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 theme_type_variation = &"DecorationPanel_HBox"
 
 [node name="ContentContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/ContentPanel" unique_id=2038627158]
@@ -225,6 +234,7 @@ alignment = 1
 custom_minimum_size = Vector2(195, 195)
 custom_maximum_size = Vector2(195, 195)
 layout_mode = 2
+offset_transform_enabled = true
 theme_type_variation = &"ProjectButton"
 text = "Animal Buttons"
 icon = ExtResource("3_w5k0v")
@@ -272,17 +282,18 @@ script = ExtResource("4_w5k0v")
 point_anchors = PackedVector2Array(0, 0, 1, 0.5, 0, 1)
 point_offsets = PackedVector2Array(10, 10, -10, 0, 10, -10)
 
-[node name="PagesPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer" unique_id=876029435]
+[node name="PageSetPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer" unique_id=876029435]
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 1
 theme_type_variation = &"DecorationPanel_HBox"
 
-[node name="PagesContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PagesPanel" unique_id=925735856]
+[node name="PageSetContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PageSetPanel" unique_id=925735856]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="PrevPageSetButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PagesPanel/PagesContainer" unique_id=1500258617]
+[node name="PrevPageSetButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PageSetPanel/PageSetContainer" unique_id=1500258617]
 custom_minimum_size = Vector2(32, 64)
 custom_maximum_size = Vector2(128, -1)
 layout_mode = 2
@@ -290,7 +301,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.05
 ratio = 0.5
 
-[node name="PrevPageSetButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PagesPanel/PagesContainer/PrevPageSetButtonContainer" unique_id=1521381924]
+[node name="PrevPageSetButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PageSetPanel/PageSetContainer/PrevPageSetButtonContainer" unique_id=1521381924]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.05
@@ -302,7 +313,16 @@ script = ExtResource("4_w5k0v")
 point_anchors = PackedVector2Array(1, 0, 0, 0.5, 1, 1)
 point_offsets = PackedVector2Array(-10, 10, 10, 0, -10, -10)
 
-[node name="Page1" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PagesPanel/PagesContainer" unique_id=988122435]
+[node name="PagesPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PageSetPanel/PageSetContainer" unique_id=368167479]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"DecorationPanel_HBox"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel" unique_id=644373343]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Page1" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel/HBoxContainer" unique_id=988122435]
 custom_minimum_size = Vector2(76, 0)
 custom_maximum_size = Vector2(76, -1)
 layout_mode = 2
@@ -312,7 +332,7 @@ button_pressed = true
 button_group = SubResource("ButtonGroup_a5tkm")
 text = "1"
 
-[node name="Page2" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PagesPanel/PagesContainer" unique_id=37829177]
+[node name="Page2" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel/HBoxContainer" unique_id=37829177]
 custom_minimum_size = Vector2(76, 0)
 custom_maximum_size = Vector2(76, -1)
 layout_mode = 2
@@ -321,7 +341,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_a5tkm")
 text = "2"
 
-[node name="Page3" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PagesPanel/PagesContainer" unique_id=2057515954]
+[node name="Page3" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel/HBoxContainer" unique_id=2057515954]
 custom_minimum_size = Vector2(76, 0)
 custom_maximum_size = Vector2(76, -1)
 layout_mode = 2
@@ -330,15 +350,14 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_a5tkm")
 text = "3"
 
-[node name="Page4" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PagesPanel/PagesContainer" unique_id=1066266694]
+[node name="NextPageSet" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel/HBoxContainer" unique_id=1066266694]
 custom_minimum_size = Vector2(76, 0)
 custom_maximum_size = Vector2(76, -1)
 layout_mode = 2
 theme_type_variation = &"SelectCategoryButton"
-button_group = SubResource("ButtonGroup_a5tkm")
 text = "..."
 
-[node name="NextPageSetButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PagesPanel/PagesContainer" unique_id=209500380]
+[node name="NextPageSetButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PageSetPanel/PageSetContainer" unique_id=209500380]
 custom_minimum_size = Vector2(32, 64)
 custom_maximum_size = Vector2(128, -1)
 layout_mode = 2
@@ -346,7 +365,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.05
 ratio = 0.5
 
-[node name="NextPageSetButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PagesPanel/PagesContainer/NextPageSetButtonContainer" unique_id=1592945512]
+[node name="NextPageSetButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PageSetPanel/PageSetContainer/NextPageSetButtonContainer" unique_id=1592945512]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.05

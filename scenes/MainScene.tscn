@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://byo1qoojm5v5k" path="res://themes/sprites/StarSizeAndAlphaCurve.tres" id="2_611at"]
 [ext_resource type="Script" uid="uid://c83q5d2ndymeh" path="res://scripts/BackgroundParticleSpawner.gd" id="2_c6dvc"]
 [ext_resource type="Texture2D" uid="uid://bc3vk8u68hljd" path="res://themes/sprites/Star.png" id="2_k24pf"]
+[ext_resource type="Script" uid="uid://vu1ttf75tjbd" path="res://scenes/DraggableScrollContainer.gd" id="2_ygjfp"]
 [ext_resource type="PackedScene" uid="uid://cydqbha2vnpv4" path="res://scenes/MainPanelHorizontal.tscn" id="3_c6dvc"]
 
 [sub_resource type="Curve" id="Curve_k24pf"]
@@ -40,6 +41,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_ygjfp")
 
 [node name="MarginContainer" type="MarginContainer" parent="ScrollContainer" unique_id=1838920734]
 layout_mode = 2
@@ -50,6 +52,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="ScrollContainer/MarginContainer/BackgroundContainer" unique_id=713579654 node_paths=PackedStringArray("background_rect")]
 texture_filter = 1
