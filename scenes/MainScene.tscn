@@ -15,9 +15,9 @@ curve = SubResource("Curve_k24pf")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k24pf"]
 particle_flag_disable_z = true
-emission_shape_offset = Vector3(1000, 496, 0)
+emission_shape_offset = Vector3(960, 500, 0)
 emission_shape = 3
-emission_box_extents = Vector3(1000, 496, 1)
+emission_box_extents = Vector3(960, 500, 1)
 angle_min = -179.99998
 angle_max = 180.00002
 direction = Vector3(0, 0, 0)
@@ -42,7 +42,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="ScrollContainer" unique_id=1838920734]
-custom_minimum_size = Vector2(2000, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -54,12 +53,12 @@ size_flags_vertical = 3
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="ScrollContainer/MarginContainer/BackgroundContainer" unique_id=713579654 node_paths=PackedStringArray("background_rect")]
 texture_filter = 1
-amount = 49
+amount = 48
 texture = ExtResource("2_k24pf")
 lifetime = 5.0
 explosiveness = 0.25
 randomness = 0.5
-visibility_rect = Rect2(0, 0, 2000, 992)
+visibility_rect = Rect2(0, 0, 1920, 1000)
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_k24pf")
 script = ExtResource("2_c6dvc")
