@@ -321,6 +321,7 @@ theme_type_variation = &"DecorationPanel_HBox"
 [node name="HBoxContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel" unique_id=644373343]
 layout_mode = 2
 theme_override_constants/separation = 10
+alignment = 1
 
 [node name="Page1" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel/HBoxContainer" unique_id=988122435]
 custom_minimum_size = Vector2(76, 0)
@@ -349,13 +350,6 @@ theme_type_variation = &"SelectCategoryButton"
 toggle_mode = true
 button_group = SubResource("ButtonGroup_a5tkm")
 text = "3"
-
-[node name="NextPageSet" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel/HBoxContainer" unique_id=1066266694]
-custom_minimum_size = Vector2(76, 0)
-custom_maximum_size = Vector2(76, -1)
-layout_mode = 2
-theme_type_variation = &"SelectCategoryButton"
-text = "..."
 
 [node name="NextPageSetButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PageSetPanel/PageSetContainer" unique_id=209500380]
 custom_minimum_size = Vector2(32, 64)
