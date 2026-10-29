@@ -47,12 +47,13 @@ script = ExtResource("2_ygjfp")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="BackgroundContainer" type="Control" parent="ScrollContainer/MarginContainer" unique_id=27236939]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-mouse_filter = 1
+mouse_filter = 2
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="ScrollContainer/MarginContainer/BackgroundContainer" unique_id=713579654 node_paths=PackedStringArray("background_rect")]
 texture_filter = 1
@@ -71,27 +72,32 @@ background_rect = NodePath("..")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="TopSpacing" type="Control" parent="ScrollContainer/MarginContainer/VSpacingContainer" unique_id=1961579148]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
+mouse_filter = 2
 
 [node name="HSpacingContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VSpacingContainer" unique_id=1668368535]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.9
+mouse_filter = 2
 
 [node name="LeftSpacing" type="Control" parent="ScrollContainer/MarginContainer/VSpacingContainer/HSpacingContainer" unique_id=1183103805]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
+mouse_filter = 2
 
 [node name="MainPanelContainer" type="BoxContainer" parent="ScrollContainer/MarginContainer/VSpacingContainer/HSpacingContainer" unique_id=2022106587]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.9
+mouse_filter = 2
 
 [node name="MainPanel" parent="ScrollContainer/MarginContainer/VSpacingContainer/HSpacingContainer/MainPanelContainer" unique_id=2038782253 instance=ExtResource("3_c6dvc")]
 layout_mode = 2
@@ -101,8 +107,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
+mouse_filter = 2
 
 [node name="BottomSpacing" type="Control" parent="ScrollContainer/MarginContainer/VSpacingContainer" unique_id=42523312]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
+mouse_filter = 2

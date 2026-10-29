@@ -23,45 +23,49 @@ grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 size_flags_horizontal = 3
 size_flags_vertical = 3
-mouse_filter = 1
+mouse_filter = 2
 theme = ExtResource("1_p67qo")
 theme_override_styles/panel = ExtResource("2_p67qo")
 
 [node name="GzmoSbjctsPanel" type="PanelContainer" parent="." unique_id=2090350736]
 layout_mode = 2
-mouse_filter = 1
+mouse_filter = 2
 theme_type_variation = &"DecorationPanel"
 
 [node name="GzmoSbjctsContainer" type="HBoxContainer" parent="GzmoSbjctsPanel" unique_id=980365263]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 40
 
 [node name="GizmoPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer" unique_id=308726339]
 layout_mode = 2
-mouse_filter = 1
+mouse_filter = 2
 theme_type_variation = &"DecorationPanel"
 
 [node name="GizmoContainer" type="VBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel" unique_id=849715062]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 30
 alignment = 1
 
 [node name="CommentsPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer" unique_id=939388005]
 layout_mode = 2
-mouse_filter = 1
+mouse_filter = 2
 theme_type_variation = &"DecorationPanel_VBox"
 
 [node name="CommentsContainer" type="VBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/CommentsPanel" unique_id=2121882544]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 20
 
 [node name="ProfilePanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/CommentsPanel/CommentsContainer" unique_id=1541061778]
 layout_mode = 2
-mouse_filter = 1
+mouse_filter = 2
 theme_type_variation = &"DecorationPanel_HBox"
 
 [node name="ProfileContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/CommentsPanel/CommentsContainer/ProfilePanel" unique_id=1758203089]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="ProfilePicturePanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/CommentsPanel/CommentsContainer/ProfilePanel/ProfileContainer" unique_id=84710377]
 layout_mode = 2
@@ -114,11 +118,12 @@ text_overrun_behavior = 5
 [node name="ToolsPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer" unique_id=1302640734]
 layout_mode = 2
 size_flags_vertical = 4
-mouse_filter = 1
+mouse_filter = 2
 theme_type_variation = &"DecorationPanel_VBox"
 
 [node name="ToolsContainer" type="HFlowContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/ToolsPanel" unique_id=1672352561]
 layout_mode = 2
+mouse_filter = 2
 alignment = 1
 
 [node name="ChangeCursorButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/ToolsPanel/ToolsContainer" unique_id=874510246]
@@ -139,61 +144,117 @@ icon = ExtResource("3_w5k0v")
 [node name="SubjectsPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer" unique_id=336170031]
 layout_mode = 2
 size_flags_horizontal = 3
-mouse_filter = 1
+mouse_filter = 2
 theme_type_variation = &"DecorationPanel"
 
 [node name="ViewsContainer" type="VBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel" unique_id=1702036886]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 30
 
-[node name="CategoriesPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer" unique_id=796542949]
+[node name="CategorySetPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer" unique_id=796542949]
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_filter = 1
 theme_type_variation = &"DecorationPanel_HBox"
 
-[node name="CategoriesContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/CategoriesPanel" unique_id=1569065992]
+[node name="CategorySetContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/CategorySetPanel" unique_id=844266130]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 20
+
+[node name="PrevCategorySetButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/CategorySetPanel/CategorySetContainer" unique_id=525670502]
+custom_minimum_size = Vector2(32, 64)
+custom_maximum_size = Vector2(128, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+ratio = 0.5
+
+[node name="PrevPageSetButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/CategorySetPanel/CategorySetContainer/PrevCategorySetButtonContainer" unique_id=1204343969]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+offset_transform_enabled = true
+theme_type_variation = &"IconButton"
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_w5k0v")
+point_anchors = PackedVector2Array(1, 0, 0, 0.5, 1, 1)
+point_offsets = PackedVector2Array(-10, 10, 10, 0, -10, -10)
+
+[node name="CategoriesPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/CategorySetPanel/CategorySetContainer" unique_id=789454066]
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"DecorationPanel_HBox"
+
+[node name="CategoriesContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel" unique_id=1569065992]
+layout_mode = 2
+theme_override_constants/separation = 10
 alignment = 1
 
-[node name="AboutPageButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/CategoriesPanel/CategoriesContainer" unique_id=1466980785]
+[node name="CreditsButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/CategoriesContainer" unique_id=1466980785]
+custom_minimum_size = Vector2(146, 64)
 layout_mode = 2
 theme_type_variation = &"SelectCategoryButton"
 toggle_mode = true
 button_group = SubResource("ButtonGroup_w5k0v")
-text = "About Page"
+text = "Credits"
 
-[node name="ProgrammingButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/CategoriesPanel/CategoriesContainer" unique_id=1178870434]
+[node name="ProgramsButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/CategoriesContainer" unique_id=1178870434]
+custom_minimum_size = Vector2(146, 64)
 layout_mode = 2
 theme_type_variation = &"SelectCategoryButton"
 toggle_mode = true
 button_pressed = true
 button_group = SubResource("ButtonGroup_w5k0v")
-text = "Programming"
+text = "Programs"
 
-[node name="CrochetButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/CategoriesPanel/CategoriesContainer" unique_id=1165319692]
+[node name="CrochetButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/CategoriesContainer" unique_id=1165319692]
+custom_minimum_size = Vector2(146, 64)
 layout_mode = 2
 theme_type_variation = &"SelectCategoryButton"
 toggle_mode = true
 button_group = SubResource("ButtonGroup_w5k0v")
 text = "Crochet"
 
-[node name="3DModellingButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/CategoriesPanel/CategoriesContainer" unique_id=1832363446]
+[node name="3DModelsButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/CategoriesContainer" unique_id=1832363446]
+custom_minimum_size = Vector2(146, 64)
+custom_maximum_size = Vector2(146, 64)
 layout_mode = 2
 theme_type_variation = &"SelectCategoryButton"
 toggle_mode = true
 button_group = SubResource("ButtonGroup_w5k0v")
-text = "3D Modelling"
+text = "3D Models"
+
+[node name="NextCategorySetButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/CategorySetPanel/CategorySetContainer" unique_id=2037437894]
+custom_minimum_size = Vector2(32, 64)
+custom_maximum_size = Vector2(128, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+ratio = 0.5
+
+[node name="NextPageSetButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/CategorySetPanel/CategorySetContainer/NextCategorySetButtonContainer" unique_id=1424569166]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+theme_type_variation = &"IconButton"
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_w5k0v")
+point_anchors = PackedVector2Array(0, 0, 1, 0.5, 0, 1)
+point_offsets = PackedVector2Array(10, 10, -10, 0, 10, -10)
 
 [node name="ContentPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer" unique_id=139039680]
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 1
+mouse_filter = 2
 theme_type_variation = &"DecorationPanel_HBox"
 
 [node name="ContentContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/ContentPanel" unique_id=2038627158]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 20
 alignment = 1
 
@@ -285,11 +346,12 @@ point_offsets = PackedVector2Array(10, 10, -10, 0, 10, -10)
 [node name="PageSetPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer" unique_id=876029435]
 layout_mode = 2
 size_flags_horizontal = 4
-mouse_filter = 1
+mouse_filter = 2
 theme_type_variation = &"DecorationPanel_HBox"
 
 [node name="PageSetContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PageSetPanel" unique_id=925735856]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 20
 alignment = 1
 
@@ -318,12 +380,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"DecorationPanel_HBox"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel" unique_id=644373343]
+[node name="PagesContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel" unique_id=644373343]
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Page1" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel/HBoxContainer" unique_id=988122435]
+[node name="Page1" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel/PagesContainer" unique_id=988122435]
 custom_minimum_size = Vector2(76, 0)
 custom_maximum_size = Vector2(76, -1)
 layout_mode = 2
@@ -333,7 +395,7 @@ button_pressed = true
 button_group = SubResource("ButtonGroup_a5tkm")
 text = "1"
 
-[node name="Page2" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel/HBoxContainer" unique_id=37829177]
+[node name="Page2" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel/PagesContainer" unique_id=37829177]
 custom_minimum_size = Vector2(76, 0)
 custom_maximum_size = Vector2(76, -1)
 layout_mode = 2
@@ -342,7 +404,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_a5tkm")
 text = "2"
 
-[node name="Page3" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel/HBoxContainer" unique_id=2057515954]
+[node name="Page3" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel/PagesContainer" unique_id=2057515954]
 custom_minimum_size = Vector2(76, 0)
 custom_maximum_size = Vector2(76, -1)
 layout_mode = 2
