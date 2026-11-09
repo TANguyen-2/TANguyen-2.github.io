@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://byo1qoojm5v5k" path="res://themes/sprites/StarSizeAndAlphaCurve.tres" id="2_611at"]
 [ext_resource type="Script" uid="uid://c83q5d2ndymeh" path="res://scripts/BackgroundParticleSpawner.gd" id="2_c6dvc"]
 [ext_resource type="Texture2D" uid="uid://bc3vk8u68hljd" path="res://themes/sprites/Star.png" id="2_k24pf"]
-[ext_resource type="Script" uid="uid://vu1ttf75tjbd" path="res://scenes/DraggableScrollContainer.gd" id="2_ygjfp"]
 [ext_resource type="PackedScene" uid="uid://cydqbha2vnpv4" path="res://scenes/MainPanelHorizontal.tscn" id="3_c6dvc"]
+[ext_resource type="Script" uid="uid://njkt7vw4anmx" path="res://scripts/gui/input_processing/ScrollDragProcessor.gd" id="7_1wiy7"]
 
 [sub_resource type="Curve" id="Curve_k24pf"]
 _data = [Vector2(0, 1), inf_neg, -1.0, 1, 0, Vector2(1, 0), 0.0, inf_neg, 0, 1]
@@ -41,7 +41,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_ygjfp")
 
 [node name="MarginContainer" type="MarginContainer" parent="ScrollContainer" unique_id=1838920734]
 layout_mode = 2
@@ -114,3 +113,9 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
 mouse_filter = 2
+
+[node name="ScrollDragProcessor" type="Node" parent="ScrollContainer" unique_id=2143699752 node_paths=PackedStringArray("input_area", "scroll_container")]
+script = ExtResource("7_1wiy7")
+input_area = NodePath("..")
+scroll_container = NodePath("..")
+metadata/_custom_type_script = "uid://njkt7vw4anmx"
