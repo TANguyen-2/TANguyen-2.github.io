@@ -1,19 +1,10 @@
 [gd_scene format=3 uid="uid://d2f1lb3otsq2c"]
 
-[ext_resource type="Script" uid="uid://bdbw4mn2xnjdw" path="res://scripts/gui/paged_container/PagedItemsPositioner.gd" id="1_2gju5"]
 [ext_resource type="Theme" uid="uid://bupq53g1myco8" path="res://themes/MainTheme.tres" id="1_xpysu"]
-[ext_resource type="Script" uid="uid://cg8ljgo0v843w" path="res://scripts/gui/paged_container/PagedItemInfo.gd" id="2_m5dm6"]
-[ext_resource type="PackedScene" uid="uid://ulanih05wjey" path="res://scenes/templates/ProjectButton.tscn" id="2_n77mx"]
-[ext_resource type="Resource" uid="uid://c2lt0nf2ok787" path="res://projects/thumbnails/P1Thumbnail.tres" id="3_fws1a"]
+[ext_resource type="Script" uid="uid://c7khl8a114qjd" path="res://scripts/gui/paged_container/PagedContainer.gd" id="2_n77mx"]
 [ext_resource type="Script" uid="uid://b5o1xril26g80" path="res://scripts/NodePool.gd" id="3_nb1wl"]
-[ext_resource type="PackedScene" uid="uid://dadeym7pvy4cs" path="res://scenes/templates/PagedContainerPage.tscn" id="5_fws1a"]
-[ext_resource type="Script" uid="uid://5yv0v21se6wf" path="res://scripts/gui/container_sizing/DynamicCustomSizeLimiter.gd" id="8_epq12"]
 
-[sub_resource type="Resource" id="Resource_2gju5"]
-script = ExtResource("3_nb1wl")
-metadata/_custom_type_script = "uid://b5o1xril26g80"
-
-[sub_resource type="Resource" id="Resource_rlkm5"]
+[sub_resource type="Resource" id="Resource_6kcoy"]
 script = ExtResource("3_nb1wl")
 metadata/_custom_type_script = "uid://b5o1xril26g80"
 
@@ -27,57 +18,127 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_xpysu")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1083223013]
-custom_maximum_size = Vector2(0, -1)
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
-grow_horizontal = 2
+[node name="ColorRect" type="ColorRect" parent="." unique_id=19539956]
+visible = false
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 0
+offset_right = 10.0
+offset_bottom = 10.0
 
-[node name="DynamicCustomSizeLimiter" type="Node" parent="ColorRect" unique_id=144105727 node_paths=PackedStringArray("target", "reference")]
-script = ExtResource("8_epq12")
-target = NodePath("..")
-reference = NodePath("../../HBoxContainer/PanelContainer/MarginContainer/BoxContainer")
-limit_set_flags = 5
-metadata/_custom_type_script = "uid://5yv0v21se6wf"
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1716841067]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 54.0
+offset_right = 222.0
+offset_bottom = 94.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=284529499]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -30.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer" unique_id=922392049]
-custom_maximum_size = Vector2(600, 600)
+[node name="BoxContainer" type="BoxContainer" parent="PanelContainer" unique_id=1496314489]
+custom_maximum_size = Vector2(40, 40)
+propagate_maximum_size = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_type_variation = &"DecorationPanel"
+alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/PanelContainer" unique_id=1159117702]
+[node name="FlowContainer" type="FlowContainer" parent="PanelContainer" unique_id=790254897]
+custom_minimum_size = Vector2(40, 40)
+custom_maximum_size = Vector2(40, 40)
 clip_contents = true
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
 
-[node name="BoxContainer" type="BoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer" unique_id=1102559777]
-propagate_maximum_size = false
+[node name="PagedContainer" type="Container" parent="PanelContainer" unique_id=761924620 node_paths=PackedStringArray("page_container_ref", "page_ref")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("2_n77mx")
+page_container_ref = NodePath("../BoxContainer")
+page_ref = NodePath("../FlowContainer")
+dummy_pool = SubResource("Resource_6kcoy")
+metadata/_custom_type_script = "uid://c7khl8a114qjd"
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer/PagedContainer" unique_id=1377194765]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 
-[node name="PagedItemsPositioner" type="Node" parent="HBoxContainer/PanelContainer/MarginContainer/BoxContainer" unique_id=1985760021 node_paths=PackedStringArray("paged_container")]
-script = ExtResource("1_2gju5")
-paged_container = NodePath("..")
-item_infos = Array[ExtResource("2_m5dm6")]([ExtResource("3_fws1a"), ExtResource("3_fws1a"), ExtResource("3_fws1a"), ExtResource("3_fws1a"), ExtResource("3_fws1a")])
-item_template = ExtResource("2_n77mx")
-page_template = ExtResource("5_fws1a")
-item_pool = SubResource("Resource_2gju5")
-page_pool = SubResource("Resource_rlkm5")
-metadata/_custom_type_script = "uid://bdbw4mn2xnjdw"
+[node name="ColorRect2" type="ColorRect" parent="PanelContainer/PagedContainer" unique_id=868526432]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="ColorRect3" type="ColorRect" parent="PanelContainer/PagedContainer" unique_id=1934152184]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="ColorRect4" type="ColorRect" parent="PanelContainer/PagedContainer" unique_id=1753212969]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="ColorRect5" type="ColorRect" parent="PanelContainer/PagedContainer" unique_id=1920485634]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="ColorRect6" type="ColorRect" parent="PanelContainer/PagedContainer" unique_id=1063700934]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="ColorRect7" type="ColorRect" parent="PanelContainer/PagedContainer" unique_id=2101009279]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="ColorRect8" type="ColorRect" parent="PanelContainer/PagedContainer" unique_id=1136917501]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="ColorRect9" type="ColorRect" parent="PanelContainer/PagedContainer" unique_id=381168521]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="ColorRect10" type="ColorRect" parent="PanelContainer/PagedContainer" unique_id=283336552]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="ColorRect11" type="ColorRect" parent="PanelContainer/PagedContainer" unique_id=1288377066]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="ColorRect12" type="ColorRect" parent="PanelContainer/PagedContainer" unique_id=731994071]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="ColorRect13" type="ColorRect" parent="PanelContainer/PagedContainer" unique_id=1746798931]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="ColorRect14" type="ColorRect" parent="PanelContainer/PagedContainer" unique_id=140907880]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="ColorRect15" type="ColorRect" parent="PanelContainer/PagedContainer" unique_id=622289035]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="ColorRect16" type="ColorRect" parent="PanelContainer/PagedContainer" unique_id=690976001]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="ColorRect17" type="ColorRect" parent="PanelContainer/PagedContainer" unique_id=1823776041]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="ColorRect18" type="ColorRect" parent="PanelContainer/PagedContainer" unique_id=416478237]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="ColorRect19" type="ColorRect" parent="PanelContainer/PagedContainer" unique_id=1629700637]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="ColorRect20" type="ColorRect" parent="PanelContainer/PagedContainer" unique_id=1431344668]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="ColorRect21" type="ColorRect" parent="PanelContainer/PagedContainer" unique_id=21105767]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
