@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PagedProjectItemInfo" format=3 uid="uid://c2lt0nf2ok787"]
+
+[ext_resource type="Script" uid="uid://bkj8iyi1o28dd" path="res://scripts/gui/paged_container/PagedProjectItemInfo.gd" id="1_gu2rr"]
+
+[resource]
+script = ExtResource("1_gu2rr")
+icon_path = &"res://themes/sprites/GodotIcon.png"
+item_name = &"Animal Buttons"
+item_onclick_signal_id = &"Animal Buttons"
+metadata/_custom_type_script = "uid://bkj8iyi1o28dd"

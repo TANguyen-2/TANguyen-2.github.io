@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ulanih05wjey"]
+
+[ext_resource type="Script" uid="uid://d0dl4mj2ie21s" path="res://scripts/gui/paged_container/projects/ProjectButton.gd" id="2_to0co"]
+
+[node name="ProjectButton" type="Button" unique_id=846345029]
+custom_minimum_size = Vector2(195, 195)
+custom_maximum_size = Vector2(195, 195)
+offset_transform_enabled = true
+theme_type_variation = &"ProjectButton"
+icon_alignment = 1
+vertical_icon_alignment = 0
+script = ExtResource("2_to0co")

@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dadeym7pvy4cs"]
+
+[node name="PagedContainerPage" type="FlowContainer" unique_id=1958127764]
+alignment = 1
+last_wrap_alignment = 2

@@ -1,9 +1,83 @@
 [gd_scene format=3 uid="uid://d2f1lb3otsq2c"]
 
+[ext_resource type="Script" uid="uid://bdbw4mn2xnjdw" path="res://scripts/gui/paged_container/PagedItemsPositioner.gd" id="1_2gju5"]
+[ext_resource type="Theme" uid="uid://bupq53g1myco8" path="res://themes/MainTheme.tres" id="1_xpysu"]
+[ext_resource type="Script" uid="uid://cg8ljgo0v843w" path="res://scripts/gui/paged_container/PagedItemInfo.gd" id="2_m5dm6"]
+[ext_resource type="PackedScene" uid="uid://ulanih05wjey" path="res://scenes/templates/ProjectButton.tscn" id="2_n77mx"]
+[ext_resource type="Resource" uid="uid://c2lt0nf2ok787" path="res://projects/thumbnails/P1Thumbnail.tres" id="3_fws1a"]
+[ext_resource type="Script" uid="uid://b5o1xril26g80" path="res://scripts/NodePool.gd" id="3_nb1wl"]
+[ext_resource type="PackedScene" uid="uid://dadeym7pvy4cs" path="res://scenes/templates/PagedContainerPage.tscn" id="5_fws1a"]
+[ext_resource type="Script" uid="uid://5yv0v21se6wf" path="res://scripts/gui/container_sizing/DynamicCustomSizeLimiter.gd" id="8_epq12"]
+
+[sub_resource type="Resource" id="Resource_2gju5"]
+script = ExtResource("3_nb1wl")
+metadata/_custom_type_script = "uid://b5o1xril26g80"
+
+[sub_resource type="Resource" id="Resource_rlkm5"]
+script = ExtResource("3_nb1wl")
+metadata/_custom_type_script = "uid://b5o1xril26g80"
+
 [node name="TestScene" type="Control" unique_id=696233239]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_xpysu")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1083223013]
+custom_maximum_size = Vector2(0, -1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="DynamicCustomSizeLimiter" type="Node" parent="ColorRect" unique_id=144105727 node_paths=PackedStringArray("target", "reference")]
+script = ExtResource("8_epq12")
+target = NodePath("..")
+reference = NodePath("../../HBoxContainer/PanelContainer/MarginContainer/BoxContainer")
+limit_set_flags = 5
+metadata/_custom_type_script = "uid://5yv0v21se6wf"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=284529499]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer" unique_id=922392049]
+custom_maximum_size = Vector2(600, 600)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = &"DecorationPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/PanelContainer" unique_id=1159117702]
+clip_contents = true
+layout_mode = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer" unique_id=1102559777]
+propagate_maximum_size = false
+layout_mode = 2
+
+[node name="PagedItemsPositioner" type="Node" parent="HBoxContainer/PanelContainer/MarginContainer/BoxContainer" unique_id=1985760021 node_paths=PackedStringArray("paged_container")]
+script = ExtResource("1_2gju5")
+paged_container = NodePath("..")
+item_infos = Array[ExtResource("2_m5dm6")]([ExtResource("3_fws1a"), ExtResource("3_fws1a"), ExtResource("3_fws1a"), ExtResource("3_fws1a"), ExtResource("3_fws1a")])
+item_template = ExtResource("2_n77mx")
+page_template = ExtResource("5_fws1a")
+item_pool = SubResource("Resource_2gju5")
+page_pool = SubResource("Resource_rlkm5")
+metadata/_custom_type_script = "uid://bdbw4mn2xnjdw"
