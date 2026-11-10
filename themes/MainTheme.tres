@@ -19,6 +19,11 @@
 
 [resource]
 default_font = ExtResource("1_ou2w3")
+ContentClipContainer/base_type = &"MarginContainer"
+ContentClipContainer/constants/margin_bottom = 2
+ContentClipContainer/constants/margin_left = 2
+ContentClipContainer/constants/margin_right = 2
+ContentClipContainer/constants/margin_top = 2
 DecorationPanel/base_type = &"IconDecorationPanel"
 DecorationPanel/styles/panel = ExtResource("1_ylqdk")
 DecorationPanel_HBox/base_type = &"IconDecorationPanel"

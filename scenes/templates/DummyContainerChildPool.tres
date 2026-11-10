@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="NodePool" format=3 uid="uid://c4xu64ocur3m0"]
+
+[ext_resource type="Script" uid="uid://b5o1xril26g80" path="res://scripts/NodePool.gd" id="1_mpif4"]
+
+[resource]
+script = ExtResource("1_mpif4")
+metadata/_custom_type_script = "uid://b5o1xril26g80"
