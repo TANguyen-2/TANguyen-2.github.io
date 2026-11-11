@@ -9,6 +9,34 @@
 ## [br]
 ## The pages are further arranged as if they are children of a [BoxContainer]
 ## based on the specified [member page_container_ref] [BoxContainer].
+## [br]
+## [br]
+## [b]Note:[/b]
+## [br]
+## Due to how this class is set up, the items are arranged based on
+## the size-related properties of the
+## [member page_ref] and [member page_container_ref] containers,
+## and are unaffected by the size-related properties
+## of the [PagedContainer] itself.
+## [br]
+## [br]
+## It is recommended that each [PagedContainer] at bare minimum has the same
+## size in the secondary axis as its [member page_container_ref], and that
+## the maximum sizes of all 3 containers follow the order:
+## [code]self[/code] >= [member page_container_ref] >= [member page_ref].
+## [br]
+## [br]
+## This container cannot automatically react to changes in the
+## layout properties, theme properties, and custom minimum/maximum sizes
+## of the [member page_ref] and [member page_container_ref] containers.
+## [br]
+## [br]
+## This container additionally assumes that
+## the [member Control.custom_minimum_size] of the [member page_ref]
+## is exclusively controlled by this container itself, and that
+## the the [member page_ref] and [member page_container_ref] containers
+## have no child [Control]s other than the ones
+## added by this container itself.
 @tool
 extends Container
 class_name PagedContainer
@@ -31,11 +59,25 @@ class_name PagedContainer
 ## not accounting for any offset transforms.
 var page_rects: Array[Rect2] = []
 
+## The array of page indices
+## each visible child [Control]s is fitted into.
+var visible_item_pages: PackedInt32Array = []
+
 
 ## Get the array of local rects in which each page is fitted,
 ## not accounting for any offset transforms.
 func get_page_rects() -> Array[Rect2]:
     return page_rects
+
+## Get the index of the page which the item with the given index
+## in the array of visible child [Control]s is conceptually fitted into.
+## [br]
+## If no item with the given index has been arranged,
+## return [code]-1[/code] instead.
+func get_visible_item_page_index(visible_child_index: int) -> int:
+    if visible_child_index > visible_item_pages.size():
+        return -1
+    return visible_item_pages[visible_child_index]
 
 
 func _notification(what: int) -> void:
@@ -96,16 +138,15 @@ func fake_sort_children() -> void:
     
     # Get the rect that each item is fitted in relative to its page.
     var dummy_pages: Array[DummyContainerChild] = []
-    var page_local_child_rects_array: Array[Array] = []
+    var child_page_local_rects: Array[Rect2] = []
     
     dummy_pages.resize(item_ranges.size())
-    page_local_child_rects_array.resize(item_ranges.size())
     
     for i in range(item_ranges.size()):
         var dummy_page: = new_dummy_container_child()
-        page_local_child_rects_array[i] = get_page_local_child_rects(
+        child_page_local_rects += get_page_local_child_rects(
             page_ref, child_controls,
-            item_ranges[i].x, item_ranges[i].y, dummy_page
+            floori(item_ranges[i].x), floori(item_ranges[i].y), dummy_page
         )
         dummy_pages[i] = dummy_page
         page_container_ref.add_child(dummy_page)
@@ -126,13 +167,15 @@ func fake_sort_children() -> void:
     
     # Use the position of each page to calculate
     # the position of each item relative to this container.
+    visible_item_pages.resize(child_controls.size())
     for p in range(dummy_pages.size()):
-        for i in range(page_local_child_rects_array[p].size()):
-            var child_rect: Rect2 = page_local_child_rects_array[p][i]
+        for i in range(floori(item_ranges[p][0]), floori(item_ranges[p][1])):
+            var child_rect: Rect2 = child_page_local_rects[i]
             child_rect.position += dummy_pages[p].position
             fit_child_in_rect(
-                child_controls[int(item_ranges[p][0]) + i], child_rect
+                child_controls[i], child_rect
             )
+            visible_item_pages[i] = p
             pass
         pass
     pass
@@ -150,7 +193,6 @@ func _get_minimum_size() -> Vector2:
             return page_container_ref.get_combined_maximum_size().min(
                 Vector2(items_bound_info[1], items_bound_info[2])
             )
-        pass
     else:
         return Vector2.ZERO
 
