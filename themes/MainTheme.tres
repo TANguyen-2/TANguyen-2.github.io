@@ -1,21 +1,26 @@
 [gd_resource type="Theme" format=3 uid="uid://bupq53g1myco8"]
 
+[ext_resource type="StyleBox" uid="uid://i4ikltct4fdh" path="res://themes/styleboxes/panels/BoxPanelStylebox.tres" id="1_moj4y"]
 [ext_resource type="FontFile" uid="uid://bv43bx1438y3q" path="res://themes/cascadia-mono/CascadiaMono-VariableFont_wght.ttf" id="1_ou2w3"]
-[ext_resource type="StyleBox" uid="uid://dyp73awvd8hb6" path="res://themes/styleboxes/HBoxPanelStylebox.tres" id="1_qemgp"]
-[ext_resource type="StyleBox" uid="uid://i4ikltct4fdh" path="res://themes/styleboxes/BoxPanelStylebox.tres" id="1_ylqdk"]
-[ext_resource type="StyleBox" uid="uid://bao1bsglr3vds" path="res://themes/styleboxes/VBoxPanelStylebox.tres" id="2_ylqdk"]
-[ext_resource type="StyleBox" uid="uid://bgnt875poofg5" path="res://themes/styleboxes/IconButtonHighlightedStylebox.tres" id="5_28dqr"]
-[ext_resource type="StyleBox" uid="uid://bh7nnolmplbtk" path="res://themes/styleboxes/IconButtonStylebox.tres" id="5_bv5qq"]
-[ext_resource type="StyleBox" uid="uid://smjoxemrfpk3" path="res://themes/styleboxes/IconPanelStylebox.tres" id="5_g5wx6"]
-[ext_resource type="StyleBox" uid="uid://bkpxxw24mue8y" path="res://themes/styleboxes/IconButtonPressedStylebox.tres" id="6_1k1wj"]
-[ext_resource type="StyleBox" uid="uid://c3bbywe2v6uvw" path="res://themes/styleboxes/CategoryButtonDisabledStylebox.tres" id="8_7acva"]
-[ext_resource type="StyleBox" uid="uid://000pp56qw16f" path="res://themes/styleboxes/ProjectButtonDisabledStylebox.tres" id="8_7oyx8"]
-[ext_resource type="StyleBox" uid="uid://dihnui44d3h7" path="res://themes/styleboxes/CategoryButtonStylebox.tres" id="8_bi8wl"]
-[ext_resource type="StyleBox" uid="uid://c7idi02i76aqy" path="res://themes/styleboxes/CategoryButtonHighlightedStylebox.tres" id="9_7acva"]
-[ext_resource type="StyleBox" uid="uid://k3nww0an3eg3" path="res://themes/styleboxes/ProjectButtonHighlightedStylebox.tres" id="9_x7ep0"]
-[ext_resource type="StyleBox" uid="uid://o8gb3jf0flpa" path="res://themes/styleboxes/ProjectButtonStylebox.tres" id="10_bv5qq"]
-[ext_resource type="StyleBox" uid="uid://bua1fordpebns" path="res://themes/styleboxes/CategoryButtonPressedStylebox.tres" id="10_t2041"]
-[ext_resource type="StyleBox" uid="uid://c7085cvl0mjwv" path="res://themes/styleboxes/ProjectButtonPressedStylebox.tres" id="10_x7ep0"]
+[ext_resource type="StyleBox" uid="uid://dyp73awvd8hb6" path="res://themes/styleboxes/panels/HBoxPanelStylebox.tres" id="2_gqxkj"]
+[ext_resource type="StyleBox" uid="uid://bao1bsglr3vds" path="res://themes/styleboxes/panels/VBoxPanelStylebox.tres" id="3_5dub1"]
+[ext_resource type="StyleBox" uid="uid://btctkfar6du7o" path="res://themes/styleboxes/scrollbar/ScrollbarGrabberHighlightedStylebox.tres" id="4_5dub1"]
+[ext_resource type="StyleBox" uid="uid://cjmwlnps2ckxp" path="res://themes/styleboxes/scrollbar/ScrollbarGrabberStylebox.tres" id="4_gqxkj"]
+[ext_resource type="StyleBox" uid="uid://dec44rp3ixcug" path="res://themes/styleboxes/scrollbar/HScrollbarStylebox.tres" id="4_jvxvc"]
+[ext_resource type="StyleBox" uid="uid://bh7nnolmplbtk" path="res://themes/styleboxes/buttons/icon/IconButtonStylebox.tres" id="6_mso7w"]
+[ext_resource type="StyleBox" uid="uid://bgnt875poofg5" path="res://themes/styleboxes/buttons/icon/IconButtonHighlightedStylebox.tres" id="7_fb1sk"]
+[ext_resource type="StyleBox" uid="uid://c348oq2akr51y" path="res://themes/styleboxes/scrollbar/ScrollbarFocusStylebox.tres" id="8_mso7w"]
+[ext_resource type="StyleBox" uid="uid://bkpxxw24mue8y" path="res://themes/styleboxes/buttons/icon/IconButtonPressedStylebox.tres" id="8_q2op3"]
+[ext_resource type="StyleBox" uid="uid://smjoxemrfpk3" path="res://themes/styleboxes/panels/IconPanelStylebox.tres" id="9_5uc6m"]
+[ext_resource type="StyleBox" uid="uid://000pp56qw16f" path="res://themes/styleboxes/buttons/project/ProjectButtonDisabledStylebox.tres" id="10_lbt73"]
+[ext_resource type="StyleBox" uid="uid://k3nww0an3eg3" path="res://themes/styleboxes/buttons/project/ProjectButtonHighlightedStylebox.tres" id="11_ubuj5"]
+[ext_resource type="StyleBox" uid="uid://c7085cvl0mjwv" path="res://themes/styleboxes/buttons/project/ProjectButtonPressedStylebox.tres" id="12_0a7wf"]
+[ext_resource type="StyleBox" uid="uid://o8gb3jf0flpa" path="res://themes/styleboxes/buttons/project/ProjectButtonStylebox.tres" id="13_omfmy"]
+[ext_resource type="StyleBox" uid="uid://c3bbywe2v6uvw" path="res://themes/styleboxes/buttons/category/CategoryButtonDisabledStylebox.tres" id="14_dy34u"]
+[ext_resource type="StyleBox" uid="uid://c7idi02i76aqy" path="res://themes/styleboxes/buttons/category/CategoryButtonHighlightedStylebox.tres" id="15_u21t6"]
+[ext_resource type="StyleBox" uid="uid://bua1fordpebns" path="res://themes/styleboxes/buttons/category/CategoryButtonPressedStylebox.tres" id="16_gdgmp"]
+[ext_resource type="StyleBox" uid="uid://dihnui44d3h7" path="res://themes/styleboxes/buttons/category/CategoryButtonStylebox.tres" id="17_a8pin"]
+[ext_resource type="StyleBox" uid="uid://c3ytv8ecpl8pr" path="res://themes/styleboxes/scrollbar/VScrollbarStylebox.tres" id="22_fb1sk"]
 
 [resource]
 default_font = ExtResource("1_ou2w3")
@@ -25,11 +30,18 @@ ContentClipContainer/constants/margin_left = 2
 ContentClipContainer/constants/margin_right = 2
 ContentClipContainer/constants/margin_top = 2
 DecorationPanel/base_type = &"IconDecorationPanel"
-DecorationPanel/styles/panel = ExtResource("1_ylqdk")
+DecorationPanel/styles/panel = ExtResource("1_moj4y")
 DecorationPanel_HBox/base_type = &"IconDecorationPanel"
-DecorationPanel_HBox/styles/panel = ExtResource("1_qemgp")
+DecorationPanel_HBox/styles/panel = ExtResource("2_gqxkj")
 DecorationPanel_VBox/base_type = &"IconDecorationPanel"
-DecorationPanel_VBox/styles/panel = ExtResource("2_ylqdk")
+DecorationPanel_VBox/styles/panel = ExtResource("3_5dub1")
+HScrollBar/constants/padding_bottom = 5
+HScrollBar/constants/padding_top = 5
+HScrollBar/styles/grabber = ExtResource("4_gqxkj")
+HScrollBar/styles/grabber_highlight = ExtResource("4_5dub1")
+HScrollBar/styles/grabber_pressed = ExtResource("4_5dub1")
+HScrollBar/styles/scroll = ExtResource("4_jvxvc")
+HScrollBar/styles/scroll_focus = ExtResource("8_mso7w")
 HeaderLarge/base_type = &"Label"
 HeaderLarge/colors/font_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
 HeaderLarge/colors/font_outline_color = Color(0.8, 0.8, 0.8, 1)
@@ -57,19 +69,19 @@ IconButton/colors/icon_normal_color = Color(0.8, 0.8, 0.8, 1)
 IconButton/colors/icon_pressed_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
 IconButton/font_sizes/font_size = 16
 IconButton/fonts/font = ExtResource("1_ou2w3")
-IconButton/styles/disabled = ExtResource("5_bv5qq")
-IconButton/styles/disabled_mirrored = ExtResource("5_bv5qq")
-IconButton/styles/focus = ExtResource("5_28dqr")
-IconButton/styles/hover = ExtResource("5_28dqr")
-IconButton/styles/hover_mirrored = ExtResource("5_28dqr")
-IconButton/styles/hover_pressed = ExtResource("6_1k1wj")
-IconButton/styles/hover_pressed_mirrored = ExtResource("6_1k1wj")
-IconButton/styles/normal = ExtResource("5_bv5qq")
-IconButton/styles/normal_mirrored = ExtResource("5_bv5qq")
-IconButton/styles/pressed = ExtResource("6_1k1wj")
-IconButton/styles/pressed_mirrored = ExtResource("6_1k1wj")
+IconButton/styles/disabled = ExtResource("6_mso7w")
+IconButton/styles/disabled_mirrored = ExtResource("6_mso7w")
+IconButton/styles/focus = ExtResource("7_fb1sk")
+IconButton/styles/hover = ExtResource("7_fb1sk")
+IconButton/styles/hover_mirrored = ExtResource("7_fb1sk")
+IconButton/styles/hover_pressed = ExtResource("8_q2op3")
+IconButton/styles/hover_pressed_mirrored = ExtResource("8_q2op3")
+IconButton/styles/normal = ExtResource("6_mso7w")
+IconButton/styles/normal_mirrored = ExtResource("6_mso7w")
+IconButton/styles/pressed = ExtResource("8_q2op3")
+IconButton/styles/pressed_mirrored = ExtResource("8_q2op3")
 IconDecorationPanel/base_type = &"PanelContainer"
-IconDecorationPanel/styles/panel = ExtResource("5_g5wx6")
+IconDecorationPanel/styles/panel = ExtResource("9_5uc6m")
 ProjectButton/base_type = &"Button"
 ProjectButton/colors/font_color = Color(0.8, 0.8, 0.8, 1)
 ProjectButton/colors/font_disabled_color = Color(0.8, 0.8, 0.8, 0.78431374)
@@ -86,17 +98,17 @@ ProjectButton/colors/icon_normal_color = Color(0.8, 0.8, 0.8, 1)
 ProjectButton/colors/icon_pressed_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
 ProjectButton/font_sizes/font_size = 16
 ProjectButton/fonts/font = ExtResource("1_ou2w3")
-ProjectButton/styles/disabled = ExtResource("8_7oyx8")
-ProjectButton/styles/disabled_mirrored = ExtResource("8_7oyx8")
-ProjectButton/styles/focus = ExtResource("9_x7ep0")
-ProjectButton/styles/hover = ExtResource("9_x7ep0")
-ProjectButton/styles/hover_mirrored = ExtResource("9_x7ep0")
-ProjectButton/styles/hover_pressed = ExtResource("10_x7ep0")
-ProjectButton/styles/hover_pressed_mirrored = ExtResource("10_x7ep0")
-ProjectButton/styles/normal = ExtResource("10_bv5qq")
-ProjectButton/styles/normal_mirrored = ExtResource("10_bv5qq")
-ProjectButton/styles/pressed = ExtResource("10_x7ep0")
-ProjectButton/styles/pressed_mirrored = ExtResource("10_x7ep0")
+ProjectButton/styles/disabled = ExtResource("10_lbt73")
+ProjectButton/styles/disabled_mirrored = ExtResource("10_lbt73")
+ProjectButton/styles/focus = ExtResource("11_ubuj5")
+ProjectButton/styles/hover = ExtResource("11_ubuj5")
+ProjectButton/styles/hover_mirrored = ExtResource("11_ubuj5")
+ProjectButton/styles/hover_pressed = ExtResource("12_0a7wf")
+ProjectButton/styles/hover_pressed_mirrored = ExtResource("12_0a7wf")
+ProjectButton/styles/normal = ExtResource("13_omfmy")
+ProjectButton/styles/normal_mirrored = ExtResource("13_omfmy")
+ProjectButton/styles/pressed = ExtResource("12_0a7wf")
+ProjectButton/styles/pressed_mirrored = ExtResource("12_0a7wf")
 SelectCategoryButton/base_type = &"Button"
 SelectCategoryButton/colors/font_color = Color(0.8, 0.8, 0.8, 1)
 SelectCategoryButton/colors/font_disabled_color = Color(0.8, 0.8, 0.8, 0.78431374)
@@ -107,17 +119,17 @@ SelectCategoryButton/colors/font_outline_color = Color(0.9019608, 0.9019608, 0.9
 SelectCategoryButton/colors/font_pressed_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
 SelectCategoryButton/font_sizes/font_size = 20
 SelectCategoryButton/fonts/font = ExtResource("1_ou2w3")
-SelectCategoryButton/styles/disabled = ExtResource("8_7acva")
-SelectCategoryButton/styles/disabled_mirrored = ExtResource("8_7acva")
-SelectCategoryButton/styles/focus = ExtResource("9_7acva")
-SelectCategoryButton/styles/hover = ExtResource("9_7acva")
-SelectCategoryButton/styles/hover_mirrored = ExtResource("9_7acva")
-SelectCategoryButton/styles/hover_pressed = ExtResource("10_t2041")
-SelectCategoryButton/styles/hover_pressed_mirrored = ExtResource("10_t2041")
-SelectCategoryButton/styles/normal = ExtResource("8_bi8wl")
-SelectCategoryButton/styles/normal_mirrored = ExtResource("8_bi8wl")
-SelectCategoryButton/styles/pressed = ExtResource("10_t2041")
-SelectCategoryButton/styles/pressed_mirrored = ExtResource("10_t2041")
+SelectCategoryButton/styles/disabled = ExtResource("14_dy34u")
+SelectCategoryButton/styles/disabled_mirrored = ExtResource("14_dy34u")
+SelectCategoryButton/styles/focus = ExtResource("15_u21t6")
+SelectCategoryButton/styles/hover = ExtResource("15_u21t6")
+SelectCategoryButton/styles/hover_mirrored = ExtResource("15_u21t6")
+SelectCategoryButton/styles/hover_pressed = ExtResource("16_gdgmp")
+SelectCategoryButton/styles/hover_pressed_mirrored = ExtResource("16_gdgmp")
+SelectCategoryButton/styles/normal = ExtResource("17_a8pin")
+SelectCategoryButton/styles/normal_mirrored = ExtResource("17_a8pin")
+SelectCategoryButton/styles/pressed = ExtResource("16_gdgmp")
+SelectCategoryButton/styles/pressed_mirrored = ExtResource("16_gdgmp")
 TextNormal/base_type = &"Label"
 TextNormal/colors/font_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
 TextNormal/colors/font_outline_color = Color(0.8, 0.8, 0.8, 1)
@@ -131,4 +143,11 @@ TextSmall/colors/font_shadow_color = Color(0.12, 0.12, 0.12, 1)
 TextSmall/font_sizes/font_size = 12
 TextSmall/fonts/font = ExtResource("1_ou2w3")
 TooltipPanel/base_type = &"IconDecorationPanel"
-TooltipPanel/styles/panel = ExtResource("1_ylqdk")
+TooltipPanel/styles/panel = ExtResource("1_moj4y")
+VScrollBar/constants/padding_left = 5
+VScrollBar/constants/padding_right = 5
+VScrollBar/styles/grabber = ExtResource("4_gqxkj")
+VScrollBar/styles/grabber_highlight = ExtResource("4_5dub1")
+VScrollBar/styles/grabber_pressed = ExtResource("4_5dub1")
+VScrollBar/styles/scroll = ExtResource("22_fb1sk")
+VScrollBar/styles/scroll_focus = ExtResource("8_mso7w")

@@ -1,0 +1,14 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://c3ytv8ecpl8pr"]
+
+[ext_resource type="Texture2D" uid="uid://cy3yjhlxlmy1n" path="res://themes/sprites/VBraces.png" id="1_8048r"]
+
+[resource]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+texture = ExtResource("1_8048r")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0

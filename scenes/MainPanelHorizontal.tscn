@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cydqbha2vnpv4"]
 
 [ext_resource type="Theme" uid="uid://bupq53g1myco8" path="res://themes/MainTheme.tres" id="1_p67qo"]
-[ext_resource type="StyleBox" uid="uid://dj24es6u3qk4p" path="res://themes/styleboxes/MainPanelStylebox.tres" id="2_p67qo"]
+[ext_resource type="StyleBox" uid="uid://dj24es6u3qk4p" path="res://themes/styleboxes/panels/MainPanelStylebox.tres" id="2_p67qo"]
 [ext_resource type="Texture2D" uid="uid://d4hu3rg26xf1r" path="res://themes/sprites/GodotIcon.png" id="3_w5k0v"]
 [ext_resource type="Script" uid="uid://dgduxvncq4n1e" path="res://scripts/gui/PolylineTextureButton.gd" id="4_w5k0v"]
 [ext_resource type="Script" uid="uid://5yv0v21se6wf" path="res://scripts/gui/container_sizing/DynamicCustomSizeLimiter.gd" id="5_umi3g"]
