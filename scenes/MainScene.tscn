@@ -43,13 +43,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("2_1wiy7")
 
 [node name="MarginContainer" type="MarginContainer" parent="ScrollContainer" unique_id=1838920734]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-mouse_filter = 2
+mouse_filter = 0
 
 [node name="BackgroundContainer" type="Control" parent="ScrollContainer/MarginContainer" unique_id=27236939]
 layout_mode = 2
@@ -119,6 +120,6 @@ mouse_filter = 2
 
 [node name="ScrollDragProcessor" type="Node" parent="ScrollContainer" unique_id=2143699752 node_paths=PackedStringArray("input_area", "scroll_container")]
 script = ExtResource("7_1wiy7")
-input_area = NodePath("..")
+input_area = NodePath("../MarginContainer")
 scroll_container = NodePath("..")
 metadata/_custom_type_script = "uid://njkt7vw4anmx"
