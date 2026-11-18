@@ -1,3 +1,6 @@
+## A Controller [Node] that adjusts the
+## offset transform of a [PagedContainer].
+##
 ## A Controller [Node] that adjusts
 ## the offset transform of a [PagedContainer] so that
 ## the top-left corner of a specific page in the [member paged_container]
@@ -19,7 +22,18 @@
 ## a [Control] with [member Control.clip_contents] enabled.
 ## - The top-left corner of the [member paged_container]
 ## aligns with that of said parent [Control].
+## [br]
+## - The [member paged_container] only has visible
+## [Control]s as its children.
+## [br]
+## - Every page of the [member paged_container] is of the same size.
+## [br]
+## The [member paged_container] can add and remove its children.
+## However, in such case, the [member tracked_visible_item] of this Controller
+## must be manually updated before the [member paged_container]
+## re-sorts its children.
 extends Node
+class_name PagedContainerScroller
 
 
 # These values should be set once and never changed.
@@ -73,8 +87,8 @@ var tracked_visible_item: int = 0
 ## [br]
 ## This method is used to find the item to track when the page scrolling stops.
 func get_nearest_page_index(check_position: Vector2) -> int:
-    var page_rects: Array[Rect2] = paged_container.get_page_rects()
-    if page_rects.size() > 1:
+    if paged_container.get_page_count() > 1:
+        var page_rects: Array[Rect2] = paged_container.get_page_rects()
         # Limit the position to the bounds of the page's top-left corners.
         check_position = check_position.clamp(
             Vector2.ZERO, page_rects.back().position
@@ -93,33 +107,40 @@ func get_nearest_page_index(check_position: Vector2) -> int:
 ## Get the index of the page in [member paged_container]
 ## containing the [member tracked_visible_item].
 func get_tracked_page() -> int:
-    return paged_container.get_visible_item_page_index(tracked_visible_item)
+    if paged_container.get_page_count() > 0:
+        return paged_container.get_visible_item_page_index(tracked_visible_item)
+    else:
+        return 0
 
 
 func next_page() -> void:
-    var current_page: = get_tracked_page()
-    # Get the page of the tracked visible item,
-    # then move onto the next page, and
-    # set the first visible item of that page
-    tracked_visible_item = (
-        paged_container.get_page_visible_item_index_range(
-            current_page + 1
-        )[0]
-    )
-    update_page_change_button_state()
+    if paged_container.get_child_count() > 0:
+        var current_page: = get_tracked_page()
+        # Get the page of the tracked visible item,
+        # then move onto the next page, and
+        # set the first visible item of that page
+        tracked_visible_item = (
+            paged_container.get_page_visible_item_index_range(
+                current_page + 1
+            )[0]
+        )
+        update_page_change_button_state()
+        pass
     pass
 
 func prev_page() -> void:
-    var current_page: = get_tracked_page()
-    # Get the page of the tracked visible item,
-    # then move onto the previous page, and
-    # set the first visible item of that page
-    tracked_visible_item = (
-        paged_container.get_page_visible_item_index_range(
-            current_page - 1
-        )[0]
-    )
-    update_page_change_button_state()
+    if paged_container.get_child_count() > 0:
+        var current_page: = get_tracked_page()
+        # Get the page of the tracked visible item,
+        # then move onto the previous page, and
+        # set the first visible item of that page
+        tracked_visible_item = (
+            paged_container.get_page_visible_item_index_range(
+                current_page - 1
+            )[0]
+        )
+        update_page_change_button_state()
+        pass
     pass
 
 
@@ -157,9 +178,12 @@ func update_page_change_button_state() -> void:
 ## aligns the top-left corner of the page containing the tracked item
 ## with the top-left corner of the [member paged_container].
 func get_tracked_page_scroll_position() -> Vector2:
-    # This offset transform is simply the negative of
-    # the local position of the page in the paged_container.
-    return -paged_container.get_page_rects()[get_tracked_page()].position
+    if paged_container.get_page_count() > 0:
+        # This offset transform is simply the negative of
+        # the local position of the page in the paged_container.
+        return -paged_container.get_page_rects()[get_tracked_page()].position
+    else:
+        return Vector2.ZERO
 
 
 func snap_to_target_page_scroll() -> void:
@@ -187,20 +211,68 @@ func untrack_page_item_focus_entered(item: Control) -> void:
     pass
 
 
-func clamp_offset_position() -> void:
-    paged_container.offset_transform_position = (
-        paged_container.offset_transform_position.clamp(
-            paged_container.size - paged_container.get_pages_bound_size(),
-            Vector2.ZERO
-        )
-    )
-    pass
+## Clamp the given [param offset] position such that
+## the un-offsetted bounding box
+## of the [member paged_contaier] is always contained
+## in the bounding box (offsetted by the given position) for all of the pages
+## (if the former is no larger than the latter in any dimension).
+## [br]
+## If the bounding box of the [member paged_container] is larger
+## than the bounding box for all of the pages in any dimension,
+## then the offset position in that dimension is always set to 0.
+## [br]
+## Returns the clamped offset position.
+func clamp_offset_position(offset: Vector2) -> Vector2:
+    if paged_container.get_page_count() > 0:
+        var pages_bound_size: Vector2 = paged_container.get_pages_bound_size()
+        var container_bound_size: Vector2 = paged_container.size
+        
+        # If the bounding box for all of the pages is smaller than
+        # that of the paged_container in the x-dimension,
+        # set the x-offset to 0.
+        if pages_bound_size.x <= container_bound_size.x:
+            offset.x = 0
+            pass
+        # Otherwise, clamp it between 0 (max)
+        # (so that the bounding box of all the pages covers the left side
+        # of the unoffsetted bounding box of the paged_container)
+        # and container_bound_size.x - pages_bound_size.x (min)
+        # (so that the bounding box of all the pages covers the right side
+        # of the unoffsetted bounding box of the paged_container).
+        else:
+            offset.x = clampf(
+                offset.x, container_bound_size.x - pages_bound_size.x, 0
+            )
+            pass
+        
+        # If the bounding box for all of the pages is smaller than
+        # that of the paged_container in the y-dimension,
+        # set the y-offset to 0.
+        if pages_bound_size.y <= container_bound_size.y:
+            offset.y = 0
+            pass
+        # Otherwise, clamp it between 0 (max)
+        # (so that the bounding box of all the pages covers the top side
+        # of the unoffsetted bounding box of the paged_container)
+        # and container_bound_size.x - pages_bound_size.x (min)
+        # (so that the bounding box of all the pages covers the bottom side
+        # of the unoffsetted bounding box of the paged_container).
+        else:
+            offset.y = clampf(
+                offset.y, container_bound_size.y - pages_bound_size.y, 0
+            )
+            pass
+        return offset
+    else:
+        return Vector2.ZERO
 
 
 func on_items_resorted() -> void:
     snap_to_target_page_scroll()
     update_page_change_button_state()
-    clamp_offset_position()
+    paged_container.offset_transform_position = clamp_offset_position(
+        paged_container.offset_transform_position
+    )
     pass
 
 
@@ -216,17 +288,20 @@ func setup_paged_container() -> void:
 
 func on_scrolled(scroll: Vector2) -> void:
     time_since_scroll_end = 0
-    paged_container.offset_transform_position -= scroll
-    clamp_offset_position()
-    var current_page: int = get_tracked_page()
-    var new_page: int = get_nearest_page_index(
-        -paged_container.offset_transform_position
+    paged_container.offset_transform_position = clamp_offset_position(
+        paged_container.offset_transform_position - scroll
     )
-    tracked_visible_item = paged_container.get_page_visible_item_index_range(
-        new_page
-    )[0]
-    if current_page != new_page:
-        update_page_change_button_state()
+    if paged_container.get_page_count() > 0:
+        var current_page: int = get_tracked_page()
+        var new_page: int = get_nearest_page_index(
+            -paged_container.offset_transform_position
+        )
+        tracked_visible_item = (
+            paged_container.get_page_visible_item_index_range(new_page)[0]
+        )
+        if current_page != new_page:
+            update_page_change_button_state()
+            pass
         pass
     pass
 
@@ -245,7 +320,9 @@ func _process(delta: float) -> void:
         pass
     else:
         # Slowly scroll towards the target if we are not close enough.
-        var target_scroll_position: = get_tracked_page_scroll_position()
+        var target_scroll_position: = clamp_offset_position(
+            get_tracked_page_scroll_position()
+        )
         var current_scroll_position: = paged_container.offset_transform_position
         if not current_scroll_position.is_equal_approx(target_scroll_position):
             paged_container.offset_transform_position = (

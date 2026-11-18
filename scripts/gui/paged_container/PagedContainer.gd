@@ -53,8 +53,6 @@ class_name PagedContainer
 
 @export var page_ref: FlowContainer
 
-@export var force_maximum_page_size: bool = false
-
 
 @export var dummy_pool: NodePool = NodePool.new():
     set(value):
@@ -163,7 +161,7 @@ func fake_sort_children() -> void:
     
     # If there needs to be more than 1 page,
     # set the minimum size of each page to its maximum size
-    if force_maximum_page_size or page_visible_item_ranges.size() > 1:
+    if page_visible_item_ranges.size() > 1:
         var page_max_size: Vector2 = page_ref.get_combined_maximum_size()
         if page_max_size.x >= 0:
             page_ref.custom_minimum_size.x = page_max_size.x
@@ -240,19 +238,16 @@ func fake_sort_children() -> void:
 
 func _get_minimum_size() -> Vector2:
     if page_ref:
-        if force_maximum_page_size:
+        var child_controls: Array[Control] = get_visible_child_controls()
+        var items_bound_info: = get_items_bound_for_page(
+            page_ref, child_controls, 0, true
+        )
+        if items_bound_info[0] < child_controls.size():
             return page_container_ref.get_combined_maximum_size()
         else:
-            var child_controls: Array[Control] = get_visible_child_controls()
-            var items_bound_info: = get_items_bound_for_page(
-                page_ref, child_controls, 0, true
+            return page_container_ref.get_combined_maximum_size().min(
+                Vector2(items_bound_info[1], items_bound_info[2])
             )
-            if items_bound_info[0] < child_controls.size():
-                return page_container_ref.get_combined_maximum_size()
-            else:
-                return page_container_ref.get_combined_maximum_size().min(
-                    Vector2(items_bound_info[1], items_bound_info[2])
-                )
     else:
         return Vector2.ZERO
 
