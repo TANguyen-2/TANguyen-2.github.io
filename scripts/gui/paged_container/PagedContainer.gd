@@ -20,6 +20,11 @@
 ## of the [PagedContainer] itself.
 ## [br]
 ## [br]
+## This container cannot function properly if
+## itself, [member page_ref], or [member page_container_ref]
+## uses RTL layout direction.
+## [br]
+## [br]
 ## It is recommended that each [PagedContainer] at bare minimum has the same
 ## size in the secondary axis as its [member page_container_ref], and that
 ## the maximum sizes of all 3 containers follow the order:
@@ -33,10 +38,12 @@
 ## [br]
 ## This container additionally assumes that
 ## the [member Control.custom_minimum_size] of the [member page_ref]
-## is exclusively controlled by this container itself, and that
+## is exclusively controlled by this container itself, that
 ## the the [member page_ref] and [member page_container_ref] containers
 ## have no child [Control]s other than the ones
-## added by this container itself.
+## added by this container itself,
+## and that the [member page_ref] and [member page_container_ref] containers
+## are set once before [method ready] is called.
 @tool
 extends Container
 class_name PagedContainer
@@ -45,6 +52,8 @@ class_name PagedContainer
 @export var page_container_ref: BoxContainer
 
 @export var page_ref: FlowContainer
+
+@export var force_maximum_page_size: bool = false
 
 
 @export var dummy_pool: NodePool = NodePool.new():
@@ -59,25 +68,62 @@ class_name PagedContainer
 ## not accounting for any offset transforms.
 var page_rects: Array[Rect2] = []
 
-## The array of page indices
-## each visible child [Control]s is fitted into.
+## The size of the rectangle that contains all of the pages.
+var pages_bound_size: Vector2 = Vector2.ZERO
+
+## The array mapping the index of each visible child [Control]s
+## to the index of the page it is fitted into.
 var visible_item_pages: PackedInt32Array = []
 
+## The array mapping the index of each page
+## to the range of indices among visible child [Control]s
+## for items that are fitted into said page.
+var page_visible_item_ranges: PackedVector2Array = []
+
+
+## Get the number of pages into which the visible child [Control]s
+## of this container are fitted into.
+## [br]
+## [b]Note:[/b]
+## This method is only valid after this container
+## has sorted all visible child [Control]s.
+func get_page_count() -> int:
+    return page_rects.size()
 
 ## Get the array of local rects in which each page is fitted,
 ## not accounting for any offset transforms.
+## [br]
+## [b]Note:[/b]
+## This method is only valid after this container
+## has sorted all visible child [Control]s.
 func get_page_rects() -> Array[Rect2]:
     return page_rects
+
+## The size of the rectangle that contains all of the pages.
+## [br]
+## [b]Note:[/b]
+## This method is only valid after this container
+## has sorted all visible child [Control]s.
+func get_pages_bound_size() -> Vector2:
+    return pages_bound_size
 
 ## Get the index of the page which the item with the given index
 ## in the array of visible child [Control]s is conceptually fitted into.
 ## [br]
-## If no item with the given index has been arranged,
-## return [code]-1[/code] instead.
+## [b]Note:[/b]
+## This method is only valid after this container
+## has sorted all visible child [Control]s.
 func get_visible_item_page_index(visible_child_index: int) -> int:
-    if visible_child_index > visible_item_pages.size():
-        return -1
     return visible_item_pages[visible_child_index]
+
+## Get the range of indices among visible child [Control]s
+## for items that are fitted into the page at the given index.
+## [br]
+## [b]Note:[/b]
+## This method is only valid after this container
+## has sorted all visible child [Control]s.
+func get_page_visible_item_index_range(page_index: int) -> Vector2i:
+    return page_visible_item_ranges[page_index]
 
 
 func _notification(what: int) -> void:
@@ -98,7 +144,7 @@ func get_visible_child_controls() -> Array[Control]:
 
 
 func fake_sort_children() -> void:
-    var item_ranges: PackedVector2Array = []
+    page_visible_item_ranges.resize(0)
     var child_controls: Array[Control] = get_visible_child_controls()
     
     var check_start_index: int = 0
@@ -107,7 +153,7 @@ func fake_sort_children() -> void:
         var page_bound_info: = get_items_bound_for_page(
             page_ref, child_controls, check_start_index, true
         )
-        item_ranges.append(
+        page_visible_item_ranges.append(
             Vector2(check_start_index, page_bound_info[0])
         )
         check_start_index = int(page_bound_info[0])
@@ -117,7 +163,7 @@ func fake_sort_children() -> void:
     
     # If there needs to be more than 1 page,
     # set the minimum size of each page to its maximum size
-    if item_ranges.size() > 1:
+    if force_maximum_page_size or page_visible_item_ranges.size() > 1:
         var page_max_size: Vector2 = page_ref.get_combined_maximum_size()
         if page_max_size.x >= 0:
             page_ref.custom_minimum_size.x = page_max_size.x
@@ -131,7 +177,7 @@ func fake_sort_children() -> void:
     # Otherwise, if there is only 1 page,
     # set the minimum size of the page so that
     # as many items can be contained on a single line as possible.
-    elif item_ranges.size() == 1:
+    elif page_visible_item_ranges.size() == 1:
         page_ref.custom_minimum_size = single_page_item_bound_size
         page_ref.size = single_page_item_bound_size
         pass
@@ -140,13 +186,14 @@ func fake_sort_children() -> void:
     var dummy_pages: Array[DummyContainerChild] = []
     var child_page_local_rects: Array[Rect2] = []
     
-    dummy_pages.resize(item_ranges.size())
+    dummy_pages.resize(page_visible_item_ranges.size())
     
-    for i in range(item_ranges.size()):
+    for i in range(page_visible_item_ranges.size()):
         var dummy_page: = new_dummy_container_child()
         child_page_local_rects += get_page_local_child_rects(
             page_ref, child_controls,
-            floori(item_ranges[i].x), floori(item_ranges[i].y), dummy_page
+            floori(page_visible_item_ranges[i].x),
+            floori(page_visible_item_ranges[i].y), dummy_page
         )
         dummy_pages[i] = dummy_page
         page_container_ref.add_child(dummy_page)
@@ -158,18 +205,28 @@ func fake_sort_children() -> void:
         page_container_ref.get_bound_minimum_size()
     )
     page_container_ref.notification(NOTIFICATION_SORT_CHILDREN)
-    page_rects.resize(item_ranges.size())
+    page_rects.resize(page_visible_item_ranges.size())
     
     for i in range(dummy_pages.size()):
         page_rects[i] = Rect2(dummy_pages[i].position, dummy_pages[i].size)
         remove_dummy_container_child(dummy_pages[i])
         pass
     
+    if page_rects.size() > 0:
+        pages_bound_size = page_rects.back().position + page_rects.back().size
+        pass
+    else:
+        pages_bound_size = Vector2.ZERO
+        pass
+    
     # Use the position of each page to calculate
     # the position of each item relative to this container.
     visible_item_pages.resize(child_controls.size())
     for p in range(dummy_pages.size()):
-        for i in range(floori(item_ranges[p][0]), floori(item_ranges[p][1])):
+        for i in range(
+            floori(page_visible_item_ranges[p][0]),
+            floori(page_visible_item_ranges[p][1])
+        ):
             var child_rect: Rect2 = child_page_local_rects[i]
             child_rect.position += dummy_pages[p].position
             fit_child_in_rect(
@@ -183,16 +240,19 @@ func fake_sort_children() -> void:
 
 func _get_minimum_size() -> Vector2:
     if page_ref:
-        var child_controls: Array[Control] = get_visible_child_controls()
-        var items_bound_info: = get_items_bound_for_page(
-            page_ref, child_controls, 0, true
-        )
-        if items_bound_info[0] < child_controls.size():
+        if force_maximum_page_size:
             return page_container_ref.get_combined_maximum_size()
         else:
-            return page_container_ref.get_combined_maximum_size().min(
-                Vector2(items_bound_info[1], items_bound_info[2])
+            var child_controls: Array[Control] = get_visible_child_controls()
+            var items_bound_info: = get_items_bound_for_page(
+                page_ref, child_controls, 0, true
             )
+            if items_bound_info[0] < child_controls.size():
+                return page_container_ref.get_combined_maximum_size()
+            else:
+                return page_container_ref.get_combined_maximum_size().min(
+                    Vector2(items_bound_info[1], items_bound_info[2])
+                )
     else:
         return Vector2.ZERO
 
@@ -392,3 +452,9 @@ func get_page_local_child_rects(
         remove_dummy_container_child(dummy)
         pass
     return local_child_rects
+
+
+func _ready() -> void:
+    # Re-sort the container when its maximum size (and therefore page-layout) is changed.
+    page_ref.maximum_size_changed.connect(queue_sort)
+    pass

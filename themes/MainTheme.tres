@@ -4,23 +4,24 @@
 [ext_resource type="FontFile" uid="uid://bv43bx1438y3q" path="res://themes/cascadia-mono/CascadiaMono-VariableFont_wght.ttf" id="1_ou2w3"]
 [ext_resource type="StyleBox" uid="uid://dyp73awvd8hb6" path="res://themes/styleboxes/panels/HBoxPanelStylebox.tres" id="2_gqxkj"]
 [ext_resource type="StyleBox" uid="uid://bao1bsglr3vds" path="res://themes/styleboxes/panels/VBoxPanelStylebox.tres" id="3_5dub1"]
-[ext_resource type="StyleBox" uid="uid://btctkfar6du7o" path="res://themes/styleboxes/scrollbar/ScrollbarGrabberHighlightedStylebox.tres" id="4_5dub1"]
-[ext_resource type="StyleBox" uid="uid://cjmwlnps2ckxp" path="res://themes/styleboxes/scrollbar/ScrollbarGrabberStylebox.tres" id="4_gqxkj"]
-[ext_resource type="StyleBox" uid="uid://dec44rp3ixcug" path="res://themes/styleboxes/scrollbar/HScrollbarStylebox.tres" id="4_jvxvc"]
+[ext_resource type="StyleBox" uid="uid://cjmwlnps2ckxp" path="res://themes/styleboxes/bars/ScrollbarGrabberStylebox.tres" id="4_fb1sk"]
+[ext_resource type="StyleBox" uid="uid://btctkfar6du7o" path="res://themes/styleboxes/bars/ScrollbarGrabberHighlightedStylebox.tres" id="5_q2op3"]
+[ext_resource type="StyleBox" uid="uid://dec44rp3ixcug" path="res://themes/styleboxes/bars/HScrollbarStylebox.tres" id="6_5uc6m"]
 [ext_resource type="StyleBox" uid="uid://bh7nnolmplbtk" path="res://themes/styleboxes/buttons/icon/IconButtonStylebox.tres" id="6_mso7w"]
 [ext_resource type="StyleBox" uid="uid://bgnt875poofg5" path="res://themes/styleboxes/buttons/icon/IconButtonHighlightedStylebox.tres" id="7_fb1sk"]
-[ext_resource type="StyleBox" uid="uid://c348oq2akr51y" path="res://themes/styleboxes/scrollbar/ScrollbarFocusStylebox.tres" id="8_mso7w"]
+[ext_resource type="StyleBox" uid="uid://c348oq2akr51y" path="res://themes/styleboxes/bars/ScrollbarFocusStylebox.tres" id="7_lbt73"]
 [ext_resource type="StyleBox" uid="uid://bkpxxw24mue8y" path="res://themes/styleboxes/buttons/icon/IconButtonPressedStylebox.tres" id="8_q2op3"]
 [ext_resource type="StyleBox" uid="uid://smjoxemrfpk3" path="res://themes/styleboxes/panels/IconPanelStylebox.tres" id="9_5uc6m"]
 [ext_resource type="StyleBox" uid="uid://000pp56qw16f" path="res://themes/styleboxes/buttons/project/ProjectButtonDisabledStylebox.tres" id="10_lbt73"]
 [ext_resource type="StyleBox" uid="uid://k3nww0an3eg3" path="res://themes/styleboxes/buttons/project/ProjectButtonHighlightedStylebox.tres" id="11_ubuj5"]
 [ext_resource type="StyleBox" uid="uid://c7085cvl0mjwv" path="res://themes/styleboxes/buttons/project/ProjectButtonPressedStylebox.tres" id="12_0a7wf"]
 [ext_resource type="StyleBox" uid="uid://o8gb3jf0flpa" path="res://themes/styleboxes/buttons/project/ProjectButtonStylebox.tres" id="13_omfmy"]
+[ext_resource type="StyleBox" uid="uid://ceulme1m8nlx4" path="res://themes/styleboxes/bars/ProgressBarFillStylebox.tres" id="13_ubuj5"]
 [ext_resource type="StyleBox" uid="uid://c3bbywe2v6uvw" path="res://themes/styleboxes/buttons/category/CategoryButtonDisabledStylebox.tres" id="14_dy34u"]
 [ext_resource type="StyleBox" uid="uid://c7idi02i76aqy" path="res://themes/styleboxes/buttons/category/CategoryButtonHighlightedStylebox.tres" id="15_u21t6"]
 [ext_resource type="StyleBox" uid="uid://bua1fordpebns" path="res://themes/styleboxes/buttons/category/CategoryButtonPressedStylebox.tres" id="16_gdgmp"]
 [ext_resource type="StyleBox" uid="uid://dihnui44d3h7" path="res://themes/styleboxes/buttons/category/CategoryButtonStylebox.tres" id="17_a8pin"]
-[ext_resource type="StyleBox" uid="uid://c3ytv8ecpl8pr" path="res://themes/styleboxes/scrollbar/VScrollbarStylebox.tres" id="22_fb1sk"]
+[ext_resource type="StyleBox" uid="uid://c3ytv8ecpl8pr" path="res://themes/styleboxes/bars/VScrollbarStylebox.tres" id="22_0a7wf"]
 
 [resource]
 default_font = ExtResource("1_ou2w3")
@@ -37,11 +38,11 @@ DecorationPanel_VBox/base_type = &"IconDecorationPanel"
 DecorationPanel_VBox/styles/panel = ExtResource("3_5dub1")
 HScrollBar/constants/padding_bottom = 5
 HScrollBar/constants/padding_top = 5
-HScrollBar/styles/grabber = ExtResource("4_gqxkj")
-HScrollBar/styles/grabber_highlight = ExtResource("4_5dub1")
-HScrollBar/styles/grabber_pressed = ExtResource("4_5dub1")
-HScrollBar/styles/scroll = ExtResource("4_jvxvc")
-HScrollBar/styles/scroll_focus = ExtResource("8_mso7w")
+HScrollBar/styles/grabber = ExtResource("4_fb1sk")
+HScrollBar/styles/grabber_highlight = ExtResource("5_q2op3")
+HScrollBar/styles/grabber_pressed = ExtResource("5_q2op3")
+HScrollBar/styles/scroll = ExtResource("6_5uc6m")
+HScrollBar/styles/scroll_focus = ExtResource("7_lbt73")
 HeaderLarge/base_type = &"Label"
 HeaderLarge/colors/font_color = Color(0.9019608, 0.9019608, 0.9019608, 1)
 HeaderLarge/colors/font_outline_color = Color(0.8, 0.8, 0.8, 1)
@@ -82,6 +83,10 @@ IconButton/styles/pressed = ExtResource("8_q2op3")
 IconButton/styles/pressed_mirrored = ExtResource("8_q2op3")
 IconDecorationPanel/base_type = &"PanelContainer"
 IconDecorationPanel/styles/panel = ExtResource("9_5uc6m")
+ProgressBar/colors/font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+ProgressBar/font_sizes/font_size = 32
+ProgressBar/styles/background = ExtResource("6_5uc6m")
+ProgressBar/styles/fill = ExtResource("13_ubuj5")
 ProjectButton/base_type = &"Button"
 ProjectButton/colors/font_color = Color(0.8, 0.8, 0.8, 1)
 ProjectButton/colors/font_disabled_color = Color(0.8, 0.8, 0.8, 0.78431374)
@@ -146,8 +151,8 @@ TooltipPanel/base_type = &"IconDecorationPanel"
 TooltipPanel/styles/panel = ExtResource("1_moj4y")
 VScrollBar/constants/padding_left = 5
 VScrollBar/constants/padding_right = 5
-VScrollBar/styles/grabber = ExtResource("4_gqxkj")
-VScrollBar/styles/grabber_highlight = ExtResource("4_5dub1")
-VScrollBar/styles/grabber_pressed = ExtResource("4_5dub1")
-VScrollBar/styles/scroll = ExtResource("22_fb1sk")
-VScrollBar/styles/scroll_focus = ExtResource("8_mso7w")
+VScrollBar/styles/grabber = ExtResource("4_fb1sk")
+VScrollBar/styles/grabber_highlight = ExtResource("5_q2op3")
+VScrollBar/styles/grabber_pressed = ExtResource("5_q2op3")
+VScrollBar/styles/scroll = ExtResource("22_0a7wf")
+VScrollBar/styles/scroll_focus = ExtResource("7_lbt73")

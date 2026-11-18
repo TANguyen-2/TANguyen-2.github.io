@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://p0i4ufbdnnup"]
 
-[ext_resource type="Script" uid="uid://xhjlf0w71g1t" path="res://scripts/SceneController.gd" id="1_echbf"]
+[ext_resource type="Script" uid="uid://xhjlf0w71g1t" path="res://scripts/MainController.gd" id="1_echbf"]
 [ext_resource type="Theme" uid="uid://bupq53g1myco8" path="res://themes/MainTheme.tres" id="2_1wiy7"]
 [ext_resource type="Texture2D" uid="uid://byo1qoojm5v5k" path="res://themes/sprites/StarSizeAndAlphaCurve.tres" id="2_611at"]
 [ext_resource type="Script" uid="uid://c83q5d2ndymeh" path="res://scripts/BackgroundParticleSpawner.gd" id="2_c6dvc"]
 [ext_resource type="Texture2D" uid="uid://bc3vk8u68hljd" path="res://themes/sprites/Star.png" id="2_k24pf"]
-[ext_resource type="PackedScene" uid="uid://cydqbha2vnpv4" path="res://scenes/MainPanelHorizontal.tscn" id="3_c6dvc"]
-[ext_resource type="Script" uid="uid://njkt7vw4anmx" path="res://scripts/gui/input_processing/ScrollDragProcessor.gd" id="7_1wiy7"]
+[ext_resource type="Script" uid="uid://njkt7vw4anmx" path="res://scripts/gui/input_processing/ScrollInputProcessor.gd" id="7_1wiy7"]
+[ext_resource type="Texture2D" uid="uid://do7edxsf16q7g" path="res://themes/sprites/BootSplash.png" id="7_u1u68"]
+[ext_resource type="Script" uid="uid://7yl4lvik5wkx" path="res://scripts/gui/input_processing/ScrollContainerScroller.gd" id="8_u1u68"]
 
 [sub_resource type="Curve" id="Curve_k24pf"]
 _data = [Vector2(0, 1), inf_neg, -1.0, 1, 0, Vector2(1, 0), 0.0, inf_neg, 0, 1]
@@ -32,8 +33,12 @@ scale_min = 0.5
 scale_curve = ExtResource("2_611at")
 alpha_curve = ExtResource("2_611at")
 
-[node name="SceneController" type="Node" unique_id=1694758525]
+[node name="SceneController" type="Node" unique_id=1694758525 node_paths=PackedStringArray("custom_boot_screen", "boot_progress_bar", "main_panel_container")]
 script = ExtResource("1_echbf")
+custom_boot_screen = NodePath("ScrollContainer/MarginContainer/VSpacingContainer/HSpacingContainer/MainPanelContainer/SplashScreenContainer")
+boot_progress_bar = NodePath("ScrollContainer/MarginContainer/VSpacingContainer/HSpacingContainer/MainPanelContainer/SplashScreenContainer/ProgressBar")
+main_panel_path = &"res://scenes/MainPanelHorizontal.tscn"
+main_panel_container = NodePath("ScrollContainer/MarginContainer/VSpacingContainer/HSpacingContainer/MainPanelContainer")
 metadata/_custom_type_script = "uid://xhjlf0w71g1t"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=73470371]
@@ -96,14 +101,31 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
 mouse_filter = 2
 
-[node name="MainPanelContainer" type="BoxContainer" parent="ScrollContainer/MarginContainer/VSpacingContainer/HSpacingContainer" unique_id=2022106587]
+[node name="MainPanelContainer" type="MarginContainer" parent="ScrollContainer/MarginContainer/VSpacingContainer/HSpacingContainer" unique_id=560514356]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.9
-mouse_filter = 2
 
-[node name="MainPanel" parent="ScrollContainer/MarginContainer/VSpacingContainer/HSpacingContainer/MainPanelContainer" unique_id=2038782253 instance=ExtResource("3_c6dvc")]
+[node name="SplashScreenContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer/VSpacingContainer/HSpacingContainer/MainPanelContainer" unique_id=124405948]
 layout_mode = 2
+alignment = 1
+
+[node name="BootSplash" type="TextureRect" parent="ScrollContainer/MarginContainer/VSpacingContainer/HSpacingContainer/MainPanelContainer/SplashScreenContainer" unique_id=1945313053]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.9
+texture = ExtResource("7_u1u68")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ProgressBar" type="ProgressBar" parent="ScrollContainer/MarginContainer/VSpacingContainer/HSpacingContainer/MainPanelContainer/SplashScreenContainer" unique_id=658631187]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+max_value = 1.0
 
 [node name="RightSpacing" type="Control" parent="ScrollContainer/MarginContainer/VSpacingContainer/HSpacingContainer" unique_id=795813040]
 layout_mode = 2
@@ -118,8 +140,12 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
 mouse_filter = 2
 
-[node name="ScrollDragProcessor" type="Node" parent="ScrollContainer" unique_id=2143699752 node_paths=PackedStringArray("input_area", "scroll_container")]
+[node name="ScrollInputProcessor" type="Node" parent="ScrollContainer" unique_id=2143699752 node_paths=PackedStringArray("input_area")]
 script = ExtResource("7_1wiy7")
 input_area = NodePath("../MarginContainer")
-scroll_container = NodePath("..")
 metadata/_custom_type_script = "uid://njkt7vw4anmx"
+
+[node name="ScrollContainerScroller" type="Node" parent="ScrollContainer" unique_id=280950991 node_paths=PackedStringArray("scroll_processor", "scroll_container")]
+script = ExtResource("8_u1u68")
+scroll_processor = NodePath("../ScrollInputProcessor")
+scroll_container = NodePath("..")
