@@ -34,6 +34,7 @@
 ## re-sorts its children.
 extends Node
 class_name PagedContainerScroller
+signal tracked_item_changed()
 
 
 # These values should be set once and never changed.
@@ -87,7 +88,13 @@ var previous_mouse_scroll_global_position: Vector2
 ## such that the top-left corner of the page containing the tracked item
 ## aligns with what would be the top-left corner
 ## of the [member paged_container] if no offsets were applied.
-var tracked_visible_item: int = 0
+var tracked_visible_item: int = 0:
+    set(value):
+        if tracked_visible_item != value:
+            tracked_visible_item = value
+            tracked_item_changed.emit()
+            pass
+        pass
 
 
 ## Get the index of the page in the [member paged_container]
@@ -123,14 +130,17 @@ func get_tracked_page() -> int:
 
 
 func next_page() -> void:
-    if paged_container.get_child_count() > 0:
-        var current_page: = get_tracked_page()
+    var page_count: int = paged_container.get_page_count()
+    if page_count > 0:
         # Get the page of the tracked visible item,
         # then move onto the next page, and
-        # set the first visible item of that page
+        # set the first visible item of that page.
+        # If the next page exceeds the range of available pages,
+        # loop back to 0.
+        var current_page: = (get_tracked_page() + 1) % page_count
         tracked_visible_item = (
             paged_container.get_page_visible_item_index_range(
-                current_page + 1
+                current_page
             )[0]
         )
         update_page_change_button_state()
@@ -138,14 +148,23 @@ func next_page() -> void:
     pass
 
 func prev_page() -> void:
-    if paged_container.get_child_count() > 0:
-        var current_page: = get_tracked_page()
+    var page_count: int = paged_container.get_page_count()
+    if page_count > 0:
         # Get the page of the tracked visible item,
         # then move onto the previous page, and
-        # set the first visible item of that page
+        # set the first visible item of that page.
+        # If the next page exceeds the range of available pages,
+        # loop back to 0.
+        var current_page: = get_tracked_page() - 1
+        if current_page < 0:
+            current_page = (
+                (page_count - 1) +
+                ((current_page + 1) % page_count)
+            )
+            pass
         tracked_visible_item = (
             paged_container.get_page_visible_item_index_range(
-                current_page - 1
+                current_page
             )[0]
         )
         update_page_change_button_state()
@@ -166,18 +185,13 @@ func on_page_item_focused(focused_item_index: int) -> void:
 
 
 func update_page_change_button_state() -> void:
-    var current_page: = get_tracked_page()
-    if current_page <= 0:
+    # If we have at most 1 page, changing the page is impossible.
+    if paged_container.get_page_count() <= 1:
         prev_page_button.disabled = true
-        pass
-    else:
-        prev_page_button.disabled = false
-        pass
-    
-    if current_page + 1 >= paged_container.get_page_count():
         next_page_button.disabled = true
         pass
     else:
+        prev_page_button.disabled = false
         next_page_button.disabled = false
         pass
     pass

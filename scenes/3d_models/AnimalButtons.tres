@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ProjectItemInfo" format=3 uid="uid://c25k68q8mbljm"]
+
+[ext_resource type="Script" uid="uid://c8c6e2jow3tnw" path="res://scripts/content_panel/ProjectItemInfo.gd" id="1_kjv7x"]
+
+[resource]
+script = ExtResource("1_kjv7x")
+item_name = "Animal Buttons"
+icon_path = &"res://themes/sprites/GodotIcon.png"
+metadata/_custom_type_script = "uid://c8c6e2jow3tnw"

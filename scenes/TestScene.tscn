@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d2f1lb3otsq2c"]
 
 [ext_resource type="Theme" uid="uid://bupq53g1myco8" path="res://themes/MainTheme.tres" id="1_xpysu"]
-[ext_resource type="Script" uid="uid://trg0lr3xrb42" path="res://scenes/test_scene.gd" id="2_rlkm5"]
+[ext_resource type="Script" uid="uid://trg0lr3xrb42" path="res://scripts/TestSketch.gd" id="2_rlkm5"]
 
 [node name="TestScene" type="Control" unique_id=696233239]
 texture_filter = 1

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://rmjeydtbpnu6"]
+
+[ext_resource type="Theme" uid="uid://bupq53g1myco8" path="res://themes/MainTheme.tres" id="1_ucecq"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_byt2u"]
+
+[node name="PageButton" type="Button" unique_id=322660857]
+texture_filter = 1
+custom_minimum_size = Vector2(76, 64)
+custom_maximum_size = Vector2(76, 64)
+theme = ExtResource("1_ucecq")
+theme_type_variation = &"SelectCategoryButton"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_byt2u")
+text_overrun_behavior = 5

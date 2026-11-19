@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ProjectItemInfo" format=3 uid="uid://bj8nyqgq1id82"]
+
+[ext_resource type="Script" uid="uid://c8c6e2jow3tnw" path="res://scripts/content_panel/ProjectItemInfo.gd" id="1_0i2f5"]
+
+[resource]
+script = ExtResource("1_0i2f5")
+item_name = "Credits"
+icon_path = &"res://themes/sprites/GodotIcon.png"
+metadata/_custom_type_script = "uid://c8c6e2jow3tnw"

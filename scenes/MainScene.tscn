@@ -37,7 +37,7 @@ alpha_curve = ExtResource("2_611at")
 script = ExtResource("1_echbf")
 custom_boot_screen = NodePath("ScrollContainer/MarginContainer/VSpacingContainer/HSpacingContainer/MainPanelContainer/SplashScreenContainer")
 boot_progress_bar = NodePath("ScrollContainer/MarginContainer/VSpacingContainer/HSpacingContainer/MainPanelContainer/SplashScreenContainer/ProgressBar")
-main_panel_path = &"res://scenes/MainPanelHorizontal.tscn"
+main_panel_path = &"res://scenes/main_panel/MainPanelHorizontal.tscn"
 main_panel_container = NodePath("ScrollContainer/MarginContainer/VSpacingContainer/HSpacingContainer/MainPanelContainer")
 metadata/_custom_type_script = "uid://xhjlf0w71g1t"
 

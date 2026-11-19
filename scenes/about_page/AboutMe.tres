@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ProjectItemInfo" format=3 uid="uid://ul2b4fkd1vlb"]
+
+[ext_resource type="Script" uid="uid://c8c6e2jow3tnw" path="res://scripts/content_panel/ProjectItemInfo.gd" id="1_iv6ef"]
+
+[resource]
+script = ExtResource("1_iv6ef")
+item_name = "About Me"
+icon_path = &"res://themes/sprites/GodotIcon.png"
+metadata/_custom_type_script = "uid://c8c6e2jow3tnw"

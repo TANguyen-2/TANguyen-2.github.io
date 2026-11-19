@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ProjectCategoryInfo" format=3 uid="uid://dyrhfhf3g78h2"]
+
+[ext_resource type="Script" uid="uid://c8c6e2jow3tnw" path="res://scripts/content_panel/ProjectItemInfo.gd" id="1_x4j00"]
+[ext_resource type="Script" uid="uid://cne3j2n4nqw54" path="res://scripts/content_panel/ProjectCategoryInfo.gd" id="2_7xg1s"]
+[ext_resource type="Resource" uid="uid://c25k68q8mbljm" path="res://scenes/3d_models/AnimalButtons.tres" id="2_wnub6"]
+[ext_resource type="Resource" uid="uid://d15hyjvflgnif" path="res://scenes/3d_models/FanartZephyr.tres" id="3_ygo8u"]
+
+[resource]
+script = ExtResource("2_7xg1s")
+category_name = &"3D Models"
+projects = Array[ExtResource("1_x4j00")]([ExtResource("2_wnub6"), ExtResource("3_ygo8u")])
+metadata/_custom_type_script = "uid://cne3j2n4nqw54"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ProjectCategoryInfo" format=3 uid="uid://dko1xjgypxrye"]
+
+[ext_resource type="Script" uid="uid://c8c6e2jow3tnw" path="res://scripts/content_panel/ProjectItemInfo.gd" id="1_u0qgk"]
+[ext_resource type="Resource" uid="uid://bj8nyqgq1id82" path="res://scenes/about_page/Credits.tres" id="2_adg7j"]
+[ext_resource type="Script" uid="uid://cne3j2n4nqw54" path="res://scripts/content_panel/ProjectCategoryInfo.gd" id="2_j8bhq"]
+[ext_resource type="Resource" uid="uid://ul2b4fkd1vlb" path="res://scenes/about_page/AboutMe.tres" id="3_ufl6j"]
+
+[resource]
+script = ExtResource("2_j8bhq")
+category_name = &"About Page"
+projects = Array[ExtResource("1_u0qgk")]([ExtResource("2_adg7j"), ExtResource("3_ufl6j")])
+metadata/_custom_type_script = "uid://cne3j2n4nqw54"

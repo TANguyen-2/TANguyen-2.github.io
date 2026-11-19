@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="PagedProjectItemInfo" format=3 uid="uid://c2lt0nf2ok787"]
 
-[ext_resource type="Script" uid="uid://bkj8iyi1o28dd" path="res://scripts/gui/paged_container/PagedProjectItemInfo.gd" id="1_gu2rr"]
+[ext_resource type="Script" uid="uid://bkj8iyi1o28dd" path="res://scripts/content_panel/PagedProjectItemInfo.gd" id="1_gu2rr"]
+
 
 [resource]
 script = ExtResource("1_gu2rr")
