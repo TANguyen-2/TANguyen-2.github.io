@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://dgduxvncq4n1e" path="res://scripts/gui/PolylineTextureButton.gd" id="4_w5k0v"]
 [ext_resource type="Script" uid="uid://5yv0v21se6wf" path="res://scripts/gui/container_sizing/DynamicCustomSizeLimiter.gd" id="5_umi3g"]
 [ext_resource type="Script" uid="uid://c7khl8a114qjd" path="res://scripts/gui/paged_container/PagedContainer.gd" id="6_wvxqn"]
-[ext_resource type="Script" uid="uid://njkt7vw4anmx" path="res://scripts/gui/input_processing/ScrollInputProcessor.gd" id="7_ab72c"]
 [ext_resource type="Resource" uid="uid://c4xu64ocur3m0" path="res://scenes/templates/DummyContainerChildPool.tres" id="7_wvxqn"]
 [ext_resource type="Script" uid="uid://b1yi07ff0nct3" path="res://scripts/gui/paged_container/PagedContainerScroller.gd" id="8_e7np4"]
 
@@ -408,7 +407,6 @@ point_offsets = PackedVector2Array(-10, 10, 10, 0, -10, -10)
 [node name="CategoriesPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/CategorySetPanel/CategorySetContainer" unique_id=789454066]
 custom_maximum_size = Vector2(841, 108)
 layout_mode = 2
-mouse_force_pass_scroll_events = false
 theme_type_variation = &"DecorationPanel_HBox"
 
 [node name="DynamicCustomSizeLimiter" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel" unique_id=1631070774 node_paths=PackedStringArray("target", "reference")]
@@ -423,18 +421,12 @@ clip_contents = true
 layout_mode = 2
 theme_type_variation = &"ContentClipContainer"
 
-[node name="PagedContainerScroller" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/ContentClipContainer" unique_id=1212088560 node_paths=PackedStringArray("paged_container", "prev_page_button", "next_page_button", "scroll_processor")]
+[node name="PagedContainerScroller" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/ContentClipContainer" unique_id=1212088560 node_paths=PackedStringArray("paged_container", "prev_page_button", "next_page_button", "scroll_start_detection_area")]
 script = ExtResource("8_e7np4")
 paged_container = NodePath("../PagedContainer")
 prev_page_button = NodePath("../../../PrevCategorySetButtonContainer/PrevPageSetButton")
 next_page_button = NodePath("../../../NextCategorySetButtonContainer/NextPageSetButton")
-scroll_processor = NodePath("../PagedContainerScrollProcessor")
-wait_before_autoscroll = 0.1
-
-[node name="PagedContainerScrollProcessor" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/ContentClipContainer" unique_id=1252894256 node_paths=PackedStringArray("input_area")]
-script = ExtResource("7_ab72c")
-input_area = NodePath("../..")
-mouse_wheel_scroll_scale = 500.0
+scroll_start_detection_area = NodePath("../..")
 
 [node name="CategoriesPageContainerRef" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/ContentClipContainer" unique_id=765537947]
 propagate_maximum_size = false
@@ -551,7 +543,6 @@ clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.9
-mouse_force_pass_scroll_events = false
 theme_type_variation = &"DecorationPanel"
 
 [node name="DynamicCustomSizeLimiter" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/ContentPanel/ContentContainer/ContentListPanel" unique_id=1711567972 node_paths=PackedStringArray("target", "reference")]
@@ -566,18 +557,12 @@ clip_contents = true
 layout_mode = 2
 theme_type_variation = &"ContentClipContainer"
 
-[node name="PagedContainerScroller" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/ContentPanel/ContentContainer/ContentListPanel/ContentClipContainer" unique_id=1170687295 node_paths=PackedStringArray("paged_container", "prev_page_button", "next_page_button", "scroll_processor")]
+[node name="PagedContainerScroller" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/ContentPanel/ContentContainer/ContentListPanel/ContentClipContainer" unique_id=1170687295 node_paths=PackedStringArray("paged_container", "prev_page_button", "next_page_button", "scroll_start_detection_area")]
 script = ExtResource("8_e7np4")
 paged_container = NodePath("../PagedContainer")
 prev_page_button = NodePath("../../../PrevPageButtonContainer/PrevPageButton")
 next_page_button = NodePath("../../../NextPageButtonContainer/NextPageButton")
-scroll_processor = NodePath("../PagedContainerScrollProcessor")
-wait_before_autoscroll = 0.1
-
-[node name="PagedContainerScrollProcessor" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/ContentPanel/ContentContainer/ContentListPanel/ContentClipContainer" unique_id=1982160345 node_paths=PackedStringArray("input_area")]
-script = ExtResource("7_ab72c")
-input_area = NodePath("../..")
-mouse_wheel_scroll_scale = 500.0
+scroll_start_detection_area = NodePath("../..")
 
 [node name="ContentPageContainerRef" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/ContentPanel/ContentContainer/ContentListPanel/ContentClipContainer" unique_id=959904733]
 propagate_maximum_size = false
@@ -693,7 +678,6 @@ point_offsets = PackedVector2Array(-10, 10, 10, 0, -10, -10)
 custom_maximum_size = Vector2(822, 108)
 layout_mode = 2
 size_flags_horizontal = 3
-mouse_force_pass_scroll_events = false
 theme_type_variation = &"DecorationPanel_HBox"
 
 [node name="DynamicCustomSizeLimiter" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel" unique_id=1451775840 node_paths=PackedStringArray("target", "reference")]
@@ -708,18 +692,12 @@ clip_contents = true
 layout_mode = 2
 theme_type_variation = &"ContentClipContainer"
 
-[node name="PagedContainerScroller" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel/ContentClipContainer" unique_id=1125922623 node_paths=PackedStringArray("paged_container", "prev_page_button", "next_page_button", "scroll_processor")]
+[node name="PagedContainerScroller" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel/ContentClipContainer" unique_id=1125922623 node_paths=PackedStringArray("paged_container", "prev_page_button", "next_page_button", "scroll_start_detection_area")]
 script = ExtResource("8_e7np4")
 paged_container = NodePath("../PagedContainer")
 prev_page_button = NodePath("../../../PrevPageSetButtonContainer/PrevPageSetButton")
 next_page_button = NodePath("../../../NextPageSetButtonContainer/NextPageSetButton")
-scroll_processor = NodePath("../PagedContainerScrollProcessor")
-wait_before_autoscroll = 0.1
-
-[node name="PagedContainerScrollProcessor" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel/ContentClipContainer" unique_id=151342455 node_paths=PackedStringArray("input_area")]
-script = ExtResource("7_ab72c")
-input_area = NodePath("../..")
-mouse_wheel_scroll_scale = 500.0
+scroll_start_detection_area = NodePath("../..")
 
 [node name="PageSetPageContainerRef" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel/ContentClipContainer" unique_id=689309746]
 propagate_maximum_size = false

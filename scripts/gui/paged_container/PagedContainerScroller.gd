@@ -45,30 +45,39 @@ class_name PagedContainerScroller
 
 
 @export_range(0, 1, 0.0001)
-var scroll_distance_mul_factor: float = 0.0001
+var autoscroll_distance_shrink_factor: float = 0.0001
 
 
-## The [ScrollInputProcessor] to receive information from.
-@export var scroll_processor: ScrollInputProcessor:
+## The [Control] to detect the scroll start.
+@export var scroll_start_detection_area: Control:
     set(value):
-        if scroll_processor != value:
-            if scroll_processor:
-                scroll_processor.scrolled.disconnect(on_scrolled)
+        if scroll_start_detection_area != value:
+            if scroll_start_detection_area:
+                scroll_start_detection_area.gui_input.disconnect(
+                    on_scroll_start_detection_area_input
+                )
                 pass
-            scroll_processor = value
-            if scroll_processor:
-                scroll_processor.scrolled.connect(on_scrolled)
+            scroll_start_detection_area = value
+            if scroll_start_detection_area:
+                scroll_start_detection_area.gui_input.connect(
+                    on_scroll_start_detection_area_input
+                )
                 pass
             pass
         pass
 
-## The amount of time (in seconds) to wait after
-## the last detected scroll input before activating autoscroll.
-@export var wait_before_autoscroll: float = 0.25
+
+@export_flags(&"LEFT:1", &"RIGHT:2", &"MIDDLE:4", &"EXTRA1:128", &"EXTRA2:256")
+var manual_scroll_mouse_mask: int = MOUSE_BUTTON_MASK_LEFT | MOUSE_BUTTON_MASK_MIDDLE
+
+@export var manual_scroll_input_scale_factor: Vector2 = Vector2(-1, -1)
+
 
 ## The amount of time (in seconds) elapsed
 ## since the last detected scroll input.
-var time_since_scroll_end: float = 0
+var manually_scrolling: bool = false
+
+var previous_mouse_scroll_global_position: Vector2
 
 
 ## The index of the tracked visible [Control] child
@@ -286,8 +295,35 @@ func setup_paged_container() -> void:
     pass
 
 
-func on_scrolled(scroll: Vector2) -> void:
-    time_since_scroll_end = 0
+
+
+func on_scroll_start_detection_area_input(input: InputEvent) -> void:
+    if (
+        input is InputEventMouse and input.is_pressed() and
+        input.button_mask & manual_scroll_mouse_mask != 0
+    ):
+        manually_scrolling = true
+        previous_mouse_scroll_global_position = (
+            scroll_start_detection_area.get_global_mouse_position()
+        )
+        pass
+    pass
+
+func process_manual_scrolling(_delta: float) -> void:
+    if Input.get_mouse_button_mask() & manual_scroll_mouse_mask == 0:
+        manually_scrolling = false
+        return
+    
+    var current_mouse_scroll_global_position: Vector2 = (
+        scroll_start_detection_area.get_global_mouse_position()
+    )
+    var scroll: = (
+        current_mouse_scroll_global_position -
+        previous_mouse_scroll_global_position
+    ) * manual_scroll_input_scale_factor
+
+    previous_mouse_scroll_global_position = current_mouse_scroll_global_position
+    
     paged_container.offset_transform_position = clamp_offset_position(
         paged_container.offset_transform_position - scroll
     )
@@ -315,10 +351,10 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-    if time_since_scroll_end < wait_before_autoscroll:
-        time_since_scroll_end += delta
+    if manually_scrolling:
+        process_manual_scrolling(delta)
         pass
-    else:
+    if not manually_scrolling:
         # Slowly scroll towards the target if we are not close enough.
         var target_scroll_position: = clamp_offset_position(
             get_tracked_page_scroll_position()
@@ -327,7 +363,7 @@ func _process(delta: float) -> void:
         if not current_scroll_position.is_equal_approx(target_scroll_position):
             paged_container.offset_transform_position = (
                 (current_scroll_position - target_scroll_position) *
-                pow(scroll_distance_mul_factor, delta) +
+                pow(autoscroll_distance_shrink_factor, delta) +
                 target_scroll_position
             )
             pass
