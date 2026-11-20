@@ -1,15 +1,16 @@
 [gd_resource type="Resource" script_class="ProjectItemInfo" format=3 uid="uid://batwifvscdva4"]
 
-[ext_resource type="Script" uid="uid://c8c6e2jow3tnw" path="res://scripts/content_panel/ProjectItemInfo.gd" id="1_rwfjd"]
+[ext_resource type="Script" uid="uid://c8c6e2jow3tnw" path="res://scripts/content_panel/ProjectItemInfo.gd" id="1_3yf08"]
 
 [resource]
-script = ExtResource("1_rwfjd")
+script = ExtResource("1_3yf08")
 item_displayed_name = "CAD Expertise
 Sharing"
 icon_path = &"res://themes/sprites/GodotIcon.png"
 tooltip = "Ah...
 
-I think we had a very good idea and design.
+I think we had a good idea and design.
+
 Shame we never actually managed to implement it; learning Blender API was simply too much to do in a single month."
-content_scene_path = &"res://scenes/main_panel/templates/EmptyProjectContentPage.tscn"
+content_scene_path = &"res://projects/programs/CADExpertiseSharing/CADExpertiseSharing.tscn"
 metadata/_custom_type_script = "uid://c8c6e2jow3tnw"

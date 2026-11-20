@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ProjectCategoryInfo" format=3 uid="uid://56mk8qn8uuf"]
+
+[ext_resource type="Script" uid="uid://c8c6e2jow3tnw" path="res://scripts/content_panel/ProjectItemInfo.gd" id="1_jexo5"]
+[ext_resource type="Resource" uid="uid://bxfmwx58eqcbs" path="res://projects/programs/AnimalButtons.tres" id="2_vaemy"]
+[ext_resource type="Resource" uid="uid://batwifvscdva4" path="res://projects/programs/CADExpertiseSharing.tres" id="3_3pasd"]
+[ext_resource type="Resource" uid="uid://dj1sak0mkjwbk" path="res://projects/programs/TalkE.tres" id="4_86dg0"]
+[ext_resource type="Script" uid="uid://cne3j2n4nqw54" path="res://scripts/content_panel/ProjectCategoryInfo.gd" id="5_5t54f"]
+
+[resource]
+script = ExtResource("5_5t54f")
+category_name = &"Programs"
+projects = Array[ExtResource("1_jexo5")]([ExtResource("2_vaemy"), ExtResource("3_3pasd"), ExtResource("4_86dg0")])
+tooltip = "This is (supposed to be) a list of all the programming projects I've worked on.
+
+It's not complete, unfortunately.
+(Just like 80% of my projects...)"
+metadata/_custom_type_script = "uid://cne3j2n4nqw54"

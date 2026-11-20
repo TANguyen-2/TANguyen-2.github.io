@@ -1,6 +1,7 @@
 ## A Controller [Node] to control the scroll of a [ScrollContainer]
 ## Using scroll and drag inputs from a [ScrollInputProcessor].
 extends Node
+class_name ScrollContainerScroller
 
 
 ## The [ScrollInputProcessor] to receive information from.

@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://bu7p8ns30chr2"]
+
+[ext_resource type="Theme" uid="uid://bupq53g1myco8" path="res://themes/MainTheme.tres" id="1_2ns5x"]
+[ext_resource type="Texture2D" uid="uid://dhv1q0ovtgnaq" path="res://projects/programs/CADExpertiseSharing/Novice3DView.png" id="2_n1vsf"]
+[ext_resource type="Texture2D" uid="uid://ibd4r4ydqg07" path="res://projects/programs/CADExpertiseSharing/SpeechDetectionSupport.png" id="3_pbdde"]
+[ext_resource type="Script" uid="uid://njkt7vw4anmx" path="res://scripts/gui/input_processing/ScrollInputProcessor.gd" id="4_7q6fm"]
+[ext_resource type="Texture2D" uid="uid://ddcqm4yc18srx" path="res://projects/programs/CADExpertiseSharing/Expert3DView.png" id="4_c6mt4"]
+[ext_resource type="Script" uid="uid://7yl4lvik5wkx" path="res://scripts/gui/input_processing/ScrollContainerScroller.gd" id="5_hfhn8"]
+
+[node name="ContentContainer" type="VBoxContainer" unique_id=1085138230]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_2ns5x")
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="." unique_id=2049346465]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "CAD Expertise Sharing"
+horizontal_alignment = 1
+
+[node name="Novice3DView" type="TextureRect" parent="." unique_id=1361671565]
+custom_maximum_size = Vector2(-1, 500)
+layout_mode = 2
+texture = ExtResource("2_n1vsf")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Blurb" type="Label" parent="." unique_id=1168806302]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme_type_variation = &"TextSmall"
+text = "Augmented Remote Sharing for Blender Help Sessions"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="." unique_id=1364690189]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme_type_variation = &"TextNormal"
+text = "This project is a list of designs and features to help experts better guide and observe a novice's work remotely.
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Spacing1" type="Control" parent="." unique_id=525959766]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="GalleryContainer" type="MarginContainer" parent="." unique_id=9879355]
+layout_mode = 2
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+
+[node name="SpeechRecognitionGallery" type="ScrollContainer" parent="GalleryContainer" unique_id=1359917821]
+layout_mode = 2
+mouse_filter = 2
+vertical_scroll_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="GalleryContainer/SpeechRecognitionGallery" unique_id=121422034]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+texture = ExtResource("3_pbdde")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ScrollInputProcessor" type="Node" parent="GalleryContainer/SpeechRecognitionGallery" unique_id=913094146 node_paths=PackedStringArray("input_area")]
+script = ExtResource("4_7q6fm")
+input_area = NodePath("../..")
+metadata/_custom_type_script = "uid://njkt7vw4anmx"
+
+[node name="ScrollContainerScroller" type="Node" parent="GalleryContainer/SpeechRecognitionGallery" unique_id=231709679 node_paths=PackedStringArray("scroll_processor", "scroll_container")]
+script = ExtResource("5_hfhn8")
+scroll_processor = NodePath("../ScrollInputProcessor")
+scroll_container = NodePath("..")
+metadata/_custom_type_script = "uid://7yl4lvik5wkx"
+
+[node name="SpeechRecognitionBlurb" type="Label" parent="." unique_id=2128245309]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme_type_variation = &"TextSmall"
+text = "Experts can use Speech Recognition to highlight buttons and objects on the Novice's screen.
+(Design by Elijah Emickelson)"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Spacing2" type="Control" parent="." unique_id=916412602]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Expert3DView" type="TextureRect" parent="." unique_id=1360099630]
+custom_maximum_size = Vector2(-1, 500)
+layout_mode = 2
+texture = ExtResource("4_c6mt4")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="ARCameraBlurb" type="Label" parent="." unique_id=1918193157]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme_type_variation = &"TextSmall"
+text = "Experts can use AR Camera to view the Novice's workspace and annotate objects by
+moving their phone, or by swiping on the screen.
+(Design by Tuan Anh Nguyen)"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LinkToDesign" type="Label" parent="." unique_id=1082776401]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme_type_variation = &"TextNormal"
+text = "
+
+Link to Full Design:
+https://www.figma.com/design/yKkijyM717mSJmxqV1yUqT/CPSC581-Demo---Shared"
+horizontal_alignment = 1
+autowrap_mode = 2

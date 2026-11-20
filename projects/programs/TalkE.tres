@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="ProjectItemInfo" format=3 uid="uid://dj1sak0mkjwbk"]
 
-[ext_resource type="Script" uid="uid://c8c6e2jow3tnw" path="res://scripts/content_panel/ProjectItemInfo.gd" id="1_osf4a"]
+[ext_resource type="Script" uid="uid://c8c6e2jow3tnw" path="res://scripts/content_panel/ProjectItemInfo.gd" id="1_bdah7"]
 
 [resource]
-script = ExtResource("1_osf4a")
+script = ExtResource("1_bdah7")
 item_displayed_name = "Talk-E"
 icon_path = &"res://themes/sprites/GodotIcon.png"
 tooltip = "I will never forget the screams of agony that machine made...

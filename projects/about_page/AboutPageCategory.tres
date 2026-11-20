@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ProjectCategoryInfo" format=3 uid="uid://dko1xjgypxrye"]
+
+[ext_resource type="Script" uid="uid://c8c6e2jow3tnw" path="res://scripts/content_panel/ProjectItemInfo.gd" id="1_y7fgo"]
+[ext_resource type="Resource" uid="uid://bj8nyqgq1id82" path="res://projects/about_page/Credits.tres" id="2_bftvg"]
+[ext_resource type="Resource" uid="uid://ul2b4fkd1vlb" path="res://projects/about_page/AboutMe.tres" id="3_qenqt"]
+[ext_resource type="Script" uid="uid://cne3j2n4nqw54" path="res://scripts/content_panel/ProjectCategoryInfo.gd" id="4_ke014"]
+
+[resource]
+script = ExtResource("4_ke014")
+category_name = &"About Page"
+projects = Array[ExtResource("1_y7fgo")]([ExtResource("2_bftvg"), ExtResource("3_qenqt")])
+tooltip = "This is a list of miscellaneous topics such as:
+- Credits for resources used.
+- Why I made this website.
+- Uh... etc.
+
+I really have no idea.
+
+To be entirely honest,
+I just needed somewhere to put the credits :p"
+metadata/_custom_type_script = "uid://cne3j2n4nqw54"

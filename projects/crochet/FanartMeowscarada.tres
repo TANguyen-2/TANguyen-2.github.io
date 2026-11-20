@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="ProjectItemInfo" format=3 uid="uid://c6ouhcywa3o4p"]
 
-[ext_resource type="Script" uid="uid://c8c6e2jow3tnw" path="res://scripts/content_panel/ProjectItemInfo.gd" id="1_4auyi"]
+[ext_resource type="Script" uid="uid://c8c6e2jow3tnw" path="res://scripts/content_panel/ProjectItemInfo.gd" id="1_53rq2"]
 
 [resource]
-script = ExtResource("1_4auyi")
+script = ExtResource("1_53rq2")
 item_displayed_name = "Fanart:
 Meowscarada"
 icon_path = &"res://themes/sprites/GodotIcon.png"

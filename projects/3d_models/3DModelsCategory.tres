@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ProjectCategoryInfo" format=3 uid="uid://dyrhfhf3g78h2"]
+
+[ext_resource type="Script" uid="uid://c8c6e2jow3tnw" path="res://scripts/content_panel/ProjectItemInfo.gd" id="1_w4tno"]
+[ext_resource type="Resource" uid="uid://c25k68q8mbljm" path="res://projects/3d_models/AnimalButtons.tres" id="2_l57j1"]
+[ext_resource type="Resource" uid="uid://d15hyjvflgnif" path="res://projects/3d_models/FanartZephyr.tres" id="3_b04y1"]
+[ext_resource type="Script" uid="uid://cne3j2n4nqw54" path="res://scripts/content_panel/ProjectCategoryInfo.gd" id="4_lovlh"]
+
+[resource]
+script = ExtResource("4_lovlh")
+category_name = &"3D Models"
+projects = Array[ExtResource("1_w4tno")]([ExtResource("2_l57j1"), ExtResource("3_b04y1")])
+tooltip = "This is a list of complete 3D models.
+(That I feel comfortable sharing.)
+
+In an ideal world, this page would let you
+preview and download them.
+
+This, unfortunately is not an ideal world, so you will have to use some external links."
+metadata/_custom_type_script = "uid://cne3j2n4nqw54"

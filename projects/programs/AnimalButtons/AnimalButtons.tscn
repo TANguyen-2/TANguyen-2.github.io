@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dww17ilp3gt75"]
+
+[ext_resource type="Theme" uid="uid://bupq53g1myco8" path="res://themes/MainTheme.tres" id="1_p5k5j"]
+[ext_resource type="Texture2D" uid="uid://j7ndvbiqfy0m" path="res://projects/programs/AnimalButtons/Titlescreen.png" id="2_hu3ld"]
+
+[node name="ContentContainer" type="VBoxContainer" unique_id=1085138230]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_p5k5j")
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="." unique_id=2049346465]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Animal Buttons"
+horizontal_alignment = 1
+
+[node name="Titlescreen" type="TextureRect" parent="." unique_id=1361671565]
+custom_maximum_size = Vector2(-1, 500)
+layout_mode = 2
+texture = ExtResource("2_hu3ld")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Blurb" type="Label" parent="." unique_id=1168806302]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme_type_variation = &"TextSmall"
+text = "A simple game of Simon-Says.
+Limited to have exactly 3 Buttons."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="." unique_id=1364690189]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme_type_variation = &"TextNormal"
+text = "
+Rules:
+Click on the Specified Animal before the Timer runs out for each round.
+
+Clicking on the Wrong Animal can result in a penalty to the remaining time.
+
+
+Each Animal has an ability to trip you up:
+PENGUIN
+Falls asleep if not interacted with.
+The screen darkens when it sleeps.
+Clicking on it while it is asleep will not result in a penalty.
+
+RACCOON
+Swaps place with another animal on rounds when it must be clicked.
+
+DOG
+May sneeze when clicked on.
+Each sneeze hides other animals in fur.
+
+
+Game Available At
+https://headfirstmissilecollider.itch.io/presstheanimal"
+horizontal_alignment = 1
+autowrap_mode = 2

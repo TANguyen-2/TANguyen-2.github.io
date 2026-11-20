@@ -14,11 +14,13 @@
 [ext_resource type="Script" uid="uid://c7khl8a114qjd" path="res://scripts/gui/paged_container/PagedContainer.gd" id="12_1prry"]
 [ext_resource type="Resource" uid="uid://c4xu64ocur3m0" path="res://scenes/main_panel/templates/DummyContainerChildPool.tres" id="13_jasug"]
 [ext_resource type="Script" uid="uid://dwcudb3a41qg7" path="res://scripts/content_panel/ProjectCategoryButton.gd" id="14_f1xpw"]
-[ext_resource type="Resource" uid="uid://dko1xjgypxrye" path="res://scenes/about_page/AboutPageCategory.tres" id="15_kko3m"]
-[ext_resource type="Resource" uid="uid://56mk8qn8uuf" path="res://scenes/programs/ProgramsCategory.tres" id="16_c4fna"]
-[ext_resource type="Resource" uid="uid://c5babciaulrqh" path="res://scenes/crochet/CrochetCategory.tres" id="17_718ap"]
-[ext_resource type="Resource" uid="uid://dyrhfhf3g78h2" path="res://scenes/3d_models/3DModelsCategory.tres" id="18_tdwqf"]
+[ext_resource type="Resource" uid="uid://dko1xjgypxrye" path="res://projects/about_page/AboutPageCategory.tres" id="15_kko3m"]
+[ext_resource type="Resource" uid="uid://56mk8qn8uuf" path="res://projects/programs/ProgramsCategory.tres" id="16_c4fna"]
+[ext_resource type="Resource" uid="uid://c5babciaulrqh" path="res://projects/crochet/CrochetCategory.tres" id="17_718ap"]
+[ext_resource type="Resource" uid="uid://dyrhfhf3g78h2" path="res://projects/3d_models/3DModelsCategory.tres" id="18_tdwqf"]
 [ext_resource type="Script" uid="uid://6dt2j2r04ici" path="res://scripts/ProjectContentDisplayer.gd" id="19_i5t1e"]
+[ext_resource type="Script" uid="uid://njkt7vw4anmx" path="res://scripts/gui/input_processing/ScrollInputProcessor.gd" id="20_kvenx"]
+[ext_resource type="Script" uid="uid://7yl4lvik5wkx" path="res://scripts/gui/input_processing/ScrollContainerScroller.gd" id="21_pyy6a"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_w5k0v"]
 
@@ -51,7 +53,7 @@ content_panel = NodePath("../GzmoSbjctsContainer/SubjectsContainer/ContentPanel"
 content_panel_controller = NodePath("../GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentPanelController")
 project_content_panel = NodePath("../GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel")
 project_content_panel_close_button = NodePath("../GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel/CloseButton")
-project_content_container = NodePath("../GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel/ProjectContentContainer")
+project_content_container = NodePath("../GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel/ProjectContentAreaMargin/ProjectContentScroller/ProjectContentContainer")
 tooltip_display = NodePath("../GzmoSbjctsContainer/GizmoPanel/GizmoContainer/CommentsPanel/CommentsContainer/CommentPanel/Label")
 transition_duration = 0.25
 
@@ -764,8 +766,29 @@ layout_mode = 2
 offset_transform_enabled = true
 theme_type_variation = &"DecorationPanel"
 
-[node name="ProjectContentContainer" type="ScrollContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel" unique_id=1609145233]
+[node name="ProjectContentAreaMargin" type="MarginContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel" unique_id=1584566906]
 layout_mode = 2
+theme_override_constants/margin_top = 72
+
+[node name="ProjectContentScroller" type="ScrollContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel/ProjectContentAreaMargin" unique_id=1609145233]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ProjectContentContainer" type="MarginContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel/ProjectContentAreaMargin/ProjectContentScroller" unique_id=1962555118]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollInputProcessor" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel/ProjectContentAreaMargin/ProjectContentScroller" unique_id=421412229 node_paths=PackedStringArray("input_area")]
+script = ExtResource("20_kvenx")
+input_area = NodePath("../..")
+metadata/_custom_type_script = "uid://njkt7vw4anmx"
+
+[node name="ScrollContainerScroller" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel/ProjectContentAreaMargin/ProjectContentScroller" unique_id=861832456 node_paths=PackedStringArray("scroll_processor", "scroll_container")]
+script = ExtResource("21_pyy6a")
+scroll_processor = NodePath("../ScrollInputProcessor")
+scroll_container = NodePath("..")
+metadata/_custom_type_script = "uid://7yl4lvik5wkx"
 
 [node name="CloseButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel" unique_id=1212985095]
 layout_mode = 2
