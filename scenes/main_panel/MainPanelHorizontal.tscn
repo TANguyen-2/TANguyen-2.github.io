@@ -768,7 +768,7 @@ theme_type_variation = &"DecorationPanel"
 
 [node name="ProjectContentAreaMargin" type="MarginContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel" unique_id=1584566906]
 layout_mode = 2
-theme_override_constants/margin_top = 72
+theme_override_constants/margin_bottom = 72
 
 [node name="ProjectContentScroller" type="ScrollContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel/ProjectContentAreaMargin" unique_id=1609145233]
 layout_mode = 2
@@ -792,7 +792,7 @@ metadata/_custom_type_script = "uid://7yl4lvik5wkx"
 
 [node name="CloseButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel" unique_id=1212985095]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
 theme_type_variation = &"SelectCategoryButton"
 text = "Back"

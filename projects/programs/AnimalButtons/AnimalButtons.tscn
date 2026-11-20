@@ -59,9 +59,16 @@ Swaps place with another animal on rounds when it must be clicked.
 DOG
 May sneeze when clicked on.
 Each sneeze hides other animals in fur.
+"
+horizontal_alignment = 1
+autowrap_mode = 2
 
-
+[node name="LinkToGame" type="Label" parent="." unique_id=913438503]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme_type_variation = &"TextNormal"
+text = "
 Game Available At
 https://headfirstmissilecollider.itch.io/presstheanimal"
 horizontal_alignment = 1
-autowrap_mode = 2
+autowrap_mode = 1
