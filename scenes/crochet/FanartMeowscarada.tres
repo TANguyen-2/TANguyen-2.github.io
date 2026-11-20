@@ -4,7 +4,12 @@
 
 [resource]
 script = ExtResource("1_4auyi")
-item_name = "Fanart:
+item_displayed_name = "Fanart:
 Meowscarada"
 icon_path = &"res://themes/sprites/GodotIcon.png"
+tooltip = "My very first original pattern.
+I made it from scratch as a gift :)
+
+I wonder if the person whom I made this for ever finds a good use for it."
+content_scene_path = &"res://scenes/main_panel/templates/EmptyProjectContentPage.tscn"
 metadata/_custom_type_script = "uid://c8c6e2jow3tnw"

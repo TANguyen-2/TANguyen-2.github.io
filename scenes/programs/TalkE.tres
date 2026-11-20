@@ -4,6 +4,10 @@
 
 [resource]
 script = ExtResource("1_osf4a")
-item_name = "Talk-E"
+item_displayed_name = "Talk-E"
 icon_path = &"res://themes/sprites/GodotIcon.png"
+tooltip = "I will never forget the screams of agony that machine made...
+
+It brought me great joy in a time of desperation and anxiety."
+content_scene_path = &"res://scenes/main_panel/templates/EmptyProjectContentPage.tscn"
 metadata/_custom_type_script = "uid://c8c6e2jow3tnw"

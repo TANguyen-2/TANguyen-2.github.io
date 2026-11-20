@@ -75,19 +75,15 @@ signal category_selected(category: ProjectCategoryInfo)
 
 @export var selected_category: ProjectCategoryInfo = null:
     set(value):
-        if selected_category != value:
-            selected_category = value
-            load_category_projects()
-            category_selected.emit(selected_category)
-            pass
+        selected_category = value
+        load_category_projects()
+        category_selected.emit(selected_category)
         pass
 
 @export var selected_project: ProjectItemInfo = null:
     set(value):
-        if selected_project != value:
-            selected_project = value
-            project_selected.emit(selected_project)
-            pass
+        selected_project = value
+        project_selected.emit(selected_project)
         pass
 
 

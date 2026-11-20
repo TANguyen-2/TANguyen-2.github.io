@@ -4,7 +4,12 @@
 
 [resource]
 script = ExtResource("1_rwfjd")
-item_name = "CAD Expertise
+item_displayed_name = "CAD Expertise
 Sharing"
 icon_path = &"res://themes/sprites/GodotIcon.png"
+tooltip = "Ah...
+
+I think we had a very good idea and design.
+Shame we never actually managed to implement it; learning Blender API was simply too much to do in a single month."
+content_scene_path = &"res://scenes/main_panel/templates/EmptyProjectContentPage.tscn"
 metadata/_custom_type_script = "uid://c8c6e2jow3tnw"

@@ -9,4 +9,11 @@
 script = ExtResource("2_7xg1s")
 category_name = &"3D Models"
 projects = Array[ExtResource("1_x4j00")]([ExtResource("2_wnub6"), ExtResource("3_ygo8u")])
+tooltip = "This is a list of complete 3D models.
+(That I feel comfortable sharing.)
+
+In an ideal world, this page would let you
+preview and download them.
+
+This, unfortunately is not an ideal world, so you will have to use some external links."
 metadata/_custom_type_script = "uid://cne3j2n4nqw54"

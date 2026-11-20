@@ -9,4 +9,13 @@
 script = ExtResource("2_j8bhq")
 category_name = &"About Page"
 projects = Array[ExtResource("1_u0qgk")]([ExtResource("2_adg7j"), ExtResource("3_ufl6j")])
+tooltip = "This is a list of miscellaneous topics such as:
+- Credits for resources used.
+- Why I made this website.
+- Uh... etc.
+
+I really have no idea.
+
+To be entirely honest,
+I just needed somewhere to put the credits :p"
 metadata/_custom_type_script = "uid://cne3j2n4nqw54"

@@ -4,6 +4,10 @@
 
 [resource]
 script = ExtResource("1_kjv7x")
-item_name = "Animal Buttons"
+item_displayed_name = "Animal Buttons"
 icon_path = &"res://themes/sprites/GodotIcon.png"
+tooltip = "I made these on my own in 3 days for the project of the same name.
+
+Despite their simplicity and very situational use-case, I love them as much as my other models."
+content_scene_path = &"res://scenes/main_panel/templates/EmptyProjectContentPage.tscn"
 metadata/_custom_type_script = "uid://c8c6e2jow3tnw"

@@ -18,3 +18,10 @@ class_name ProjectCategoryInfo
             emit_changed()
             pass
         pass
+
+@export_multiline(&"monospace") var tooltip: String = &"":
+    set(value):
+        if tooltip != value:
+            tooltip = value
+            emit_changed()
+            pass

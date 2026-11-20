@@ -18,6 +18,7 @@
 [ext_resource type="Resource" uid="uid://56mk8qn8uuf" path="res://scenes/programs/ProgramsCategory.tres" id="16_c4fna"]
 [ext_resource type="Resource" uid="uid://c5babciaulrqh" path="res://scenes/crochet/CrochetCategory.tres" id="17_718ap"]
 [ext_resource type="Resource" uid="uid://dyrhfhf3g78h2" path="res://scenes/3d_models/3DModelsCategory.tres" id="18_tdwqf"]
+[ext_resource type="Script" uid="uid://6dt2j2r04ici" path="res://scripts/ProjectContentDisplayer.gd" id="19_i5t1e"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_w5k0v"]
 
@@ -43,6 +44,16 @@ theme_override_styles/panel = ExtResource("2_l5o7a")
 layout_mode = 2
 mouse_filter = 2
 theme_type_variation = &"DecorationPanel"
+
+[node name="ProjectContentDisplayer" type="Node" parent="GzmoSbjctsPanel" unique_id=1465636332 node_paths=PackedStringArray("content_panel", "content_panel_controller", "project_content_panel", "project_content_panel_close_button", "project_content_container", "tooltip_display")]
+script = ExtResource("19_i5t1e")
+content_panel = NodePath("../GzmoSbjctsContainer/SubjectsContainer/ContentPanel")
+content_panel_controller = NodePath("../GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentPanelController")
+project_content_panel = NodePath("../GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel")
+project_content_panel_close_button = NodePath("../GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel/CloseButton")
+project_content_container = NodePath("../GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel/ProjectContentContainer")
+tooltip_display = NodePath("../GzmoSbjctsContainer/GizmoPanel/GizmoContainer/CommentsPanel/CommentsContainer/CommentPanel/Label")
+transition_duration = 0.25
 
 [node name="GzmoSbjctsContainer" type="HBoxContainer" parent="GzmoSbjctsPanel" unique_id=980365263]
 layout_mode = 2
@@ -154,25 +165,29 @@ layout_mode = 2
 theme_type_variation = &"IconButton"
 icon = ExtResource("3_2arck")
 
-[node name="SubjectsPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer" unique_id=336170031]
+[node name="SubjectsContainer" type="MarginContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer" unique_id=1134316306]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ContentPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer" unique_id=336170031]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_type_variation = &"DecorationPanel"
 
-[node name="ContentPanelController" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel" unique_id=344250400 node_paths=PackedStringArray("projects_paged_container", "projects_paged_scroller", "pages_paged_container", "pages_paged_scroller")]
+[node name="ContentPanelController" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel" unique_id=344250400 node_paths=PackedStringArray("projects_paged_container", "projects_paged_scroller", "pages_paged_container", "pages_paged_scroller")]
 script = ExtResource("4_xj12u")
-projects_paged_container = NodePath("../ViewsControlArea/ViewsContainer/ContentPanel/ContentContainer/ContentListPanel/ContentClipContainer/PagedContainer")
-projects_paged_scroller = NodePath("../ViewsControlArea/ViewsContainer/ContentPanel/ContentContainer/ContentListPanel/ContentClipContainer/PagedContainerScroller")
-pages_paged_container = NodePath("../ViewsControlArea/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel/ContentClipContainer/PagedContainer")
-pages_paged_scroller = NodePath("../ViewsControlArea/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel/ContentClipContainer/PagedContainerScroller")
+projects_paged_container = NodePath("../ContentControlArea/ContentContainer/ProjectsPanel/ProjectsContainer/ProjectListPanel/ProjectClipContainer/PagedContainer")
+projects_paged_scroller = NodePath("../ContentControlArea/ContentContainer/ProjectsPanel/ProjectsContainer/ProjectListPanel/ProjectClipContainer/PagedContainerScroller")
+pages_paged_container = NodePath("../ContentControlArea/ContentContainer/PageSetPanel/PageSetContainer/PagesPanel/ContentClipContainer/PagedContainer")
+pages_paged_scroller = NodePath("../ContentControlArea/ContentContainer/PageSetPanel/PageSetContainer/PagesPanel/ContentClipContainer/PagedContainerScroller")
 project_button_instance = ExtResource("5_h77er")
 project_button_pool = ExtResource("6_l5o7a")
 page_button_instance = ExtResource("7_2arck")
 page_button_pool = ExtResource("8_xj12u")
 metadata/_custom_type_script = "uid://bdbw4mn2xnjdw"
 
-[node name="ViewsMaxRefContainer" type="VBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel" unique_id=1752719897]
+[node name="ContentMaxRefContainer" type="VBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel" unique_id=1752719897]
 modulate = Color(1, 1, 1, 0.003921569)
 layout_mode = 2
 focus_behavior_recursive = 1
@@ -180,7 +195,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 1
 theme_override_constants/separation = 30
 
-[node name="CategorySetPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsMaxRefContainer" unique_id=450930870]
+[node name="CategorySetPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentMaxRefContainer" unique_id=450930870]
 layout_mode = 2
 size_flags_vertical = 4
 focus_behavior_recursive = 1
@@ -188,7 +203,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 1
 theme_type_variation = &"DecorationPanel_HBox"
 
-[node name="CategorySetContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsMaxRefContainer/CategorySetPanel" unique_id=1420163242]
+[node name="CategorySetContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentMaxRefContainer/CategorySetPanel" unique_id=1420163242]
 layout_mode = 2
 focus_behavior_recursive = 1
 mouse_filter = 2
@@ -196,7 +211,7 @@ mouse_behavior_recursive = 1
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="PrevCategorySetButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsMaxRefContainer/CategorySetPanel/CategorySetContainer" unique_id=1419358356]
+[node name="PrevCategorySetButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentMaxRefContainer/CategorySetPanel/CategorySetContainer" unique_id=1419358356]
 custom_minimum_size = Vector2(32, 64)
 custom_maximum_size = Vector2(128, -1)
 layout_mode = 2
@@ -206,7 +221,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 1
 ratio = 0.5
 
-[node name="CategoriesPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsMaxRefContainer/CategorySetPanel/CategorySetContainer" unique_id=1614691702]
+[node name="CategoriesPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentMaxRefContainer/CategorySetPanel/CategorySetContainer" unique_id=1614691702]
 custom_maximum_size = Vector2(2000, -1)
 clip_contents = true
 layout_mode = 2
@@ -216,11 +231,11 @@ mouse_filter = 2
 mouse_behavior_recursive = 1
 theme_type_variation = &"DecorationPanel_HBox"
 
-[node name="ContentClipContainer" type="MarginContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsMaxRefContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel" unique_id=473698663]
+[node name="ContentClipContainer" type="MarginContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentMaxRefContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel" unique_id=473698663]
 layout_mode = 2
 theme_type_variation = &"ContentClipContainer"
 
-[node name="LargestButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsMaxRefContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/ContentClipContainer" unique_id=1140201636]
+[node name="LargestButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentMaxRefContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/ContentClipContainer" unique_id=1140201636]
 custom_minimum_size = Vector2(146, 64)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -233,7 +248,7 @@ theme_type_variation = &"SelectCategoryButton"
 disabled = true
 text = "3D Modelling"
 
-[node name="NextCategorySetButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsMaxRefContainer/CategorySetPanel/CategorySetContainer" unique_id=1296542074]
+[node name="NextCategorySetButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentMaxRefContainer/CategorySetPanel/CategorySetContainer" unique_id=1296542074]
 custom_minimum_size = Vector2(32, 64)
 custom_maximum_size = Vector2(128, -1)
 layout_mode = 2
@@ -243,7 +258,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 1
 ratio = 0.5
 
-[node name="ContentPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsMaxRefContainer" unique_id=346187560]
+[node name="ContentPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentMaxRefContainer" unique_id=346187560]
 layout_mode = 2
 size_flags_vertical = 3
 focus_behavior_recursive = 1
@@ -251,7 +266,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 1
 theme_type_variation = &"DecorationPanel_HBox"
 
-[node name="ContentContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsMaxRefContainer/ContentPanel" unique_id=1037886178]
+[node name="ContentContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentMaxRefContainer/ContentPanel" unique_id=1037886178]
 layout_mode = 2
 focus_behavior_recursive = 1
 mouse_filter = 2
@@ -259,7 +274,7 @@ mouse_behavior_recursive = 1
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="PrevPageButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsMaxRefContainer/ContentPanel/ContentContainer" unique_id=329218556]
+[node name="PrevPageButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentMaxRefContainer/ContentPanel/ContentContainer" unique_id=329218556]
 custom_minimum_size = Vector2(32, 64)
 custom_maximum_size = Vector2(128, -1)
 layout_mode = 2
@@ -270,7 +285,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 1
 ratio = 0.5
 
-[node name="ContentListPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsMaxRefContainer/ContentPanel/ContentContainer" unique_id=1374167756]
+[node name="ContentListPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentMaxRefContainer/ContentPanel/ContentContainer" unique_id=1374167756]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.9
@@ -279,11 +294,11 @@ mouse_filter = 2
 mouse_behavior_recursive = 1
 theme_type_variation = &"DecorationPanel"
 
-[node name="ContentClipContainer" type="MarginContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsMaxRefContainer/ContentPanel/ContentContainer/ContentListPanel" unique_id=1844529623]
+[node name="ContentClipContainer" type="MarginContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentMaxRefContainer/ContentPanel/ContentContainer/ContentListPanel" unique_id=1844529623]
 layout_mode = 2
 theme_type_variation = &"ContentClipContainer"
 
-[node name="LargestButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsMaxRefContainer/ContentPanel/ContentContainer/ContentListPanel/ContentClipContainer" unique_id=93530641]
+[node name="LargestButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentMaxRefContainer/ContentPanel/ContentContainer/ContentListPanel/ContentClipContainer" unique_id=93530641]
 custom_minimum_size = Vector2(195, 195)
 custom_maximum_size = Vector2(195, 195)
 layout_mode = 2
@@ -301,7 +316,7 @@ icon = ExtResource("3_2arck")
 icon_alignment = 1
 vertical_icon_alignment = 0
 
-[node name="NextPageButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsMaxRefContainer/ContentPanel/ContentContainer" unique_id=539608118]
+[node name="NextPageButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentMaxRefContainer/ContentPanel/ContentContainer" unique_id=539608118]
 custom_minimum_size = Vector2(32, 64)
 custom_maximum_size = Vector2(128, -1)
 layout_mode = 2
@@ -312,7 +327,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 1
 ratio = 0.5
 
-[node name="PageSetPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsMaxRefContainer" unique_id=1562206603]
+[node name="PageSetPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentMaxRefContainer" unique_id=1562206603]
 layout_mode = 2
 size_flags_vertical = 4
 focus_behavior_recursive = 1
@@ -320,7 +335,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 1
 theme_type_variation = &"DecorationPanel_HBox"
 
-[node name="PageSetContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsMaxRefContainer/PageSetPanel" unique_id=1064140826]
+[node name="PageSetContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentMaxRefContainer/PageSetPanel" unique_id=1064140826]
 layout_mode = 2
 focus_behavior_recursive = 1
 mouse_filter = 2
@@ -328,7 +343,7 @@ mouse_behavior_recursive = 1
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="PrevPageSetButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsMaxRefContainer/PageSetPanel/PageSetContainer" unique_id=1287237183]
+[node name="PrevPageSetButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentMaxRefContainer/PageSetPanel/PageSetContainer" unique_id=1287237183]
 custom_minimum_size = Vector2(32, 64)
 custom_maximum_size = Vector2(128, -1)
 layout_mode = 2
@@ -339,7 +354,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 1
 ratio = 0.5
 
-[node name="PagesPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsMaxRefContainer/PageSetPanel/PageSetContainer" unique_id=902785058]
+[node name="PagesPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentMaxRefContainer/PageSetPanel/PageSetContainer" unique_id=902785058]
 custom_maximum_size = Vector2(2000, -1)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -348,11 +363,11 @@ mouse_filter = 2
 mouse_behavior_recursive = 1
 theme_type_variation = &"DecorationPanel_HBox"
 
-[node name="ContentClipContainer" type="MarginContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsMaxRefContainer/PageSetPanel/PageSetContainer/PagesPanel" unique_id=1003437650]
+[node name="ContentClipContainer" type="MarginContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentMaxRefContainer/PageSetPanel/PageSetContainer/PagesPanel" unique_id=1003437650]
 layout_mode = 2
 theme_type_variation = &"ContentClipContainer"
 
-[node name="LargestButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsMaxRefContainer/PageSetPanel/PageSetContainer/PagesPanel/ContentClipContainer" unique_id=1423903837]
+[node name="LargestButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentMaxRefContainer/PageSetPanel/PageSetContainer/PagesPanel/ContentClipContainer" unique_id=1423903837]
 custom_minimum_size = Vector2(76, 64)
 custom_maximum_size = Vector2(76, 64)
 layout_mode = 2
@@ -367,7 +382,7 @@ disabled = true
 text = "999"
 text_overrun_behavior = 5
 
-[node name="NextPageSetButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsMaxRefContainer/PageSetPanel/PageSetContainer" unique_id=1134048554]
+[node name="NextPageSetButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentMaxRefContainer/PageSetPanel/PageSetContainer" unique_id=1134048554]
 custom_minimum_size = Vector2(32, 64)
 custom_maximum_size = Vector2(128, -1)
 layout_mode = 2
@@ -378,11 +393,11 @@ mouse_filter = 2
 mouse_behavior_recursive = 1
 ratio = 0.5
 
-[node name="ViewsControlArea" type="Control" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel" unique_id=1355334492]
+[node name="ContentControlArea" type="Control" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel" unique_id=1355334492]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ViewsContainer" type="VBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea" unique_id=1702036886]
+[node name="ContentContainer" type="VBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea" unique_id=1702036886]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -392,27 +407,27 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/separation = 30
 
-[node name="CategorySetPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer" unique_id=796542949]
+[node name="CategorySetPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer" unique_id=796542949]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 1
 theme_type_variation = &"DecorationPanel_HBox"
 
-[node name="CategorySetContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/CategorySetPanel" unique_id=844266130]
+[node name="CategorySetContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/CategorySetPanel" unique_id=844266130]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="PrevCategorySetButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/CategorySetPanel/CategorySetContainer" unique_id=525670502]
+[node name="PrevCategorySetButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/CategorySetPanel/CategorySetContainer" unique_id=525670502]
 custom_minimum_size = Vector2(32, 64)
 custom_maximum_size = Vector2(128, -1)
 layout_mode = 2
 size_flags_stretch_ratio = 0.05
 ratio = 0.5
 
-[node name="PrevPageSetButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/CategorySetPanel/CategorySetContainer/PrevCategorySetButtonContainer" unique_id=1204343969]
+[node name="PrevPageSetButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/CategorySetPanel/CategorySetContainer/PrevCategorySetButtonContainer" unique_id=1204343969]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.05
@@ -424,37 +439,37 @@ script = ExtResource("9_718ap")
 point_anchors = PackedVector2Array(1, 0, 0, 0.5, 1, 1)
 point_offsets = PackedVector2Array(-10, 10, 10, 0, -10, -10)
 
-[node name="CategoriesPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/CategorySetPanel/CategorySetContainer" unique_id=789454066]
+[node name="CategoriesPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/CategorySetPanel/CategorySetContainer" unique_id=789454066]
 custom_maximum_size = Vector2(841, 108)
 layout_mode = 2
 theme_type_variation = &"DecorationPanel_HBox"
 
-[node name="DynamicCustomSizeLimiter" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel" unique_id=1631070774 node_paths=PackedStringArray("target", "reference")]
+[node name="DynamicCustomSizeLimiter" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel" unique_id=1631070774 node_paths=PackedStringArray("target", "reference")]
 script = ExtResource("10_tdwqf")
 target = NodePath("..")
-reference = NodePath("../../../../../../ViewsMaxRefContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel")
+reference = NodePath("../../../../../../ContentMaxRefContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel")
 limit_set_flags = 12
 metadata/_custom_type_script = "uid://5yv0v21se6wf"
 
-[node name="ContentClipContainer" type="MarginContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel" unique_id=52995696]
+[node name="ContentClipContainer" type="MarginContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel" unique_id=52995696]
 clip_contents = true
 layout_mode = 2
 theme_type_variation = &"ContentClipContainer"
 
-[node name="PagedContainerScroller" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/ContentClipContainer" unique_id=1212088560 node_paths=PackedStringArray("paged_container", "prev_page_button", "next_page_button", "scroll_start_detection_area")]
+[node name="PagedContainerScroller" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/ContentClipContainer" unique_id=1212088560 node_paths=PackedStringArray("paged_container", "prev_page_button", "next_page_button", "scroll_start_detection_area")]
 script = ExtResource("11_mmrv3")
 paged_container = NodePath("../PagedContainer")
 prev_page_button = NodePath("../../../PrevCategorySetButtonContainer/PrevPageSetButton")
 next_page_button = NodePath("../../../NextCategorySetButtonContainer/NextPageSetButton")
 scroll_start_detection_area = NodePath("../..")
 
-[node name="CategoriesPageContainerRef" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/ContentClipContainer" unique_id=765537947]
+[node name="CategoriesPageContainerRef" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/ContentClipContainer" unique_id=765537947]
 propagate_maximum_size = false
 layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="CategoriesPageRef" type="FlowContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/ContentClipContainer" unique_id=119731158]
+[node name="CategoriesPageRef" type="FlowContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/ContentClipContainer" unique_id=119731158]
 custom_minimum_size = Vector2(626, 64)
 propagate_maximum_size = false
 layout_mode = 2
@@ -462,7 +477,7 @@ theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 alignment = 1
 
-[node name="PagedContainer" type="Container" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/ContentClipContainer" unique_id=15859895 node_paths=PackedStringArray("page_container_ref", "page_ref")]
+[node name="PagedContainer" type="Container" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/ContentClipContainer" unique_id=15859895 node_paths=PackedStringArray("page_container_ref", "page_ref")]
 propagate_maximum_size = false
 layout_mode = 2
 offset_transform_enabled = true
@@ -473,7 +488,7 @@ page_ref = NodePath("../CategoriesPageRef")
 dummy_pool = ExtResource("13_jasug")
 metadata/_custom_type_script = "uid://c7khl8a114qjd"
 
-[node name="AboutPageButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/ContentClipContainer/PagedContainer" unique_id=1548412193 node_paths=PackedStringArray("content_panel_controller")]
+[node name="AboutPageButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/ContentClipContainer/PagedContainer" unique_id=1548412193 node_paths=PackedStringArray("content_panel_controller")]
 custom_minimum_size = Vector2(146, 64)
 layout_mode = 2
 focus_previous = NodePath("../3DModelsButton")
@@ -485,7 +500,7 @@ script = ExtResource("14_f1xpw")
 info_res = ExtResource("15_kko3m")
 content_panel_controller = NodePath("../../../../../../../../ContentPanelController")
 
-[node name="ProgramsButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/ContentClipContainer/PagedContainer" unique_id=935909962 node_paths=PackedStringArray("content_panel_controller")]
+[node name="ProgramsButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/ContentClipContainer/PagedContainer" unique_id=935909962 node_paths=PackedStringArray("content_panel_controller")]
 custom_minimum_size = Vector2(146, 64)
 layout_mode = 2
 theme_type_variation = &"SelectCategoryButton"
@@ -496,7 +511,7 @@ script = ExtResource("14_f1xpw")
 info_res = ExtResource("16_c4fna")
 content_panel_controller = NodePath("../../../../../../../../ContentPanelController")
 
-[node name="CrochetButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/ContentClipContainer/PagedContainer" unique_id=655976396 node_paths=PackedStringArray("content_panel_controller")]
+[node name="CrochetButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/ContentClipContainer/PagedContainer" unique_id=655976396 node_paths=PackedStringArray("content_panel_controller")]
 custom_minimum_size = Vector2(146, 64)
 layout_mode = 2
 theme_type_variation = &"SelectCategoryButton"
@@ -507,7 +522,7 @@ script = ExtResource("14_f1xpw")
 info_res = ExtResource("17_718ap")
 content_panel_controller = NodePath("../../../../../../../../ContentPanelController")
 
-[node name="3DModelsButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/ContentClipContainer/PagedContainer" unique_id=1842651779 node_paths=PackedStringArray("content_panel_controller")]
+[node name="3DModelsButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/CategorySetPanel/CategorySetContainer/CategoriesPanel/ContentClipContainer/PagedContainer" unique_id=1842651779 node_paths=PackedStringArray("content_panel_controller")]
 custom_minimum_size = Vector2(146, 64)
 custom_maximum_size = Vector2(146, 64)
 layout_mode = 2
@@ -520,14 +535,14 @@ script = ExtResource("14_f1xpw")
 info_res = ExtResource("18_tdwqf")
 content_panel_controller = NodePath("../../../../../../../../ContentPanelController")
 
-[node name="NextCategorySetButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/CategorySetPanel/CategorySetContainer" unique_id=2037437894]
+[node name="NextCategorySetButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/CategorySetPanel/CategorySetContainer" unique_id=2037437894]
 custom_minimum_size = Vector2(32, 64)
 custom_maximum_size = Vector2(128, -1)
 layout_mode = 2
 size_flags_stretch_ratio = 0.05
 ratio = 0.5
 
-[node name="NextPageSetButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/CategorySetPanel/CategorySetContainer/NextCategorySetButtonContainer" unique_id=1424569166]
+[node name="NextPageSetButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/CategorySetPanel/CategorySetContainer/NextCategorySetButtonContainer" unique_id=1424569166]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.05
@@ -538,19 +553,19 @@ script = ExtResource("9_718ap")
 point_anchors = PackedVector2Array(0, 0, 1, 0.5, 0, 1)
 point_offsets = PackedVector2Array(10, 10, -10, 0, 10, -10)
 
-[node name="ContentPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer" unique_id=139039680]
+[node name="ProjectsPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer" unique_id=139039680]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 theme_type_variation = &"DecorationPanel_HBox"
 
-[node name="ContentContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/ContentPanel" unique_id=2038627158]
+[node name="ProjectsContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/ProjectsPanel" unique_id=2038627158]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="PrevPageButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/ContentPanel/ContentContainer" unique_id=1713413656]
+[node name="PrevPageButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/ProjectsPanel/ProjectsContainer" unique_id=1713413656]
 custom_minimum_size = Vector2(32, 64)
 custom_maximum_size = Vector2(128, -1)
 layout_mode = 2
@@ -558,7 +573,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.05
 ratio = 0.5
 
-[node name="PrevPageButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/ContentPanel/ContentContainer/PrevPageButtonContainer" unique_id=1541877762]
+[node name="PrevPageButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/ProjectsPanel/ProjectsContainer/PrevPageButtonContainer" unique_id=1541877762]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.05
@@ -570,7 +585,7 @@ script = ExtResource("9_718ap")
 point_anchors = PackedVector2Array(1, 0, 0, 0.5, 1, 1)
 point_offsets = PackedVector2Array(-10, 10, 10, 0, -10, -10)
 
-[node name="ContentListPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/ContentPanel/ContentContainer" unique_id=721217656]
+[node name="ProjectListPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/ProjectsPanel/ProjectsContainer" unique_id=721217656]
 custom_maximum_size = Vector2(814, 324)
 clip_contents = true
 layout_mode = 2
@@ -578,32 +593,32 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.9
 theme_type_variation = &"DecorationPanel"
 
-[node name="DynamicCustomSizeLimiter" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/ContentPanel/ContentContainer/ContentListPanel" unique_id=1711567972 node_paths=PackedStringArray("target", "reference")]
+[node name="DynamicCustomSizeLimiter" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/ProjectsPanel/ProjectsContainer/ProjectListPanel" unique_id=1711567972 node_paths=PackedStringArray("target", "reference")]
 script = ExtResource("10_tdwqf")
 target = NodePath("..")
-reference = NodePath("../../../../../../ViewsMaxRefContainer/ContentPanel/ContentContainer/ContentListPanel")
+reference = NodePath("../../../../../../ContentMaxRefContainer/ContentPanel/ContentContainer/ContentListPanel")
 limit_set_flags = 12
 metadata/_custom_type_script = "uid://5yv0v21se6wf"
 
-[node name="ContentClipContainer" type="MarginContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/ContentPanel/ContentContainer/ContentListPanel" unique_id=1940515578]
+[node name="ProjectClipContainer" type="MarginContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/ProjectsPanel/ProjectsContainer/ProjectListPanel" unique_id=1940515578]
 clip_contents = true
 layout_mode = 2
 theme_type_variation = &"ContentClipContainer"
 
-[node name="PagedContainerScroller" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/ContentPanel/ContentContainer/ContentListPanel/ContentClipContainer" unique_id=1170687295 node_paths=PackedStringArray("paged_container", "prev_page_button", "next_page_button", "scroll_start_detection_area")]
+[node name="PagedContainerScroller" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/ProjectsPanel/ProjectsContainer/ProjectListPanel/ProjectClipContainer" unique_id=1170687295 node_paths=PackedStringArray("paged_container", "prev_page_button", "next_page_button", "scroll_start_detection_area")]
 script = ExtResource("11_mmrv3")
 paged_container = NodePath("../PagedContainer")
 prev_page_button = NodePath("../../../PrevPageButtonContainer/PrevPageButton")
 next_page_button = NodePath("../../../NextPageButtonContainer/NextPageButton")
 scroll_start_detection_area = NodePath("../..")
 
-[node name="ContentPageContainerRef" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/ContentPanel/ContentContainer/ContentListPanel/ContentClipContainer" unique_id=959904733]
+[node name="ContentPageContainerRef" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/ProjectsPanel/ProjectsContainer/ProjectListPanel/ProjectClipContainer" unique_id=959904733]
 propagate_maximum_size = false
 layout_mode = 2
 theme_override_constants/separation = 26
 alignment = 1
 
-[node name="ContentPageRef" type="FlowContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/ContentPanel/ContentContainer/ContentListPanel/ContentClipContainer" unique_id=1535478340]
+[node name="ContentPageRef" type="FlowContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/ProjectsPanel/ProjectsContainer/ProjectListPanel/ProjectClipContainer" unique_id=1535478340]
 custom_minimum_size = Vector2(195, 195)
 propagate_maximum_size = false
 layout_mode = 2
@@ -611,7 +626,7 @@ theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
 alignment = 1
 
-[node name="PagedContainer" type="Container" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/ContentPanel/ContentContainer/ContentListPanel/ContentClipContainer" unique_id=1416812882 node_paths=PackedStringArray("page_container_ref", "page_ref")]
+[node name="PagedContainer" type="Container" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/ProjectsPanel/ProjectsContainer/ProjectListPanel/ProjectClipContainer" unique_id=1416812882 node_paths=PackedStringArray("page_container_ref", "page_ref")]
 propagate_maximum_size = false
 layout_mode = 2
 offset_transform_enabled = true
@@ -622,7 +637,7 @@ page_ref = NodePath("../ContentPageRef")
 dummy_pool = ExtResource("13_jasug")
 metadata/_custom_type_script = "uid://c7khl8a114qjd"
 
-[node name="NextPageButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/ContentPanel/ContentContainer" unique_id=554874166]
+[node name="NextPageButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/ProjectsPanel/ProjectsContainer" unique_id=554874166]
 custom_minimum_size = Vector2(32, 64)
 custom_maximum_size = Vector2(128, -1)
 layout_mode = 2
@@ -630,7 +645,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.05
 ratio = 0.5
 
-[node name="NextPageButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/ContentPanel/ContentContainer/NextPageButtonContainer" unique_id=664736410]
+[node name="NextPageButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/ProjectsPanel/ProjectsContainer/NextPageButtonContainer" unique_id=664736410]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.05
@@ -641,20 +656,20 @@ script = ExtResource("9_718ap")
 point_anchors = PackedVector2Array(0, 0, 1, 0.5, 0, 1)
 point_offsets = PackedVector2Array(10, 10, -10, 0, 10, -10)
 
-[node name="PageSetPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer" unique_id=876029435]
+[node name="PageSetPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer" unique_id=876029435]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 theme_type_variation = &"DecorationPanel_HBox"
 
-[node name="PageSetContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/PageSetPanel" unique_id=925735856]
+[node name="PageSetContainer" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/PageSetPanel" unique_id=925735856]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="PrevPageSetButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/PageSetPanel/PageSetContainer" unique_id=1500258617]
+[node name="PrevPageSetButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/PageSetPanel/PageSetContainer" unique_id=1500258617]
 custom_minimum_size = Vector2(32, 64)
 custom_maximum_size = Vector2(128, -1)
 layout_mode = 2
@@ -662,7 +677,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.05
 ratio = 0.5
 
-[node name="PrevPageSetButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/PageSetPanel/PageSetContainer/PrevPageSetButtonContainer" unique_id=1521381924]
+[node name="PrevPageSetButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/PageSetPanel/PageSetContainer/PrevPageSetButtonContainer" unique_id=1521381924]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.05
@@ -674,38 +689,38 @@ script = ExtResource("9_718ap")
 point_anchors = PackedVector2Array(1, 0, 0, 0.5, 1, 1)
 point_offsets = PackedVector2Array(-10, 10, 10, 0, -10, -10)
 
-[node name="PagesPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/PageSetPanel/PageSetContainer" unique_id=368167479]
+[node name="PagesPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/PageSetPanel/PageSetContainer" unique_id=368167479]
 custom_maximum_size = Vector2(822, 108)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"DecorationPanel_HBox"
 
-[node name="DynamicCustomSizeLimiter" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel" unique_id=1451775840 node_paths=PackedStringArray("target", "reference")]
+[node name="DynamicCustomSizeLimiter" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/PageSetPanel/PageSetContainer/PagesPanel" unique_id=1451775840 node_paths=PackedStringArray("target", "reference")]
 script = ExtResource("10_tdwqf")
 target = NodePath("..")
-reference = NodePath("../../../../../../ViewsMaxRefContainer/PageSetPanel/PageSetContainer/PagesPanel")
+reference = NodePath("../../../../../../ContentMaxRefContainer/PageSetPanel/PageSetContainer/PagesPanel")
 limit_set_flags = 12
 metadata/_custom_type_script = "uid://5yv0v21se6wf"
 
-[node name="ContentClipContainer" type="MarginContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel" unique_id=357093347]
+[node name="ContentClipContainer" type="MarginContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/PageSetPanel/PageSetContainer/PagesPanel" unique_id=357093347]
 clip_contents = true
 layout_mode = 2
 theme_type_variation = &"ContentClipContainer"
 
-[node name="PagedContainerScroller" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel/ContentClipContainer" unique_id=1125922623 node_paths=PackedStringArray("paged_container", "prev_page_button", "next_page_button", "scroll_start_detection_area")]
+[node name="PagedContainerScroller" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/PageSetPanel/PageSetContainer/PagesPanel/ContentClipContainer" unique_id=1125922623 node_paths=PackedStringArray("paged_container", "prev_page_button", "next_page_button", "scroll_start_detection_area")]
 script = ExtResource("11_mmrv3")
 paged_container = NodePath("../PagedContainer")
 prev_page_button = NodePath("../../../PrevPageSetButtonContainer/PrevPageSetButton")
 next_page_button = NodePath("../../../NextPageSetButtonContainer/NextPageSetButton")
 scroll_start_detection_area = NodePath("../..")
 
-[node name="PageSetPageContainerRef" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel/ContentClipContainer" unique_id=689309746]
+[node name="PageSetPageContainerRef" type="HBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/PageSetPanel/PageSetContainer/PagesPanel/ContentClipContainer" unique_id=689309746]
 propagate_maximum_size = false
 layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="PageSetPageRef" type="FlowContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel/ContentClipContainer" unique_id=169432140]
+[node name="PageSetPageRef" type="FlowContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/PageSetPanel/PageSetContainer/PagesPanel/ContentClipContainer" unique_id=169432140]
 custom_minimum_size = Vector2(76, 64)
 propagate_maximum_size = false
 layout_mode = 2
@@ -713,7 +728,7 @@ theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 alignment = 1
 
-[node name="PagedContainer" type="Container" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/PageSetPanel/PageSetContainer/PagesPanel/ContentClipContainer" unique_id=827690304 node_paths=PackedStringArray("page_container_ref", "page_ref")]
+[node name="PagedContainer" type="Container" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/PageSetPanel/PageSetContainer/PagesPanel/ContentClipContainer" unique_id=827690304 node_paths=PackedStringArray("page_container_ref", "page_ref")]
 propagate_maximum_size = false
 layout_mode = 2
 offset_transform_enabled = true
@@ -724,7 +739,7 @@ page_ref = NodePath("../PageSetPageRef")
 dummy_pool = ExtResource("13_jasug")
 metadata/_custom_type_script = "uid://c7khl8a114qjd"
 
-[node name="NextPageSetButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/PageSetPanel/PageSetContainer" unique_id=209500380]
+[node name="NextPageSetButtonContainer" type="AspectRatioContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/PageSetPanel/PageSetContainer" unique_id=209500380]
 custom_minimum_size = Vector2(32, 64)
 custom_maximum_size = Vector2(128, -1)
 layout_mode = 2
@@ -732,7 +747,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.05
 ratio = 0.5
 
-[node name="NextPageSetButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsPanel/ViewsControlArea/ViewsContainer/PageSetPanel/PageSetContainer/NextPageSetButtonContainer" unique_id=1592945512]
+[node name="NextPageSetButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentControlArea/ContentContainer/PageSetPanel/PageSetContainer/NextPageSetButtonContainer" unique_id=1592945512]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.05
@@ -742,3 +757,19 @@ expand_icon = true
 script = ExtResource("9_718ap")
 point_anchors = PackedVector2Array(0, 0, 1, 0.5, 0, 1)
 point_offsets = PackedVector2Array(10, 10, -10, 0, 10, -10)
+
+[node name="ProjectContentPanel" type="PanelContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer" unique_id=964453799]
+visible = false
+layout_mode = 2
+offset_transform_enabled = true
+theme_type_variation = &"DecorationPanel"
+
+[node name="ProjectContentContainer" type="ScrollContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel" unique_id=1609145233]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel" unique_id=1212985095]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = &"SelectCategoryButton"
+text = "Back"

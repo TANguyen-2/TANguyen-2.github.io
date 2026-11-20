@@ -4,6 +4,8 @@
 
 [resource]
 script = ExtResource("1_0i2f5")
-item_name = "Credits"
+item_displayed_name = "Credits"
 icon_path = &"res://themes/sprites/GodotIcon.png"
+tooltip = "Here are all the resources and help involved in making this portfolio page."
+content_scene_path = &"res://scenes/main_panel/templates/EmptyProjectContentPage.tscn"
 metadata/_custom_type_script = "uid://c8c6e2jow3tnw"

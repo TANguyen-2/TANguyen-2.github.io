@@ -10,4 +10,8 @@
 script = ExtResource("2_deyr6")
 category_name = &"Programs"
 projects = Array[ExtResource("1_mspjb")]([ExtResource("2_u1tct"), ExtResource("3_3jk2n"), ExtResource("4_vtau4")])
+tooltip = "This is (supposed to be) a list of all the programming projects I've worked on.
+
+It's not complete, unfortunately.
+(Just like 80% of my projects...)"
 metadata/_custom_type_script = "uid://cne3j2n4nqw54"

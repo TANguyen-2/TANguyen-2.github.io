@@ -8,4 +8,7 @@
 script = ExtResource("2_xxow3")
 category_name = &"Crochet"
 projects = Array[ExtResource("1_8gfn0")]([ExtResource("2_bcgfq")])
+tooltip = "These are my original crochet patterns.
+
+(Hopefully, I will be able to include knitting patterns, too.)"
 metadata/_custom_type_script = "uid://cne3j2n4nqw54"

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cqu7a2q3m21qk"]
+
+[ext_resource type="Theme" uid="uid://bupq53g1myco8" path="res://themes/MainTheme.tres" id="1_2k2ra"]
+
+[node name="EmptyProjectContentPage" type="Label" unique_id=2034382878]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_2k2ra")
+theme_type_variation = &"HeaderMedium"
+text = "Whoops!
+All Empty T-T"
+horizontal_alignment = 1
+vertical_alignment = 1
