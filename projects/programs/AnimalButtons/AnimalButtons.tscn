@@ -2,8 +2,10 @@
 
 [ext_resource type="Theme" uid="uid://bupq53g1myco8" path="res://themes/MainTheme.tres" id="1_p5k5j"]
 [ext_resource type="Texture2D" uid="uid://j7ndvbiqfy0m" path="res://projects/programs/AnimalButtons/Titlescreen.png" id="2_hu3ld"]
+[ext_resource type="Script" uid="uid://cu4vqlv5by7ye" path="res://scripts/gui/input_processing/OpenMetaLink.gd" id="3_y24po"]
 
 [node name="ContentContainer" type="VBoxContainer" unique_id=1085138230]
+texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -16,13 +18,26 @@ theme_override_constants/separation = 10
 
 [node name="Title" type="Label" parent="." unique_id=2049346465]
 layout_mode = 2
-theme_type_variation = &"HeaderSmall"
+theme_type_variation = &"TextHeaderSmall"
 text = "Animal Buttons"
 horizontal_alignment = 1
 
-[node name="Titlescreen" type="TextureRect" parent="." unique_id=1361671565]
-custom_maximum_size = Vector2(-1, 500)
+[node name="TitlescreenContainer" type="HBoxContainer" parent="." unique_id=529692968]
 layout_mode = 2
+alignment = 1
+
+[node name="TitlescreenFrame" type="PanelContainer" parent="TitlescreenContainer" unique_id=2013224416]
+custom_maximum_size = Vector2(720, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+theme_type_variation = &"DecorationPanel"
+
+[node name="Titlescreen" type="TextureRect" parent="TitlescreenContainer/TitlescreenFrame" unique_id=1361671565]
+texture_filter = 2
+layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("2_hu3ld")
 expand_mode = 5
 stretch_mode = 5
@@ -43,11 +58,10 @@ theme_type_variation = &"TextNormal"
 text = "
 Rules:
 Click on the Specified Animal before the Timer runs out for each round.
+Clicking on the Wrong Animal can result in a Penalty to the remaining time.
 
-Clicking on the Wrong Animal can result in a penalty to the remaining time.
 
-
-Each Animal has an ability to trip you up:
+Each Animal has a Unique Behaviour:
 PENGUIN
 Falls asleep if not interacted with.
 The screen darkens when it sleeps.
@@ -63,12 +77,17 @@ Each sneeze hides other animals in fur.
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="LinkToGame" type="Label" parent="." unique_id=913438503]
-custom_minimum_size = Vector2(10, 0)
+[node name="LinkToGame" type="RichTextLabel" parent="." unique_id=1943158038]
 layout_mode = 2
-theme_type_variation = &"TextNormal"
+theme_type_variation = &"RichTextNormal"
+bbcode_enabled = true
 text = "
 Game Available At
-https://headfirstmissilecollider.itch.io/presstheanimal"
+[url]https://headfirstmissilecollider.itch.io/presstheanimal[/url]
+
+"
+fit_content = true
+scroll_active = false
 horizontal_alignment = 1
-autowrap_mode = 1
+drag_and_drop_selection_enabled = false
+script = ExtResource("3_y24po")

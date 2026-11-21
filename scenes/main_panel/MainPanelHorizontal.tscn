@@ -113,7 +113,7 @@ alignment = 1
 
 [node name="NameLabel" type="Label" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/CommentsPanel/CommentsContainer/ProfilePanel/ProfileContainer/NameplatePanel/NameplateContainer" unique_id=792423665]
 layout_mode = 2
-theme_type_variation = &"HeaderMedium"
+theme_type_variation = &"TextHeaderMedium"
 text = "Tuan Anh Nguyen"
 
 [node name="TitleLabel" type="Label" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/GizmoPanel/GizmoContainer/CommentsPanel/CommentsContainer/ProfilePanel/ProfileContainer/NameplatePanel/NameplateContainer" unique_id=1885563429]
