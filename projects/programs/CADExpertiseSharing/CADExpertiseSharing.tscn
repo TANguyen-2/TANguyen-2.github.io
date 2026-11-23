@@ -2,18 +2,27 @@
 
 [ext_resource type="Theme" uid="uid://bupq53g1myco8" path="res://themes/MainTheme.tres" id="1_2ns5x"]
 [ext_resource type="Texture2D" uid="uid://dhv1q0ovtgnaq" path="res://projects/programs/CADExpertiseSharing/Novice3DView.png" id="2_n1vsf"]
+[ext_resource type="Script" uid="uid://dgduxvncq4n1e" path="res://scripts/gui/PolylineTextureButton.gd" id="3_4xejo"]
 [ext_resource type="Script" uid="uid://5yv0v21se6wf" path="res://scripts/gui/container_sizing/DynamicCustomSizeLimiter.gd" id="3_hfhn8"]
-[ext_resource type="Texture2D" uid="uid://ibd4r4ydqg07" path="res://projects/programs/CADExpertiseSharing/SpeechDetectionSupport.png" id="3_pbdde"]
-[ext_resource type="Script" uid="uid://njkt7vw4anmx" path="res://scripts/gui/input_processing/ScrollInputProcessor.gd" id="4_7q6fm"]
 [ext_resource type="Texture2D" uid="uid://ddcqm4yc18srx" path="res://projects/programs/CADExpertiseSharing/Expert3DView.png" id="4_c6mt4"]
-[ext_resource type="Script" uid="uid://7yl4lvik5wkx" path="res://scripts/gui/input_processing/ScrollContainerScroller.gd" id="5_hfhn8"]
+[ext_resource type="Script" uid="uid://b1yi07ff0nct3" path="res://scripts/gui/paged_container/PagedContainerScroller.gd" id="5_pysfq"]
+[ext_resource type="Script" uid="uid://c7khl8a114qjd" path="res://scripts/gui/paged_container/PagedContainer.gd" id="6_81ny8"]
+[ext_resource type="Resource" uid="uid://c4xu64ocur3m0" path="res://scenes/main_panel/templates/DummyContainerChildPool.tres" id="7_s622w"]
+[ext_resource type="Texture2D" uid="uid://dw8hk8sfwkdga" path="res://projects/programs/CADExpertiseSharing/VoiceCommandScreenshots/Begin.png" id="8_oc7mo"]
 [ext_resource type="Script" uid="uid://cu4vqlv5by7ye" path="res://scripts/gui/input_processing/OpenMetaLink.gd" id="8_so86m"]
+[ext_resource type="Texture2D" uid="uid://cth04piusgjaq" path="res://projects/programs/CADExpertiseSharing/VoiceCommandScreenshots/Direction.png" id="9_3gnsd"]
+[ext_resource type="Texture2D" uid="uid://c7osehcqadap2" path="res://projects/programs/CADExpertiseSharing/VoiceCommandScreenshots/Highlighted.png" id="10_als4x"]
+[ext_resource type="Texture2D" uid="uid://b2lmldk141sjt" path="res://projects/programs/CADExpertiseSharing/VoiceCommandScreenshots/Completed.png" id="11_4xejo"]
+[ext_resource type="Texture2D" uid="uid://daxpb7t3uyt7k" path="res://projects/programs/CADExpertiseSharing/VoiceCommandScreenshots/Review.png" id="12_pysfq"]
 
 [node name="ContentContainer" type="VBoxContainer" unique_id=1085138230]
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -335.0
+offset_right = -1355.0
+offset_bottom = 335.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -68,52 +77,221 @@ autowrap_mode = 2
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="VoiceCommandGalleryContainer" type="HBoxContainer" parent="." unique_id=640949232]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1787422856]
+custom_minimum_size = Vector2(0, 388)
 layout_mode = 2
-alignment = 1
 
-[node name="VoiceCommandGalleryFrame" type="PanelContainer" parent="VoiceCommandGalleryContainer" unique_id=1396131444]
-custom_maximum_size = Vector2(720, -1)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-mouse_filter = 1
-theme_type_variation = &"DecorationPanel"
-
-[node name="VoiceCommandGallery" type="ScrollContainer" parent="VoiceCommandGalleryContainer/VoiceCommandGalleryFrame" unique_id=1359917821]
-layout_mode = 2
-mouse_filter = 2
-vertical_scroll_mode = 0
-
-[node name="VoiceCommanScreenshots" type="TextureRect" parent="VoiceCommandGalleryContainer/VoiceCommandGalleryFrame/VoiceCommandGallery" unique_id=121422034]
-custom_minimum_size = Vector2(0, 327.63635)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 2
-texture = ExtResource("3_pbdde")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="DynamicCustomSizeLimiter" type="Node" parent="VoiceCommandGalleryContainer/VoiceCommandGalleryFrame/VoiceCommandGallery/VoiceCommanScreenshots" unique_id=1627380495 node_paths=PackedStringArray("target", "reference")]
+[node name="DynamicCustomSizeLimiter" type="Node" parent="MarginContainer" unique_id=220223937 node_paths=PackedStringArray("target", "reference")]
 script = ExtResource("3_hfhn8")
 target = NodePath("..")
-reference = NodePath("../../../../../Expert3DViewContainer/Expert3DViewFrame/Expert3DView")
+reference = NodePath("../VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer")
 limit_set_flags = 2
 metadata/_custom_type_script = "uid://5yv0v21se6wf"
 
-[node name="ScrollInputProcessor" type="Node" parent="VoiceCommandGalleryContainer/VoiceCommandGalleryFrame/VoiceCommandGallery" unique_id=913094146 node_paths=PackedStringArray("input_area")]
-script = ExtResource("4_7q6fm")
-input_area = NodePath("../..")
-metadata/_custom_type_script = "uid://njkt7vw4anmx"
+[node name="VoiceCommandsGalleryMaxRefContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1235394326]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
 
-[node name="ScrollContainerScroller" type="Node" parent="VoiceCommandGalleryContainer/VoiceCommandGalleryFrame/VoiceCommandGallery" unique_id=231709679 node_paths=PackedStringArray("scroll_processor", "scroll_container")]
-script = ExtResource("5_hfhn8")
-scroll_processor = NodePath("../ScrollInputProcessor")
-scroll_container = NodePath("..")
-metadata/_custom_type_script = "uid://7yl4lvik5wkx"
+[node name="PrevPictureSetButtonContainer" type="AspectRatioContainer" parent="MarginContainer/VoiceCommandsGalleryMaxRefContainer" unique_id=945921088]
+custom_minimum_size = Vector2(32, 64)
+custom_maximum_size = Vector2(128, -1)
+layout_mode = 2
+size_flags_stretch_ratio = 0.05
+ratio = 0.5
 
-[node name="SpeechRecognitionBlurb" type="Label" parent="." unique_id=2128245309]
+[node name="PicturesPanelMaxRef" type="Control" parent="MarginContainer/VoiceCommandsGalleryMaxRefContainer" unique_id=1461895208]
+custom_maximum_size = Vector2(960, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NextPictureSetButtonContainer" type="AspectRatioContainer" parent="MarginContainer/VoiceCommandsGalleryMaxRefContainer" unique_id=951987130]
+custom_minimum_size = Vector2(32, 64)
+custom_maximum_size = Vector2(128, -1)
+layout_mode = 2
+size_flags_stretch_ratio = 0.05
+ratio = 0.5
+
+[node name="VoiceCommandsGalleryArea" type="Control" parent="MarginContainer" unique_id=1445966774]
+layout_mode = 2
+
+[node name="VoiceCommandsGalleryContainer" type="HBoxContainer" parent="MarginContainer/VoiceCommandsGalleryArea" unique_id=374698056]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="PrevPictureSetButtonContainer" type="AspectRatioContainer" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer" unique_id=375436761]
+custom_minimum_size = Vector2(32, 64)
+custom_maximum_size = Vector2(128, -1)
+layout_mode = 2
+size_flags_stretch_ratio = 0.05
+ratio = 0.5
+
+[node name="PrevPictureSetButton" type="Button" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer/PrevPictureSetButtonContainer" unique_id=856137776]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+offset_transform_enabled = true
+theme_type_variation = &"IconButton"
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_4xejo")
+point_anchors = PackedVector2Array(1, 0, 0, 0.5, 1, 1)
+point_offsets = PackedVector2Array(-10, 10, 10, 0, -10, -10)
+
+[node name="PicturesPanel" type="PanelContainer" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer" unique_id=1886543836]
+custom_maximum_size = Vector2(461, 388)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"DecorationPanel_HBox"
+
+[node name="DynamicCustomSizeLimiterX" type="Node" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer/PicturesPanel" unique_id=1690664365 node_paths=PackedStringArray("target", "reference")]
+script = ExtResource("3_hfhn8")
+target = NodePath("..")
+reference = NodePath("../../../../VoiceCommandsGalleryMaxRefContainer/PicturesPanelMaxRef")
+limit_set_flags = 4
+metadata/_custom_type_script = "uid://5yv0v21se6wf"
+
+[node name="DynamicCustomSizeLimiterY" type="Node" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer/PicturesPanel" unique_id=606378703 node_paths=PackedStringArray("target", "reference")]
+script = ExtResource("3_hfhn8")
+target = NodePath("..")
+reference = NodePath("../../../../../Expert3DViewContainer")
+limit_set_flags = 8
+metadata/_custom_type_script = "uid://5yv0v21se6wf"
+
+[node name="ContentClipContainer" type="MarginContainer" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer/PicturesPanel" unique_id=1405075391]
+clip_contents = true
+layout_mode = 2
+theme_type_variation = &"ContentClipContainer"
+
+[node name="PagedContainerScroller" type="Node" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer/PicturesPanel/ContentClipContainer" unique_id=1201214232 node_paths=PackedStringArray("paged_container", "prev_page_button", "next_page_button", "scroll_start_detection_area")]
+script = ExtResource("5_pysfq")
+paged_container = NodePath("../PagedContainer")
+prev_page_button = NodePath("../../../PrevPictureSetButtonContainer/PrevPictureSetButton")
+next_page_button = NodePath("../../../NextPictureSetButtonContainer/NextPictureSetButton")
+scroll_start_detection_area = NodePath("../..")
+
+[node name="CategoriesPageContainerRef" type="HBoxContainer" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer/PicturesPanel/ContentClipContainer" unique_id=366106151]
+propagate_maximum_size = false
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="CategoriesPageRef" type="FlowContainer" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer/PicturesPanel/ContentClipContainer" unique_id=1303661137]
+custom_minimum_size = Vector2(417, 344)
+propagate_maximum_size = false
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+alignment = 1
+
+[node name="PagedContainer" type="Container" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer/PicturesPanel/ContentClipContainer" unique_id=947293828 node_paths=PackedStringArray("page_container_ref", "page_ref")]
+propagate_maximum_size = false
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_visual_only = false
+script = ExtResource("6_81ny8")
+page_container_ref = NodePath("../CategoriesPageContainerRef")
+page_ref = NodePath("../CategoriesPageRef")
+dummy_pool = ExtResource("7_s622w")
+metadata/_custom_type_script = "uid://c7khl8a114qjd"
+
+[node name="Begin" type="TextureRect" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer/PicturesPanel/ContentClipContainer/PagedContainer" unique_id=1097013087]
+custom_minimum_size = Vector2(0, 327.63635)
+layout_mode = 2
+texture = ExtResource("8_oc7mo")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="DynamicCustomSizeLimiterY" type="Node" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer/PicturesPanel/ContentClipContainer/PagedContainer/Begin" unique_id=201307756 node_paths=PackedStringArray("target", "reference")]
+script = ExtResource("3_hfhn8")
+target = NodePath("..")
+reference = NodePath("../../../../../../../../Expert3DViewContainer/Expert3DViewFrame/Expert3DView")
+limit_set_flags = 2
+metadata/_custom_type_script = "uid://5yv0v21se6wf"
+
+[node name="Direction" type="TextureRect" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer/PicturesPanel/ContentClipContainer/PagedContainer" unique_id=2007271]
+custom_minimum_size = Vector2(0, 327.63635)
+layout_mode = 2
+texture = ExtResource("9_3gnsd")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="DynamicCustomSizeLimiterY" type="Node" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer/PicturesPanel/ContentClipContainer/PagedContainer/Direction" unique_id=885852732 node_paths=PackedStringArray("target", "reference")]
+script = ExtResource("3_hfhn8")
+target = NodePath("..")
+reference = NodePath("../../../../../../../../Expert3DViewContainer/Expert3DViewFrame/Expert3DView")
+limit_set_flags = 2
+metadata/_custom_type_script = "uid://5yv0v21se6wf"
+
+[node name="Highlighted" type="TextureRect" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer/PicturesPanel/ContentClipContainer/PagedContainer" unique_id=1085052320]
+custom_minimum_size = Vector2(0, 327.63635)
+layout_mode = 2
+texture = ExtResource("10_als4x")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="DynamicCustomSizeLimiterY" type="Node" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer/PicturesPanel/ContentClipContainer/PagedContainer/Highlighted" unique_id=1119232462 node_paths=PackedStringArray("target", "reference")]
+script = ExtResource("3_hfhn8")
+target = NodePath("..")
+reference = NodePath("../../../../../../../../Expert3DViewContainer/Expert3DViewFrame/Expert3DView")
+limit_set_flags = 2
+metadata/_custom_type_script = "uid://5yv0v21se6wf"
+
+[node name="Completed" type="TextureRect" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer/PicturesPanel/ContentClipContainer/PagedContainer" unique_id=1709913068]
+custom_minimum_size = Vector2(0, 327.63635)
+layout_mode = 2
+texture = ExtResource("11_4xejo")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="DynamicCustomSizeLimiterY" type="Node" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer/PicturesPanel/ContentClipContainer/PagedContainer/Completed" unique_id=483165877 node_paths=PackedStringArray("target", "reference")]
+script = ExtResource("3_hfhn8")
+target = NodePath("..")
+reference = NodePath("../../../../../../../../Expert3DViewContainer/Expert3DViewFrame/Expert3DView")
+limit_set_flags = 2
+metadata/_custom_type_script = "uid://5yv0v21se6wf"
+
+[node name="Review" type="TextureRect" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer/PicturesPanel/ContentClipContainer/PagedContainer" unique_id=413683512]
+custom_minimum_size = Vector2(0, 327.63635)
+layout_mode = 2
+texture = ExtResource("12_pysfq")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="DynamicCustomSizeLimiterY" type="Node" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer/PicturesPanel/ContentClipContainer/PagedContainer/Review" unique_id=817598382 node_paths=PackedStringArray("target", "reference")]
+script = ExtResource("3_hfhn8")
+target = NodePath("..")
+reference = NodePath("../../../../../../../../Expert3DViewContainer/Expert3DViewFrame/Expert3DView")
+limit_set_flags = 2
+metadata/_custom_type_script = "uid://5yv0v21se6wf"
+
+[node name="NextPictureSetButtonContainer" type="AspectRatioContainer" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer" unique_id=1256093549]
+custom_minimum_size = Vector2(32, 64)
+custom_maximum_size = Vector2(128, -1)
+layout_mode = 2
+size_flags_stretch_ratio = 0.05
+ratio = 0.5
+
+[node name="NextPictureSetButton" type="Button" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer/NextPictureSetButtonContainer" unique_id=318520777]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+theme_type_variation = &"IconButton"
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_4xejo")
+point_anchors = PackedVector2Array(0, 0, 1, 0.5, 0, 1)
+point_offsets = PackedVector2Array(10, 10, -10, 0, 10, -10)
+
+[node name="VoiceCommandsBlurb" type="Label" parent="." unique_id=2128245309]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 theme_type_variation = &"TextSmall"
