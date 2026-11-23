@@ -9,6 +9,6 @@ icon_path = &"res://themes/sprites/GodotIcon.png"
 tooltip = "...
 
 We're already talking, no?
-That should be enough information to skip this one."
+That should be enough information to skip this."
 content_scene_path = &"res://scenes/main_panel/templates/EmptyProjectContentPage.tscn"
 metadata/_custom_type_script = "uid://c8c6e2jow3tnw"
