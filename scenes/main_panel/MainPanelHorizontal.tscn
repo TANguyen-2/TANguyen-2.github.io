@@ -54,8 +54,8 @@ script = ExtResource("19_i5t1e")
 content_panel = NodePath("../GzmoSbjctsContainer/SubjectsContainer/ContentPanel")
 content_panel_controller = NodePath("../GzmoSbjctsContainer/SubjectsContainer/ContentPanel/ContentPanelController")
 project_content_panel = NodePath("../GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel")
-project_content_panel_close_button = NodePath("../GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel/CloseButton")
-project_content_container = NodePath("../GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel/ProjectContentAreaMargin/ProjectContentScroller/ProjectContentContainer")
+project_content_panel_close_button = NodePath("../GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel/ProjectContentContainer/CloseButton")
+project_content_container = NodePath("../GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel/ProjectContentContainer/ProjectContentScroller/ProjectContentContainer")
 tooltip_display = NodePath("../GzmoSbjctsContainer/GizmoPanel/GizmoContainer/CommentsPanel/CommentsContainer/CommentPanel/Label")
 transition_duration = 0.25
 
@@ -768,31 +768,35 @@ layout_mode = 2
 offset_transform_enabled = true
 theme_type_variation = &"DecorationPanel"
 
-[node name="ProjectContentAreaMargin" type="MarginContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel" unique_id=1584566906]
+[node name="ProjectContentContainer" type="VBoxContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel" unique_id=1581511772]
 layout_mode = 2
-theme_override_constants/margin_bottom = 72
 
-[node name="ProjectContentScroller" type="ScrollContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel/ProjectContentAreaMargin" unique_id=1609145233]
+[node name="ProjectContentScroller" type="ScrollContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel/ProjectContentContainer" unique_id=1609145233]
 layout_mode = 2
+size_flags_vertical = 3
 mouse_filter = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
 
-[node name="ProjectContentContainer" type="MarginContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel/ProjectContentAreaMargin/ProjectContentScroller" unique_id=1962555118]
+[node name="ProjectContentContainer" type="MarginContainer" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel/ProjectContentContainer/ProjectContentScroller" unique_id=1962555118]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 10
 
-[node name="ScrollInputProcessor" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel/ProjectContentAreaMargin/ProjectContentScroller" unique_id=421412229 node_paths=PackedStringArray("input_area")]
+[node name="ScrollInputProcessor" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel/ProjectContentContainer/ProjectContentScroller" unique_id=421412229 node_paths=PackedStringArray("input_area")]
 script = ExtResource("20_kvenx")
 input_area = NodePath("../..")
 metadata/_custom_type_script = "uid://njkt7vw4anmx"
 
-[node name="ScrollContainerScroller" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel/ProjectContentAreaMargin/ProjectContentScroller" unique_id=861832456 node_paths=PackedStringArray("scroll_processor", "scroll_container")]
+[node name="ScrollContainerScroller" type="Node" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel/ProjectContentContainer/ProjectContentScroller" unique_id=861832456 node_paths=PackedStringArray("scroll_processor", "scroll_container")]
 script = ExtResource("21_pyy6a")
 scroll_processor = NodePath("../ScrollInputProcessor")
 scroll_container = NodePath("..")
 metadata/_custom_type_script = "uid://7yl4lvik5wkx"
 
-[node name="CloseButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel" unique_id=1212985095]
+[node name="CloseButton" type="Button" parent="GzmoSbjctsPanel/GzmoSbjctsContainer/SubjectsContainer/ProjectContentPanel/ProjectContentContainer" unique_id=1212985095]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8

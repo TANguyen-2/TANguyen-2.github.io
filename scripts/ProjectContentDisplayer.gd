@@ -3,7 +3,6 @@ class_name ProjectContentDisplayer
 
 
 @export var content_panel: Control
-@export_range(0, 1, 0.01) var covered_content_alpha: float = 0.1
 @export var content_panel_controller: ContentPanelController:
     set(value):
         if content_panel_controller != value:
@@ -88,14 +87,18 @@ func on_display_animation_started() -> void:
     project_content_panel_close_button.disabled = true
     project_content_panel.show()
     project_content_panel.offset_transform_scale = Vector2.ZERO
+    content_panel.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_DISABLED
+    content_panel.focus_behavior_recursive = Control.FOCUS_BEHAVIOR_DISABLED
     pass
 
 func on_display_animation_finished() -> void:
     project_content_panel_close_button.disabled = false
+    content_panel.hide()
     pass
 
 func on_hide_animation_started() -> void:
     project_content_panel_close_button.disabled = true
+    content_panel.show()
     pass
 
 func on_hide_animation_finished() -> void:
@@ -106,6 +109,8 @@ func on_hide_animation_finished() -> void:
     current_content.queue_free()
     current_content = null
     update_displayed_tooltip()
+    content_panel.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_INHERITED
+    content_panel.focus_behavior_recursive = Control.FOCUS_BEHAVIOR_INHERITED
     pass
 
 
@@ -120,7 +125,7 @@ func display_project_content() -> void:
     on_display_animation_started()
 
     transition_tween.tween_property(
-        content_panel, "modulate:a", covered_content_alpha,
+        content_panel, "modulate:a", 0,
         transition_duration
     )
     transition_tween.parallel()
