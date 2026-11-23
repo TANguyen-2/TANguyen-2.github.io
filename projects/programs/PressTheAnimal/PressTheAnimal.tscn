@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dww17ilp3gt75"]
 
-[ext_resource type="Theme" uid="uid://bupq53g1myco8" path="res://themes/MainTheme.tres" id="1_p5k5j"]
-[ext_resource type="Texture2D" uid="uid://j7ndvbiqfy0m" path="res://projects/programs/AnimalButtons/Titlescreen.png" id="2_hu3ld"]
-[ext_resource type="Script" uid="uid://cu4vqlv5by7ye" path="res://scripts/gui/input_processing/OpenMetaLink.gd" id="3_y24po"]
+[ext_resource type="Theme" uid="uid://bupq53g1myco8" path="res://themes/MainTheme.tres" id="1_acvvm"]
+[ext_resource type="Texture2D" uid="uid://j7ndvbiqfy0m" path="res://projects/programs/PressTheAnimal/Titlescreen.png" id="4_epbqt"]
+[ext_resource type="Script" uid="uid://cu4vqlv5by7ye" path="res://scripts/gui/input_processing/OpenMetaLink.gd" id="5_33kor"]
 
 [node name="ContentContainer" type="VBoxContainer" unique_id=1085138230]
 texture_filter = 1
@@ -13,13 +13,14 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("1_p5k5j")
+theme = ExtResource("1_acvvm")
 theme_override_constants/separation = 10
+metadata/_edit_horizontal_guides_ = [145.0, 110.0]
 
 [node name="Title" type="Label" parent="." unique_id=2049346465]
 layout_mode = 2
 theme_type_variation = &"TextHeaderSmall"
-text = "Animal Buttons"
+text = "Press the Animal"
 horizontal_alignment = 1
 
 [node name="TitlescreenContainer" type="HBoxContainer" parent="." unique_id=529692968]
@@ -35,10 +36,9 @@ mouse_filter = 2
 theme_type_variation = &"DecorationPanel"
 
 [node name="Titlescreen" type="TextureRect" parent="TitlescreenContainer/TitlescreenFrame" unique_id=1361671565]
-texture_filter = 2
 layout_mode = 2
 mouse_filter = 2
-texture = ExtResource("2_hu3ld")
+texture = ExtResource("4_epbqt")
 expand_mode = 5
 stretch_mode = 5
 
@@ -90,4 +90,4 @@ fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 drag_and_drop_selection_enabled = false
-script = ExtResource("3_y24po")
+script = ExtResource("5_33kor")

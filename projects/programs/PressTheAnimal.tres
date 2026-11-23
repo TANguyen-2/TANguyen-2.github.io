@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="ProjectItemInfo" format=3 uid="uid://bxfmwx58eqcbs"]
 
-[ext_resource type="Script" uid="uid://c8c6e2jow3tnw" path="res://scripts/content_panel/ProjectItemInfo.gd" id="1_8ae7t"]
+[ext_resource type="Script" uid="uid://c8c6e2jow3tnw" path="res://scripts/content_panel/ProjectItemInfo.gd" id="1_rnkgs"]
 
 [resource]
-script = ExtResource("1_8ae7t")
-item_displayed_name = "Animal Buttons"
+script = ExtResource("1_rnkgs")
+item_displayed_name = "Press the Animal"
 icon_path = &"res://themes/sprites/GodotIcon.png"
 tooltip = "My first big group project...
 Well, in a long while, anyways.
@@ -13,5 +13,5 @@ I spent so much time making the art assets and features, my teammates had to rus
 
 Shoutout to my fellow programmers and desginers:
 Elijah Emickelson and Rico Manalastas :D"
-content_scene_path = &"res://projects/programs/AnimalButtons/AnimalButtons.tscn"
+content_scene_path = &"res://projects/programs/PressTheAnimal/PressTheAnimal.tscn"
 metadata/_custom_type_script = "uid://c8c6e2jow3tnw"
