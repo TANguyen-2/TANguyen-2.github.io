@@ -20,9 +20,6 @@ texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -335.0
-offset_right = -1355.0
-offset_bottom = 335.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -41,7 +38,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="Novice3DViewFrame" type="PanelContainer" parent="Novice3DViewContainer" unique_id=1894817683]
-custom_maximum_size = Vector2(720, -1)
+custom_maximum_size = Vector2(960, -1)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -78,7 +75,7 @@ custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1787422856]
-custom_minimum_size = Vector2(0, 388)
+custom_minimum_size = Vector2(0, 705)
 layout_mode = 2
 
 [node name="DynamicCustomSizeLimiter" type="Node" parent="MarginContainer" unique_id=220223937 node_paths=PackedStringArray("target", "reference")]
@@ -91,6 +88,7 @@ metadata/_custom_type_script = "uid://5yv0v21se6wf"
 [node name="VoiceCommandsGalleryMaxRefContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1235394326]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 20
 alignment = 1
 
@@ -99,22 +97,26 @@ custom_minimum_size = Vector2(32, 64)
 custom_maximum_size = Vector2(128, -1)
 layout_mode = 2
 size_flags_stretch_ratio = 0.05
+mouse_filter = 2
 ratio = 0.5
 
 [node name="PicturesPanelMaxRef" type="Control" parent="MarginContainer/VoiceCommandsGalleryMaxRefContainer" unique_id=1461895208]
 custom_maximum_size = Vector2(960, -1)
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="NextPictureSetButtonContainer" type="AspectRatioContainer" parent="MarginContainer/VoiceCommandsGalleryMaxRefContainer" unique_id=951987130]
 custom_minimum_size = Vector2(32, 64)
 custom_maximum_size = Vector2(128, -1)
 layout_mode = 2
 size_flags_stretch_ratio = 0.05
+mouse_filter = 2
 ratio = 0.5
 
 [node name="VoiceCommandsGalleryArea" type="Control" parent="MarginContainer" unique_id=1445966774]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="VoiceCommandsGalleryContainer" type="HBoxContainer" parent="MarginContainer/VoiceCommandsGalleryArea" unique_id=374698056]
 layout_mode = 1
@@ -147,7 +149,7 @@ point_anchors = PackedVector2Array(1, 0, 0, 0.5, 1, 1)
 point_offsets = PackedVector2Array(-10, 10, 10, 0, -10, -10)
 
 [node name="PicturesPanel" type="PanelContainer" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer" unique_id=1886543836]
-custom_maximum_size = Vector2(461, 388)
+custom_maximum_size = Vector2(960, 696)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"DecorationPanel_HBox"
@@ -185,7 +187,7 @@ theme_override_constants/separation = 16
 alignment = 1
 
 [node name="CategoriesPageRef" type="FlowContainer" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer/PicturesPanel/ContentClipContainer" unique_id=1303661137]
-custom_minimum_size = Vector2(417, 344)
+custom_minimum_size = Vector2(916, 652)
 propagate_maximum_size = false
 layout_mode = 2
 theme_override_constants/h_separation = 10
@@ -204,7 +206,8 @@ dummy_pool = ExtResource("7_s622w")
 metadata/_custom_type_script = "uid://c7khl8a114qjd"
 
 [node name="Begin" type="TextureRect" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer/PicturesPanel/ContentClipContainer/PagedContainer" unique_id=1097013087]
-custom_minimum_size = Vector2(0, 327.63635)
+texture_filter = 2
+custom_minimum_size = Vector2(0, 636)
 layout_mode = 2
 texture = ExtResource("8_oc7mo")
 expand_mode = 3
@@ -218,7 +221,8 @@ limit_set_flags = 2
 metadata/_custom_type_script = "uid://5yv0v21se6wf"
 
 [node name="Direction" type="TextureRect" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer/PicturesPanel/ContentClipContainer/PagedContainer" unique_id=2007271]
-custom_minimum_size = Vector2(0, 327.63635)
+texture_filter = 2
+custom_minimum_size = Vector2(0, 636)
 layout_mode = 2
 texture = ExtResource("9_3gnsd")
 expand_mode = 3
@@ -232,7 +236,8 @@ limit_set_flags = 2
 metadata/_custom_type_script = "uid://5yv0v21se6wf"
 
 [node name="Highlighted" type="TextureRect" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer/PicturesPanel/ContentClipContainer/PagedContainer" unique_id=1085052320]
-custom_minimum_size = Vector2(0, 327.63635)
+texture_filter = 2
+custom_minimum_size = Vector2(0, 636)
 layout_mode = 2
 texture = ExtResource("10_als4x")
 expand_mode = 3
@@ -246,7 +251,8 @@ limit_set_flags = 2
 metadata/_custom_type_script = "uid://5yv0v21se6wf"
 
 [node name="Completed" type="TextureRect" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer/PicturesPanel/ContentClipContainer/PagedContainer" unique_id=1709913068]
-custom_minimum_size = Vector2(0, 327.63635)
+texture_filter = 2
+custom_minimum_size = Vector2(0, 636)
 layout_mode = 2
 texture = ExtResource("11_4xejo")
 expand_mode = 3
@@ -260,7 +266,8 @@ limit_set_flags = 2
 metadata/_custom_type_script = "uid://5yv0v21se6wf"
 
 [node name="Review" type="TextureRect" parent="MarginContainer/VoiceCommandsGalleryArea/VoiceCommandsGalleryContainer/PicturesPanel/ContentClipContainer/PagedContainer" unique_id=413683512]
-custom_minimum_size = Vector2(0, 327.63635)
+texture_filter = 2
+custom_minimum_size = Vector2(0, 636)
 layout_mode = 2
 texture = ExtResource("12_pysfq")
 expand_mode = 3
@@ -309,7 +316,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="Expert3DViewFrame" type="PanelContainer" parent="Expert3DViewContainer" unique_id=1558297476]
-custom_maximum_size = Vector2(400, -1)
+custom_maximum_size = Vector2(720, -1)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4

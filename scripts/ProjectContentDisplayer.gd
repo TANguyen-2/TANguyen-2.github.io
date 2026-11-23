@@ -75,11 +75,38 @@ func on_category_selected(selected_category: ProjectCategoryInfo) -> void:
 func on_project_selected(selected_project: ProjectItemInfo) -> void:
     current_project_info = selected_project
     if current_project_info:
-        current_content = load(selected_project.content_scene_path).instantiate()
-        project_content_container.add_child(current_content)
-        display_project_content()
+        var scene_path: = current_project_info.content_scene_path
+        current_content = null
+        match ResourceLoader.load_threaded_get_status(scene_path):
+            ResourceLoader.THREAD_LOAD_LOADED:
+                current_content = ResourceLoader.load_threaded_get(
+                    scene_path
+                ).instantiate()
+                project_content_container.add_child(current_content)
+                display_project_content()
+                pass
+            ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
+                ResourceLoader.load_threaded_request(scene_path)
+                pass
         pass
     update_displayed_tooltip()
+    pass
+
+
+func _process(_delta: float) -> void:
+    if current_project_info and not current_content:
+        var scene_path: = current_project_info.content_scene_path
+        if (
+            ResourceLoader.load_threaded_get_status(scene_path) ==
+            ResourceLoader.THREAD_LOAD_LOADED
+        ):
+            current_content = ResourceLoader.load_threaded_get(
+                scene_path
+            ).instantiate()
+            project_content_container.add_child(current_content)
+            display_project_content()
+            pass
+        pass
     pass
 
 
@@ -106,7 +133,9 @@ func on_hide_animation_finished() -> void:
     project_content_panel.hide()
     project_content_panel.offset_transform_scale = Vector2(1, 1)
     current_project_info = null
-    current_content.queue_free()
+    if current_content:
+        current_content.queue_free()
+        pass
     current_content = null
     update_displayed_tooltip()
     content_panel.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_INHERITED
