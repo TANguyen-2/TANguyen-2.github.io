@@ -65,6 +65,7 @@ mouse_filter = 2
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="ScrollContainer/MarginContainer/BackgroundContainer" unique_id=713579654 node_paths=PackedStringArray("background_rect")]
 texture_filter = 1
+emitting = false
 amount = 48
 texture = ExtResource("2_k24pf")
 lifetime = 5.0
@@ -75,6 +76,11 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_k24pf")
 script = ExtResource("2_c6dvc")
 background_rect = NodePath("..")
+
+[node name="ParticleEmissionDelayTimer" type="Timer" parent="ScrollContainer/MarginContainer/BackgroundContainer" unique_id=648969697]
+wait_time = 2.0
+one_shot = true
+autostart = true
 
 [node name="VSpacingContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer" unique_id=134672497]
 layout_mode = 2
@@ -149,3 +155,5 @@ metadata/_custom_type_script = "uid://njkt7vw4anmx"
 script = ExtResource("8_u1u68")
 scroll_processor = NodePath("../ScrollInputProcessor")
 scroll_container = NodePath("..")
+
+[connection signal="timeout" from="ScrollContainer/MarginContainer/BackgroundContainer/ParticleEmissionDelayTimer" to="ScrollContainer/MarginContainer/BackgroundContainer/GPUParticles2D" method="set_emitting" binds= [true]]
